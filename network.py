@@ -75,7 +75,8 @@ class Network():
         self.train_op = self.optimizer.minimize(self.loss)
 
 
-        correct_prediction = tf.equal(tf.argmax(self.y_output,1), tf.argmax(self.y_labels,1))
+        self.correct_prediction = tf.equal(tf.argmax(self.y_output,1), tf.argmax(self.y_labels,1))
+        self.num_correct = tf.reduce_sum(tf.cast(correct_prediction, tf.float32))
         self.accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
 
         # start tf session
@@ -85,9 +86,21 @@ class Network():
         self.sess.run(tf.initialize_all_variables())
         print("Network Initialized")
 
-    def test(self, x, y):
-        accuracy = self.sess.run([self.accuracy], 
-            feed_dict={self.x_input:x, self.y_labels:y})
+    def test(self, x, y, batch_size = None):
+        if batch_size:
+            accuracy = self.sess.run([self.accuracy], 
+                feed_dict={self.x_input:x, self.y_labels:y})
+        else:
+            test_size = len(x)
+            correct = 0
+            for step in xrange(math.ceil(float(test_size)/ BATCH_SIZE)):
+                offset = step * BATCH_SIZE
+                batch_x = x[offset:(offset + BATCH_SIZE), :, :, :]
+                batch_y = y[offset:(offset + BATCH_SIZE)]
+                num_correct = self.sess.run([self.num_correct], 
+                    feed_dict={self.x_input:batch_x, self.y_labels:batch_y})
+                correct += num_correct
+            accuracy = float(correct)/test_size
 
         return accuracy
 

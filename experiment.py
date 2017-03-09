@@ -20,7 +20,7 @@ def main():
 		if (i+1)%1000==0:
 			
 			test_batch = (mnist.test.images, mnist.test.labels);
-			acc = network.test(x=test_batch[0], y=test_batch[1])
+			acc = network.test(x=test_batch[0], y=test_batch[1], batch_size=1000)
 			print("test accuracy: ")
 			print(acc)
 
