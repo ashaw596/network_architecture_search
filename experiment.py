@@ -15,7 +15,8 @@ def main():
 	for i in tqdm(range(10000)):
 		batch = mnist.train.next_batch(100)
 		train_op, accuracy = network.train(x=batch[0], y=batch[1])
-		print(accuracy)
+		if (i+1)%100==0:
+			print(accuracy)
 		if (i+1)%1000==0:
 			
 			test_batch = (mnist.test.images, mnist.test.labels);
