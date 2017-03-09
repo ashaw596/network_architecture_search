@@ -6,7 +6,24 @@ import random
 mnist = input_data.read_data_sets('MNIST_data', one_hot=True)
 
 def main():
+	test()
 
+
+def train(network):
+	for i in tqdm(range(10000)):
+		batch = mnist.train.next_batch(100)
+		train_op, accuracy = network.train(x=batch[0], y=batch[1])
+		if (i+1)%1000==0:
+			print(accuracy)
+		
+	test_batch = (mnist.test.images, mnist.test.labels);
+	acc = network.test(x=test_batch[0], y=test_batch[1], batch_size=1000)
+	print("test accuracy: ")
+	print(acc)
+
+	
+
+def test():
 	testEncoding = [2, 2, 1, 2, 2, 3]
 	layers = decodeNetwork(testEncoding)
 	print layers
@@ -15,9 +32,9 @@ def main():
 	for i in tqdm(range(10000)):
 		batch = mnist.train.next_batch(100)
 		train_op, accuracy = network.train(x=batch[0], y=batch[1])
-		if (i+1)%100==0:
+		if (i+1)%10==0:
 			print(accuracy)
-		if (i+1)%1000==0:
+		if (i+1)%100==0:
 			
 			test_batch = (mnist.test.images, mnist.test.labels);
 			acc = network.test(x=test_batch[0], y=test_batch[1], batch_size=1000)
