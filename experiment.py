@@ -12,13 +12,13 @@ def main():
 	print layers
 	network = Network(input_size=[28*28], reshape_shape=[-1,28,28,1], num_classes=10, learning_rate=0.001, layers=layers, scope_name='global')
 	print(mnist.test)
-	for i in tqdm(range(1000)):
+	for i in tqdm(range(10000)):
 		batch = mnist.train.next_batch(100)
 		train_op, accuracy = network.train(x=batch[0], y=batch[1])
 		print(accuracy)
-		if (i+1)%10==0:
+		if (i+1)%1000==0:
 			
-			test_batch = mnist.test.next_batch(100);
+			test_batch = (mnist.test.images, mnist.test.labels);
 			acc = network.test(x=test_batch[0], y=test_batch[1])
 			print("test accuracy: ")
 			print(acc)
