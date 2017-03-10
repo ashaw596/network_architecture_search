@@ -1,3 +1,5 @@
+from __future__ import division
+from __future__ import print_function
 import tensorflow as tf
 import os
 import numpy as np
@@ -41,6 +43,13 @@ class ConvolutionalLayer(object):
     __repr__ = __str__
 
 class Network():
+    def __enter__(self):
+        return self
+
+
+    def __exit__(self ,type, value, traceback):
+        self.close()
+
     def __init__(self, input_size, reshape_shape, num_classes, learning_rate, layers, scope_name = "global"):
         '''
             Convolutional, maxPooling, fully_connected
@@ -82,12 +91,19 @@ class Network():
                 self.num_correct = tf.reduce_sum(tf.cast(self.correct_prediction, tf.float32))
                 self.accuracy = tf.reduce_mean(tf.cast(self.correct_prediction, tf.float32))
 
+                self.saver = tf.train.Saver()
                 # start tf session
                 gpu_options = tf.GPUOptions(per_process_gpu_memory_fraction=0.666666)  # avoid using all vram for GTX 970
                 self.sess = tf.Session(config=tf.ConfigProto(gpu_options=gpu_options))
 
                 self.sess.run(tf.initialize_all_variables())
                 print("Network Initialized")
+
+    def restore(self, file):
+        self.saver.restore(self.sess, file)
+
+    def save(self, file):
+        self.saver.save(self.sess, file)
 
 
     def test(self, x, y, batch_size = None):
@@ -97,14 +113,14 @@ class Network():
         else:
             test_size = len(x)
             correct = 0
-            for step in xrange(int(math.ceil(float(test_size)/ batch_size))):
+            for step in xrange(int(math.ceil(test_size/batch_size))):
                 offset = step * batch_size
                 batch_x = x[offset:(offset + batch_size), :]
                 batch_y = y[offset:(offset + batch_size)]
                 num_correct = self.sess.run(self.num_correct, 
                     feed_dict={self.x_input:batch_x, self.y_labels:batch_y})
                 correct += num_correct
-            accuracy = float(correct)/test_size
+            accuracy = correct/test_size
 
         return accuracy
 
@@ -134,7 +150,7 @@ class Network():
         return cross_entropy
 
     def close(self):
-        self.session.close()
+        self.sess.close()
             
 
 class QNetwork():
@@ -433,12 +449,12 @@ class QNetwork():
 
     def get_weights(self, shape, name):
         fan_in = np.prod(shape[0:-1])
-        std = 1 / math.sqrt(fan_in)
+        std = 1.0 / math.sqrt(fan_in)
         return tf.Variable(tf.random_uniform(shape, minval=(-std), maxval=std), name=(name + "_weights"))
 
     def get_biases(self, shape, name):
         fan_in = np.prod(shape[0:-1])
-        std = 1 / math.sqrt(fan_in)
+        std = 1.0 / math.sqrt(fan_in)
         return tf.Variable(tf.random_uniform([shape[-1]], minval=(-std), maxval=std), name=(name + "_biases"))
 
     def record_params(self, step):
