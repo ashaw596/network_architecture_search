@@ -132,6 +132,9 @@ class Network():
     def loss(self):
         cross_entropy = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(labels=self.y_labels, logits=self.y_output))
         return cross_entropy
+
+    def close(self):
+        self.session.close()
             
 
 class QNetwork():
