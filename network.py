@@ -49,42 +49,45 @@ class Network():
             Filter Depth:
 
         '''
-        self.num_classes = num_classes
-        self.x_input = tf.placeholder(tf.float32, [None] + input_size, name='x-input')
-        self.x_image = tf.reshape(self.x_input, reshape_shape)
-        self.y_labels = tf.placeholder(tf.float32, [None, num_classes], name='y-labels')
-        #self.y_output = tf.placeholder(tf.float32, [None, 10], name='y-input')
-        inputs = self.x_image
-        with tf.variable_scope(scope_name) as scope:
-            for i, layer in enumerate(layers):
-                print(layer)
-                inputs = layer.generateLayer(inputs, str(i))
+        with tf.variable_scope(scope_name):
+            self.graph = tf.Graph()
+            with self.graph.as_default():
+                self.num_classes = num_classes
+                self.x_input = tf.placeholder(tf.float32, [None] + input_size, name='x-input')
+                self.x_image = tf.reshape(self.x_input, reshape_shape)
+                self.y_labels = tf.placeholder(tf.float32, [None, num_classes], name='y-labels')
+                #self.y_output = tf.placeholder(tf.float32, [None, 10], name='y-input')
+                inputs = self.x_image
+                with tf.variable_scope(scope_name) as scope:
+                    for i, layer in enumerate(layers):
+                        print(layer)
+                        inputs = layer.generateLayer(inputs, str(i))
 
-        shape = inputs.get_shape().as_list()
-        inputs = tf.reshape(inputs, shape=[-1, shape[1] * shape[2] * shape[3]])
+                shape = inputs.get_shape().as_list()
+                inputs = tf.reshape(inputs, shape=[-1, shape[1] * shape[2] * shape[3]])
 
-        self.y_output = slim.fully_connected(
-                inputs, 
-                num_classes,
-                activation_fn=None,
-                trainable=True,
-                scope=str(len(layers)))
+                self.y_output = slim.fully_connected(
+                        inputs, 
+                        num_classes,
+                        activation_fn=None,
+                        trainable=True,
+                        scope=str(len(layers)))
 
-        self.optimizer = tf.train.AdamOptimizer(learning_rate)
-        self.loss = self.loss()
-        self.train_op = self.optimizer.minimize(self.loss)
+                self.optimizer = tf.train.AdamOptimizer(learning_rate)
+                self.loss = self.loss()
+                self.train_op = self.optimizer.minimize(self.loss)
 
 
-        self.correct_prediction = tf.equal(tf.argmax(self.y_output,1), tf.argmax(self.y_labels,1))
-        self.num_correct = tf.reduce_sum(tf.cast(self.correct_prediction, tf.float32))
-        self.accuracy = tf.reduce_mean(tf.cast(self.correct_prediction, tf.float32))
+                self.correct_prediction = tf.equal(tf.argmax(self.y_output,1), tf.argmax(self.y_labels,1))
+                self.num_correct = tf.reduce_sum(tf.cast(self.correct_prediction, tf.float32))
+                self.accuracy = tf.reduce_mean(tf.cast(self.correct_prediction, tf.float32))
 
-        # start tf session
-        gpu_options = tf.GPUOptions(per_process_gpu_memory_fraction=0.666666)  # avoid using all vram for GTX 970
-        self.sess = tf.Session(config=tf.ConfigProto(gpu_options=gpu_options))
+                # start tf session
+                gpu_options = tf.GPUOptions(per_process_gpu_memory_fraction=0.666666)  # avoid using all vram for GTX 970
+                self.sess = tf.Session(config=tf.ConfigProto(gpu_options=gpu_options))
 
-        self.sess.run(tf.initialize_all_variables())
-        print("Network Initialized")
+                self.sess.run(tf.initialize_all_variables())
+                print("Network Initialized")
 
 
     def test(self, x, y, batch_size = None):
