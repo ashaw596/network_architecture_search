@@ -115,7 +115,7 @@ class Network():
             correct = 0
             for step in xrange(int(math.ceil(test_size/batch_size))):
                 offset = step * batch_size
-                batch_x = x[offset:(offset + batch_size), :]
+                batch_x = x[offset:(offset + batch_size)]
                 batch_y = y[offset:(offset + batch_size)]
                 num_correct = self.sess.run(self.num_correct, 
                     feed_dict={self.x_input:batch_x, self.y_labels:batch_y})

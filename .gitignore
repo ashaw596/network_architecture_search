@@ -3,4 +3,5 @@ __pycache__/
 *.py[cod]
 *$py.class
 MNIST_data
+cifar10_data
 models

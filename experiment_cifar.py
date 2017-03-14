@@ -8,15 +8,19 @@ import random
 import os
 from datetime import datetime
 import cPickle as pickle
+import cifar10
 
 startTime = datetime.now()
 
-mnist = input_data.read_data_sets('MNIST_data', one_hot=True)
+cifar10_upsampled, cifar10_labels_upsampled = cifar10.load_upsampled_files()
+cifar10_test, cifar10_labels_test = cifar10.load_test_files()
 
 def main():
-    test()
+    #test()
+    run_experiment_main()
 
-def run_experiment():
+
+def run_experiment_main():
     #test()
     experience_replay = []
     folder = None
@@ -24,7 +28,7 @@ def run_experiment():
     if folder==None:
         folder = startTime.isoformat(' ')
 
-    path = "./models/" + folder 
+    path = "./models_cifar/" + folder 
     if not os.path.exists(path):
         os.makedirs(path)
     experience_replay_file = path + "/experience_replay.p"
@@ -36,8 +40,8 @@ def run_experiment():
             encoding.extend(random.sample(xrange(4), 4))
             #encoding = [2, 2, 1, 2, 2, 3]
             layers = decodeNetwork(encoding)
-            #print(layers)
-            with Network(input_size=[28*28], reshape_shape=[-1,28,28,1], num_classes=10, learning_rate=0.001, layers=layers, scope_name='global') as network:
+            print(layers)
+            with Network(input_size=[32,32,3], reshape_shape=[-1,32,32,3], num_classes=10, learning_rate=0.001, layers=layers, scope_name='global') as network:
                 saver_file = path + "/" + str(i)
                 #if i > 0:
                 #    network.restore(path + "/" + str(i-1))
@@ -48,7 +52,7 @@ def run_experiment():
                 print(acc)
                 '''
                 startTrainTime = datetime.now()
-                test_acc = train(network, epochs=10000, batch_size=100)
+                test_acc = train(network, epochs=20000, batch_size=100)
                 endTrainTime = datetime.now()
                 delta = endTrainTime - startTrainTime
                 train_time_seconds = delta.seconds + delta.microseconds/1E6
@@ -61,23 +65,26 @@ def run_experiment():
 
 
 def train(network, epochs=10000, batch_size=100):
+    batch_generator = cifar10.get_batch_generator(cifar10_upsampled, cifar10_labels_upsampled)
     for i in tqdm(range(epochs)):
-        batch = mnist.train.next_batch(batch_size)
+        batch = batch_generator.next_batch(batch_size)
         train_op, accuracy = network.train(x=batch[0], y=batch[1])
         if (i+1)%(epochs//10)==0:
             print(accuracy)
-    test_batch = (mnist.test.images, mnist.test.labels);
-    acc = network.test(x=test_batch[0], y=test_batch[1], batch_size=1000)
+            acc = network.test(x=cifar10_test, y=cifar10_labels_test, batch_size=batch_size)
+            print("test accuracy: ", acc)
+    acc = network.test(x=cifar10_test, y=cifar10_labels_test, batch_size=batch_size)
     print("test accuracy: ")
     print(acc)
     return acc
     
 
 def test():
-    testEncoding = [2, 2, 1, 2, 2, 3, 3, 1, 2, 2, 1, 2, 2, 3, 3, 1, 2, 2, 1, 2, 2, 3, 3, 1, 2, 2, 1, 2, 2, 3, 3, 1, 2, 2, 1, 2, 2, 3, 3, 1, 2, 2, 1, 2, 2, 3, 3, 1]
+    #testEncoding = [2, 2, 1, 2, 2, 3, 3, 1, 2, 2, 1, 2, 2, 3, 3, 1, 2, 2, 1, 2, 2, 3, 3, 1, 2, 2, 1, 2, 2, 3, 3, 1, 2, 2, 1, 2, 2, 3, 3, 1, 2, 2, 1, 2, 2, 3, 3, 1]
+    testEncoding = [2, 2, 1, 0, 2, 3, 3, 0]
     layers = decodeNetwork(testEncoding)
-    with Network(input_size=[28*28], reshape_shape=[-1,28,28,1], num_classes=10, learning_rate=0.001, layers=layers, scope_name='global') as network:
-        train(network, epochs=10000, batch_size=100)
+    with Network(input_size=[32,32,3], reshape_shape=[-1,32,32,3], num_classes=10, learning_rate=0.001, layers=layers, scope_name='global') as network:
+        train(network, epochs=20000, batch_size=100)
 
 def decodeNetwork(encoding):
     layers = []
@@ -85,7 +92,7 @@ def decodeNetwork(encoding):
         filter_widths = [1, 3, 5, 7]
         filter_heights = [1, 3, 5, 7]
         num_filters = [24, 36, 48, 64]
-        strides = [1, 2, 3, 1]
+        strides = [1, 1, 2, 3]
 
         filter_widths_i, filter_heights_i, num_filters_i, strides_i = layer_tuple
         
