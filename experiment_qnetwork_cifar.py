@@ -10,14 +10,213 @@ from datetime import datetime
 import cPickle as pickle
 import cifar10
 
+from q_network_lstm import QNetworkLSTM
 startTime = datetime.now()
 
 cifar10_upsampled, cifar10_labels_upsampled = cifar10.load_upsampled_files()
 cifar10_test, cifar10_labels_test = cifar10.load_test_files()
 
 
+
 def main():
-    run_experiment_finetuning()
+    run_experiment_qnetwork()
+
+def run_experiment_qnetwork():
+    qnetwork = QNetworkLSTM(args=None, num_actions=4, scope_name="global")
+
+    experience_replay = []
+    folder = None
+    folder = 'full run qnetwork'#'2017-03-09 22:39:45.174536'
+    if folder==None:
+        folder = startTime.isoformat(' ')
+
+    path = "./models_cifar/" + folder 
+    if not os.path.exists(path):
+        os.makedirs(path)
+    experience_replay_file = path + "/experience_replay.p"
+
+    with open(experience_replay_file, 'rb') as pfile:
+        experience_replay = pickle.load(pfile)
+    
+    #print(experience_replay)
+    ex_replay = []
+    network_size = 15
+    experience_replay_index=0
+    for episode in range(16):
+        accuracies = []
+        print("episode:", episode)
+        for layer in range(15):
+            replay = experience_replay[experience_replay_index]
+            assert(replay['episode'] == episode)
+            assert(layer == len(replay['layers'])-1)
+            encoding = replay['encoding']
+            layers = decodeNetwork(encoding)
+            index = replay['index']
+            accuracies.append(replay['test_accuracy'])
+            experience_replay_index+=1
+        last_encoding = encoding
+        print(last_encoding)
+        actions = [[int(num == en) for num in range(4)] for en in last_encoding]
+        rewards = []
+        last_accuracy = 0
+        for acc in accuracies:
+            rewards.append(acc - last_accuracy)
+            rewards.extend([0, 0, 0])
+            last_accuracy = acc
+
+        ex_replay.append({'actions': actions, 'rewards':rewards})
+        assert(len(last_encoding) == len(rewards))
+
+    print("hi")
+    print(experience_replay_index)
+    assert experience_replay_index == len(experience_replay)
+    assert experience_replay_index//15 == len(ex_replay)
+    #actions = [[[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]]]
+    #rewards = [[0.7, 0.01, -0.01, 0.1]]
+    #terminals = [[0,0,0,1]]
+    
+    #while True:
+    actions = np.array([rep['actions'] for rep in ex_replay])
+    rewards = np.array([rep['rewards'] for rep in ex_replay])
+    terminals = np.array([[0, 0, 0, 0]*14 + [0, 0, 0, 1] for rep in ex_replay])
+    #experience_replay = [r for r in experience_replay if r['layers']]
+    #terminals = [[0,1],[0,1],[0,1]]
+    #rewards = [[10,-6],[10,4], [2,1]]
+    #actions = [[[1, 0, 0, 0],[0, 0, 0, 1]],[[1, 0, 0, 0],[0, 1, 0, 0]], [[0, 0, 1, 0],[0, 0, 0, 1]]]
+    #actions = [[[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]]]
+    #rewards = [[0.7, 0.01, -0.01, 0.1]]
+    #terminals = [[0,0,0,1]]
+
+    feed_dict = {qnetwork.terminal_placeholder:terminals, qnetwork.rewards_placeholder:rewards, qnetwork.batchX_placeholder:actions}
+    for i in range(6000):
+        indices = np.random.choice(actions.shape[0], size=2)
+        a = actions[indices]
+        r = rewards[indices]
+        t = terminals[indices]
+        #if i%100==0:
+        #    network.sess.run(network.update_target_variables_op)
+        #    print("update")
+        loss = qnetwork.train(actions=a, rewards=r, is_terminals=t)
+        if i%100==0:
+            print(i)
+            print('loss', loss)
+
+    greedy_epsilon = 1.0
+    for i in range(15):
+        greedy_epsilon = max(greedy_epsilon - 0.1, 0)
+        all_encoding = get_encoding(qnetwork, greedy_epsilon, 15*4)
+        accuracies = []
+        for num_layers in range(1,16):
+            encoding = all_encoding[0:num_layers*4]
+            #encoding = [2, 2, 1, 2, 2, 3]
+            print(encoding)
+            layers = decodeNetwork(encoding)
+            print(layers)
+            with Network(input_size=[32,32,3], reshape_shape=[-1,32,32,3], num_classes=10, learning_rate=0.001, layers=layers, scope_name='global') as network:
+                '''
+                if num_layers > 1:
+                    print('global/'+str(num_layers-1))
+                    variables = network.graph.get_collection(tf.GraphKeys.TRAINABLE_VARIABLES, scope='global')
+                    variables = [var for var in variables if not var.name.startswith('global/'+str(num_layers-1))]
+                    print(len(variables))
+                    for v in variables:
+                        print(v)
+                    network.restore_part(path + "/" + str(experience_replay_index-1), variables)
+                    epochs = 5000
+                    test_saves = 4
+                else:
+                    '''
+                epochs= 20000
+                test_saves = 10
+
+                saver_file = path + "/" + str(experience_replay_index)
+                startTrainTime = datetime.now()
+                test_acc, test_accuracies = train(network, epochs=epochs, batch_size=100, test_saves=test_saves)
+                accuracies.append(test_acc)
+                endTrainTime = datetime.now()
+                delta = endTrainTime - startTrainTime
+                train_time_seconds = delta.seconds + delta.microseconds/1E6
+                print("train_time_seconds:", train_time_seconds)
+                network.save(saver_file)
+                experience_replay.append({'greedy_epsilon': greedy_epsilon, 'encoding':list(encoding), 'test_accuracy':test_acc, 'index':experience_replay_index, 'layers':layers, 'episode':episode, 'train_time_seconds':train_time_seconds, 'test_accuracies':test_accuracies})
+                with open(experience_replay_file, 'wb') as pfile:
+                    pickle.dump(experience_replay, pfile, protocol=pickle.HIGHEST_PROTOCOL)
+            experience_replay_index += 1
+
+        last_encoding = all_encoding
+        print(last_encoding)
+        actions = [[int(num == en) for num in range(4)] for en in last_encoding]
+        rewards = []
+        last_accuracy = 0
+        for acc in accuracies:
+            rewards.append(acc - last_accuracy)
+            rewards.extend([0, 0, 0])
+            last_accuracy = acc
+
+        ex_replay.append({'actions': actions, 'rewards':rewards})
+        assert(len(last_encoding) == len(rewards))
+        assert len(experience_replay)//15 == len(ex_replay)
+
+        actions = np.array([rep['actions'] for rep in ex_replay])
+        rewards = np.array([rep['rewards'] for rep in ex_replay])
+        terminals = np.array([[0, 0, 0, 0]*14 + [0, 0, 0, 1] for rep in ex_replay])
+        #experience_replay = [r for r in experience_replay if r['layers']]
+        #terminals = [[0,1],[0,1],[0,1]]
+        #rewards = [[10,-6],[10,4], [2,1]]
+        #actions = [[[1, 0, 0, 0],[0, 0, 0, 1]],[[1, 0, 0, 0],[0, 1, 0, 0]], [[0, 0, 1, 0],[0, 0, 0, 1]]]
+        #actions = [[[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]]]
+        #rewards = [[0.7, 0.01, -0.01, 0.1]]
+        #terminals = [[0,0,0,1]]
+
+        feed_dict = {qnetwork.terminal_placeholder:terminals, qnetwork.rewards_placeholder:rewards, qnetwork.batchX_placeholder:actions}
+        for i in range(3500):
+            indices = np.random.choice(actions.shape[0], size=2)
+            a = actions[indices]
+            r = rewards[indices]
+            t = terminals[indices]
+            #if i%100==0:
+            #    network.sess.run(network.update_target_variables_op)
+            #    print("update")
+            loss = qnetwork.train(actions=a, rewards=r, is_terminals=t)
+            if i%100==0:
+                print(i)
+                print('loss', loss)
+
+
+
+    #pred, targets, last_q, max_action = network.sess.run([network.predictions, network.targets, network.last_policy_q, network.max_action_values], feed_dict=feed_dict)
+        
+  #  print(i)
+   # print('loss', loss)
+
+    #print(max_action)
+   # print('last_q', last_q)
+   # print('pred', pred)
+   # print('targets', targets)
+   # q_values = network.inference(actions)
+   # print(q_values)
+
+def encoding_to_one_hot(encoding):
+    return [[int(num == en) for num in range(4)] for en in encoding]
+
+def single_step(network, greedy, encoding):
+    if random.random() < greedy:
+        return random.randint(0, 3)
+    else:
+        if len(encoding) == 0:
+            qs = network.inference(np.zeros([1,0,4]))
+        else:
+            one_hot = encoding_to_one_hot(encoding)
+            qs = network.inference([one_hot])
+        return np.argmax(qs)
+
+def get_encoding(network, greedy, length):
+    encoding = []
+    #start = network.inference(np.zeros([1,0,4]))
+    #encoding.append(np.argmax(start))
+    while len(encoding) < length:
+        encoding.append(single_step(network, greedy, encoding))
+    return encoding
 
 def run_experiment_finetuning():
     #test()
@@ -128,7 +327,7 @@ def run_experiment_main():
                 print(acc)
                 '''
                 startTrainTime = datetime.now()
-                test_acc = train(network, epochs=20000, batch_size=100)
+                test_acc, test_accuracies = train(network, epochs=20000, batch_size=100)
                 endTrainTime = datetime.now()
                 delta = endTrainTime - startTrainTime
                 train_time_seconds = delta.seconds + delta.microseconds/1E6

@@ -9,7 +9,7 @@ import tensorflow.contrib.slim as slim
 class QNetworkLSTM(object):
     def __init__(self, args, num_actions, scope_name = "global"):
         self.discount_factor = 1.0
-        self.target_update_frequency = 100
+        self.target_update_frequency = 1000
         self.gradient_clip = 10
         self.learning_rate = 0.0006
         self.num_actions = num_actions
@@ -152,6 +152,9 @@ class QNetworkLSTM(object):
 
 def main():
     network = QNetworkLSTM(args=None, num_actions=4, scope_name="global")
+    
+    q = network.inference(np.zeros([1,0,4]))
+    print(q)
     #terminals = [[0,1],[0,1],[0,1]]
     #rewards = [[10,-6],[10,4], [2,1]]
     #actions = [[[1, 0, 0, 0],[0, 0, 0, 1]],[[1, 0, 0, 0],[0, 1, 0, 0]], [[0, 0, 1, 0],[0, 0, 0, 1]]]
@@ -178,7 +181,6 @@ def main():
 
     q_values = network.inference(actions)
     print(q_values)
-
     '''
     o, f, l, tl, batch, batchX_time_length, max_action_values, predictions, difference, lo, targets, rewards = sess.run(
         [policy_outputs, policy_final_state, policy_logits, target_logits, batchX, batchX_time_length, max_action_values, predictions, difference, loss, targets, rewards], 

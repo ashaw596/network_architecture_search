@@ -4,4 +4,13 @@ __pycache__/
 *$py.class
 MNIST_data
 cifar10_data
-models
+models/**/*.data-00000-of-00001
+models/**/*.index
+models/**/*.meta
+models/**/checkpoint
+
+
+models_cifar/**/*.data-00000-of-00001
+models_cifar/**/*.index
+models_cifar/**/*.meta
+models_cifar/**/checkpoint

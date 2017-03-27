@@ -8,34 +8,121 @@ import random
 import os
 from datetime import datetime
 import cPickle as pickle
-import cifar10
+
+from q_network_lstm import QNetworkLSTM
 
 startTime = datetime.now()
 
-cifar10_upsampled, cifar10_labels_upsampled = cifar10.load_upsampled_files()
-cifar10_test, cifar10_labels_test = cifar10.load_test_files()
-
+mnist = input_data.read_data_sets('MNIST_data', one_hot=True)
 
 def main():
-    run_experiment_finetuning()
+    run_experiment_qnetwork()
+
+def run_experiment_qnetwork():
+    network = QNetworkLSTM(args=None, num_actions=4, scope_name="global")
+
+    experience_replay = []
+    folder = None
+    folder = '2017-03-11 22:50:58.537422 q_network'#'2017-03-09 22:39:45.174536'
+    if folder==None:
+        folder = startTime.isoformat(' ')
+
+    path = "./models/" + folder 
+    if not os.path.exists(path):
+        os.makedirs(path)
+    experience_replay_file = path + "/experience_replay.p"
+
+    with open(experience_replay_file, 'rb') as pfile:
+        experience_replay = pickle.load(pfile)
+    
+    ex_replay = []
+    network_size = 15
+    i=0
+    for episode in range(11):
+        accuracies = []
+        print("episode:", episode)
+        for layer in range(15):
+            replay = experience_replay[i]
+            assert(replay['episode'] == episode)
+            assert(layer == len(replay['layers'])-1)
+            encoding = replay['encoding']
+            layers = decodeNetwork(encoding)
+            index = replay['index']
+            accuracies.append(replay['test_accuracy'])
+            i+=1
+        last_encoding = encoding
+        print(last_encoding)
+        actions = [[int(num == en) for num in range(4)] for en in last_encoding]
+        rewards = []
+        last_accuracy = 0
+        for acc in accuracies:
+            rewards.append(acc - last_accuracy)
+            rewards.extend([0, 0, 0])
+            last_accuracy = acc
+
+        ex_replay.append({'actions': actions, 'rewards':rewards})
+        assert(len(last_encoding) == len(rewards))
+
+    print(ex_replay)
+    #actions = [[[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]]]
+    #rewards = [[0.7, 0.01, -0.01, 0.1]]
+    #terminals = [[0,0,0,1]]
+    
+    #while True:
+    actions = np.array([rep['actions'] for rep in ex_replay])
+    rewards = np.array([rep['rewards'] for rep in ex_replay])
+    terminals = np.array([[0, 0, 0, 0]*14 + [0, 0, 0, 1] for rep in ex_replay])
+    #experience_replay = [r for r in experience_replay if r['layers']]
+    #terminals = [[0,1],[0,1],[0,1]]
+    #rewards = [[10,-6],[10,4], [2,1]]
+    #actions = [[[1, 0, 0, 0],[0, 0, 0, 1]],[[1, 0, 0, 0],[0, 1, 0, 0]], [[0, 0, 1, 0],[0, 0, 0, 1]]]
+    #actions = [[[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]]]
+    #rewards = [[0.7, 0.01, -0.01, 0.1]]
+    #terminals = [[0,0,0,1]]
+
+    feed_dict = {network.terminal_placeholder:terminals, network.rewards_placeholder:rewards, network.batchX_placeholder:actions}
+    for i in range(5010):
+        indices = np.random.choice(actions.shape[0], size=2)
+        a = actions[indices]
+        r = rewards[indices]
+        t = terminals[indices]
+        #if i%100==0:
+        #    network.sess.run(network.update_target_variables_op)
+        #    print("update")
+        loss = network.train(actions=a, rewards=r, is_terminals=t)
+        if i%10==0:
+            print(i)
+            print('loss', loss)
+
+    #pred, targets, last_q, max_action = network.sess.run([network.predictions, network.targets, network.last_policy_q, network.max_action_values], feed_dict=feed_dict)
+        
+    print(i)
+    print('loss', loss)
+
+    #print(max_action)
+    print('last_q', last_q)
+    print('pred', pred)
+    print('targets', targets)
+    q_values = network.inference(actions)
+    print(q_values)
 
 def run_experiment_finetuning():
     #test()
     experience_replay = []
     folder = None
-    folder = 'full run fine_tuning'#'2017-03-09 22:39:45.174536'
+    folder = '2017-03-11 22:50:58.537422 fine_tuning'#'2017-03-09 22:39:45.174536'
     if folder==None:
         folder = startTime.isoformat(' ')
 
-    path = "./models_cifar/" + folder 
+    path = "./models/" + folder 
     if not os.path.exists(path):
         os.makedirs(path)
     experience_replay_file = path + "/experience_replay.p"
 
 
-    old_folder = 'full run'#'2017-03-09 22:39:45.174536'
+    old_folder = '2017-03-11 22:50:58.537422 extended strided'#'2017-03-09 22:39:45.174536'
 
-    old_path = "./models_cifar/" + old_folder 
+    old_path = "./models/" + old_folder 
     if not os.path.exists(old_path):
         os.makedirs(old_path)
     old_experience_replay_file = old_path + "/experience_replay.p"
@@ -48,18 +135,16 @@ def run_experiment_finetuning():
 
     experience_replay = []
     i=0
-    for episode in range(15):
+    for episode in range(10):
         print("episode:", episode)
         for layer in range(15):
-            print(layer)
             replay = old_experience_replay[i]
-            #print(replay)
             assert(replay['episode'] == episode)
             assert(layer == len(replay['layers'])-1)
             encoding = replay['encoding']
             layers = decodeNetwork(encoding)
             index = replay['index']
-            with Network(input_size=[32,32,3], reshape_shape=[-1,32,32,3], num_classes=10, learning_rate=0.001, layers=layers, scope_name='global') as network:
+            with Network(input_size=[28*28], reshape_shape=[-1,28,28,1], num_classes=10, learning_rate=0.001, layers=layers, scope_name='global') as network:
                 if layer > 0:
                     print('global/'+str(layer))
                     variables = network.graph.get_collection(tf.GraphKeys.TRAINABLE_VARIABLES, scope='global')
@@ -68,11 +153,9 @@ def run_experiment_finetuning():
                     for v in variables:
                         print(v)
                     network.restore_part(path + "/" + str(index-1), variables)
-                    epochs = 5000
-                    test_saves = 4
+                    epochs = 1000
                 else:
-                    epochs= 20000
-                    test_saves = 10
+                    epochs= 10000
                 saver_file = path + "/" + str(i)
                 #if i > 0:
                 #    network.restore(path + "/" + str(i-1))
@@ -83,20 +166,20 @@ def run_experiment_finetuning():
                 #print(acc)
                 
                 startTrainTime = datetime.now()
-                test_acc, test_accuracies = train(network, epochs=epochs, batch_size=100, test_saves=test_saves)
+                test_acc = train(network, epochs=epochs, batch_size=100)
                 endTrainTime = datetime.now()
                 delta = endTrainTime - startTrainTime
                 train_time_seconds = delta.seconds + delta.microseconds/1E6
                 print("train_time_seconds:", train_time_seconds)
                 network.save(saver_file)
-                experience_replay.append({'encoding':list(encoding), 'test_accuracy':test_acc, 'index':i, 'layers':layers, 'episode':episode, 'train_time_seconds':train_time_seconds, 'test_accuracies':test_accuracies})
+                experience_replay.append({'encoding':list(encoding), 'test_accuracy':test_acc, 'index':i, 'layers':layers, 'episode':episode, 'train_time_seconds':train_time_seconds})
                 with open(experience_replay_file, 'wb') as pfile:
                     pickle.dump(experience_replay, pfile, protocol=pickle.HIGHEST_PROTOCOL)
-            i += 1
+            
+            i +=1
 
 
-
-def run_experiment_main():
+def run_experiment():
     #test()
     experience_replay = []
     folder = None
@@ -104,7 +187,7 @@ def run_experiment_main():
     if folder==None:
         folder = startTime.isoformat(' ')
 
-    path = "./models_cifar/" + folder 
+    path = "./models/" + folder 
     if not os.path.exists(path):
         os.makedirs(path)
     experience_replay_file = path + "/experience_replay.p"
@@ -116,8 +199,8 @@ def run_experiment_main():
             encoding.extend(random.sample(xrange(4), 4))
             #encoding = [2, 2, 1, 2, 2, 3]
             layers = decodeNetwork(encoding)
-            print(layers)
-            with Network(input_size=[32,32,3], reshape_shape=[-1,32,32,3], num_classes=10, learning_rate=0.001, layers=layers, scope_name='global') as network:
+            #print(layers)
+            with Network(input_size=[28*28], reshape_shape=[-1,28,28,1], num_classes=10, learning_rate=0.001, layers=layers, scope_name='global') as network:
                 saver_file = path + "/" + str(i)
                 #if i > 0:
                 #    network.restore(path + "/" + str(i-1))
@@ -128,7 +211,7 @@ def run_experiment_main():
                 print(acc)
                 '''
                 startTrainTime = datetime.now()
-                test_acc = train(network, epochs=20000, batch_size=100)
+                test_acc = train(network, epochs=10000, batch_size=100)
                 endTrainTime = datetime.now()
                 delta = endTrainTime - startTrainTime
                 train_time_seconds = delta.seconds + delta.microseconds/1E6
@@ -140,29 +223,24 @@ def run_experiment_main():
             i+=1
 
 
-def train(network, epochs=10000, batch_size=100, test_saves=10):
-    test_accuracies = []
-    batch_generator = cifar10.get_batch_generator(cifar10_upsampled, cifar10_labels_upsampled)
+def train(network, epochs=10000, batch_size=100):
     for i in tqdm(range(epochs)):
-        batch = batch_generator.next_batch(batch_size)
+        batch = mnist.train.next_batch(batch_size)
         train_op, accuracy = network.train(x=batch[0], y=batch[1])
-        if (i+1)%(epochs//test_saves)==0:
+        if (i+1)%(epochs//10)==0:
             print(accuracy)
-            acc = network.test(x=cifar10_test, y=cifar10_labels_test, batch_size=batch_size)
-            test_accuracies.append(acc)
-            print("test accuracy: ", acc)
-    acc = network.test(x=cifar10_test, y=cifar10_labels_test, batch_size=batch_size)
+    test_batch = (mnist.test.images, mnist.test.labels);
+    acc = network.test(x=test_batch[0], y=test_batch[1], batch_size=1000)
     print("test accuracy: ")
     print(acc)
-    return acc, test_accuracies
+    return acc
     
 
 def test():
-    #testEncoding = [2, 2, 1, 2, 2, 3, 3, 1, 2, 2, 1, 2, 2, 3, 3, 1, 2, 2, 1, 2, 2, 3, 3, 1, 2, 2, 1, 2, 2, 3, 3, 1, 2, 2, 1, 2, 2, 3, 3, 1, 2, 2, 1, 2, 2, 3, 3, 1]
-    testEncoding = [2, 2, 1, 0, 2, 3, 3, 0]
+    testEncoding = [2, 2, 1, 2, 2, 3, 3, 1, 2, 2, 1, 2, 2, 3, 3, 1, 2, 2, 1, 2, 2, 3, 3, 1, 2, 2, 1, 2, 2, 3, 3, 1, 2, 2, 1, 2, 2, 3, 3, 1, 2, 2, 1, 2, 2, 3, 3, 1]
     layers = decodeNetwork(testEncoding)
-    with Network(input_size=[32,32,3], reshape_shape=[-1,32,32,3], num_classes=10, learning_rate=0.001, layers=layers, scope_name='global') as network:
-        train(network, epochs=20000, batch_size=100)
+    with Network(input_size=[28*28], reshape_shape=[-1,28,28,1], num_classes=10, learning_rate=0.001, layers=layers, scope_name='global') as network:
+        train(network, epochs=10000, batch_size=100)
 
 def decodeNetwork(encoding):
     layers = []
@@ -170,7 +248,7 @@ def decodeNetwork(encoding):
         filter_widths = [1, 3, 5, 7]
         filter_heights = [1, 3, 5, 7]
         num_filters = [24, 36, 48, 64]
-        strides = [1, 1, 2, 3]
+        strides = [1, 2, 3, 1]
 
         filter_widths_i, filter_heights_i, num_filters_i, strides_i = layer_tuple
         

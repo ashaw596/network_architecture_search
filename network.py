@@ -93,14 +93,22 @@ class Network():
 
                 self.saver = tf.train.Saver()
                 # start tf session
-                gpu_options = tf.GPUOptions(per_process_gpu_memory_fraction=0.666666)  # avoid using all vram for GTX 970
+                gpu_options = tf.GPUOptions(per_process_gpu_memory_fraction=0.85)  # avoid using all vram for GTX 970
                 self.sess = tf.Session(config=tf.ConfigProto(gpu_options=gpu_options))
+
+                for var in tf.get_collection(tf.GraphKeys.TRAINABLE_VARIABLES):
+                    print (var)
 
                 self.sess.run(tf.initialize_all_variables())
                 print("Network Initialized")
 
     def restore(self, file):
         self.saver.restore(self.sess, file)
+
+    def restore_part(self, file, variables):
+        
+        partial_saver = tf.train.Saver(variables)
+        partial_saver.restore(self.sess, file)
 
     def save(self, file):
         self.saver.save(self.sess, file)

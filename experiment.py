@@ -14,7 +14,80 @@ startTime = datetime.now()
 mnist = input_data.read_data_sets('MNIST_data', one_hot=True)
 
 def main():
-    test()
+    run_experiment_finetuning()
+
+def run_experiment_finetuning():
+    #test()
+    experience_replay = []
+    folder = None
+    folder = '2017-03-11 22:50:58.537422 fine_tuning'#'2017-03-09 22:39:45.174536'
+    if folder==None:
+        folder = startTime.isoformat(' ')
+
+    path = "./models/" + folder 
+    if not os.path.exists(path):
+        os.makedirs(path)
+    experience_replay_file = path + "/experience_replay.p"
+
+
+    old_folder = '2017-03-11 22:50:58.537422 extended strided'#'2017-03-09 22:39:45.174536'
+
+    old_path = "./models/" + old_folder 
+    if not os.path.exists(old_path):
+        os.makedirs(old_path)
+    old_experience_replay_file = old_path + "/experience_replay.p"
+    
+    with open(old_experience_replay_file, 'rb') as pfile:
+        old_experience_replay = pickle.load(pfile)
+
+    print(old_experience_replay)
+    
+
+    experience_replay = []
+    i=0
+    for episode in range(10):
+        print("episode:", episode)
+        for layer in range(15):
+            replay = old_experience_replay[i]
+            assert(replay['episode'] == episode)
+            assert(layer == len(replay['layers'])-1)
+            encoding = replay['encoding']
+            layers = decodeNetwork(encoding)
+            index = replay['index']
+            with Network(input_size=[28*28], reshape_shape=[-1,28,28,1], num_classes=10, learning_rate=0.001, layers=layers, scope_name='global') as network:
+                if layer > 0:
+                    print('global/'+str(layer))
+                    variables = network.graph.get_collection(tf.GraphKeys.TRAINABLE_VARIABLES, scope='global')
+                    variables = [var for var in variables if not var.name.startswith('global/'+str(layer))]
+                    print(len(variables))
+                    for v in variables:
+                        print(v)
+                    network.restore_part(path + "/" + str(index-1), variables)
+                    epochs = 1000
+                else:
+                    epochs= 10000
+                saver_file = path + "/" + str(i)
+                #if i > 0:
+                #    network.restore(path + "/" + str(i-1))
+                
+                #test_batch = (mnist.test.images, mnist.test.labels);
+                #acc = network.test(x=test_batch[0], y=test_batch[1], batch_size=1000)
+                #print("test accuracy: ")
+                #print(acc)
+                
+                startTrainTime = datetime.now()
+                test_acc = train(network, epochs=epochs, batch_size=100)
+                endTrainTime = datetime.now()
+                delta = endTrainTime - startTrainTime
+                train_time_seconds = delta.seconds + delta.microseconds/1E6
+                print("train_time_seconds:", train_time_seconds)
+                network.save(saver_file)
+                experience_replay.append({'encoding':list(encoding), 'test_accuracy':test_acc, 'index':i, 'layers':layers, 'episode':episode, 'train_time_seconds':train_time_seconds})
+                with open(experience_replay_file, 'wb') as pfile:
+                    pickle.dump(experience_replay, pfile, protocol=pickle.HIGHEST_PROTOCOL)
+            
+           i +=1
+
 
 def run_experiment():
     #test()

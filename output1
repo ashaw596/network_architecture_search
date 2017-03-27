@@ -1,0 +1,2481 @@
+albert@albert-desktop:~/git/network_architecture_search$ python2 experiment.py 
+I tensorflow/stream_executor/dso_loader.cc:128] successfully opened CUDA library libcublas.so locally
+I tensorflow/stream_executor/dso_loader.cc:128] successfully opened CUDA library libcudnn.so locally
+I tensorflow/stream_executor/dso_loader.cc:128] successfully opened CUDA library libcufft.so locally
+I tensorflow/stream_executor/dso_loader.cc:128] successfully opened CUDA library libcuda.so.1 locally
+I tensorflow/stream_executor/dso_loader.cc:128] successfully opened CUDA library libcurand.so locally
+Extracting MNIST_data/train-images-idx3-ubyte.gz
+Extracting MNIST_data/train-labels-idx1-ubyte.gz
+Extracting MNIST_data/t10k-images-idx3-ubyte.gz
+Extracting MNIST_data/t10k-labels-idx1-ubyte.gz
+episode: 0
+{Conv kernel_size:[1, 7] stride:[2, 2] num_filters:48}
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:885] Found device 0 with properties: 
+name: GeForce GTX 1060 6GB
+major: 6 minor: 1 memoryClockRate (GHz) 1.7715
+pciBusID 0000:01:00.0
+Total memory: 5.93GiB
+Free memory: 5.37GiB
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:906] DMA: 0 
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:916] 0:   Y 
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0)
+WARNING:tensorflow:From /home/albert/git/network_architecture_search/network.py:99 in __init__.: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+Network Initialized
+ 10%|███▋                                  | 979/10000 [00:05<00:44, 202.77it/s]0.95
+ 20%|███████▎                             | 1981/10000 [00:10<00:39, 202.61it/s]0.97
+ 30%|███████████                          | 2981/10000 [00:15<00:34, 200.67it/s]0.96
+ 40%|██████████████▊                      | 3988/10000 [00:20<00:30, 197.73it/s]0.97
+ 50%|██████████████████▍                  | 4998/10000 [00:25<00:27, 184.62it/s]0.98
+ 60%|██████████████████████▏              | 5983/10000 [00:30<00:19, 205.51it/s]1.0
+ 70%|█████████████████████████▊           | 6990/10000 [00:36<00:14, 201.95it/s]0.98
+ 80%|█████████████████████████████▌       | 7996/10000 [00:41<00:09, 200.42it/s]0.99
+ 90%|█████████████████████████████████▎   | 8999/10000 [00:46<00:05, 200.08it/s]1.0
+100%|████████████████████████████████████▉| 9990/10000 [00:51<00:00, 191.30it/s]1.0
+100%|████████████████████████████████████| 10000/10000 [00:51<00:00, 194.72it/s]
+test accuracy: 
+0.9538
+train_time_seconds: 51.456665
+{Conv kernel_size:[1, 7] stride:[2, 2] num_filters:48}
+{Conv kernel_size:[7, 3] stride:[1, 1] num_filters:48}
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0)
+WARNING:tensorflow:From /home/albert/git/network_architecture_search/network.py:99 in __init__.: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+Network Initialized
+ 10%|███▊                                  | 994/10000 [00:09<01:20, 111.86it/s]0.96
+ 20%|███████▎                             | 1992/10000 [00:18<01:11, 111.59it/s]0.98
+ 30%|███████████                          | 2992/10000 [00:27<01:03, 110.84it/s]0.99
+ 40%|██████████████▊                      | 3997/10000 [00:36<00:53, 112.63it/s]1.0
+ 50%|██████████████████▍                  | 4993/10000 [00:45<00:45, 110.17it/s]1.0
+ 60%|██████████████████████▏              | 5988/10000 [00:54<00:38, 103.02it/s]1.0
+ 70%|█████████████████████████▉           | 6994/10000 [01:04<00:27, 109.69it/s]1.0
+ 80%|█████████████████████████████▌       | 7997/10000 [01:13<00:17, 111.66it/s]1.0
+ 90%|█████████████████████████████████▎   | 8997/10000 [01:22<00:09, 109.48it/s]0.98
+100%|████████████████████████████████████▉| 9997/10000 [01:31<00:00, 109.86it/s]1.0
+100%|████████████████████████████████████| 10000/10000 [01:31<00:00, 108.79it/s]
+test accuracy: 
+0.9874
+train_time_seconds: 92.187075
+{Conv kernel_size:[1, 7] stride:[2, 2] num_filters:48}
+{Conv kernel_size:[7, 3] stride:[1, 1] num_filters:48}
+{Conv kernel_size:[1, 3] stride:[4, 4] num_filters:48}
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0)
+WARNING:tensorflow:From /home/albert/git/network_architecture_search/network.py:99 in __init__.: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+Network Initialized
+ 10%|███▉                                   | 994/10000 [00:10<01:32, 97.50it/s]0.99
+ 20%|███████▌                              | 1996/10000 [00:20<01:20, 99.89it/s]0.97
+ 30%|███████████▎                          | 2990/10000 [00:30<01:10, 99.49it/s]0.99
+ 40%|███████████████▏                      | 3997/10000 [00:41<01:00, 99.47it/s]1.0
+ 50%|██████████████████▍                  | 4991/10000 [00:51<00:49, 100.66it/s]1.0
+ 60%|██████████████████████▊               | 5990/10000 [01:01<00:40, 99.42it/s]1.0
+ 70%|██████████████████████████▌           | 6997/10000 [01:11<00:31, 95.82it/s]1.0
+ 80%|██████████████████████████████▍       | 7999/10000 [01:22<00:20, 99.41it/s]1.0
+ 90%|█████████████████████████████████▎   | 8989/10000 [01:32<00:09, 102.23it/s]0.99
+100%|████████████████████████████████████▉| 9990/10000 [01:42<00:00, 100.30it/s]1.0
+100%|█████████████████████████████████████| 10000/10000 [01:42<00:00, 97.42it/s]
+test accuracy: 
+0.9841
+train_time_seconds: 102.889671
+{Conv kernel_size:[1, 7] stride:[2, 2] num_filters:48}
+{Conv kernel_size:[7, 3] stride:[1, 1] num_filters:48}
+{Conv kernel_size:[1, 3] stride:[4, 4] num_filters:48}
+{Conv kernel_size:[1, 7] stride:[3, 3] num_filters:36}
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0)
+WARNING:tensorflow:From /home/albert/git/network_architecture_search/network.py:99 in __init__.: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+Network Initialized
+ 10%|███▊                                   | 991/10000 [00:11<01:42, 88.01it/s]0.9
+ 20%|███████▌                              | 1995/10000 [00:23<01:29, 89.57it/s]0.92
+ 30%|███████████▍                          | 2998/10000 [00:34<01:19, 88.32it/s]0.91
+ 40%|███████████████▏                      | 3998/10000 [00:46<01:07, 88.79it/s]0.91
+ 50%|██████████████████▉                   | 4991/10000 [00:57<00:56, 88.61it/s]0.91
+ 60%|██████████████████████▊               | 5997/10000 [01:09<00:45, 88.58it/s]0.85
+ 70%|██████████████████████████▌           | 6991/10000 [01:20<00:33, 89.90it/s]0.87
+ 80%|██████████████████████████████▍       | 7994/10000 [01:32<00:23, 83.92it/s]0.91
+ 90%|██████████████████████████████████▏   | 8992/10000 [01:43<00:11, 87.76it/s]0.95
+100%|█████████████████████████████████████▉| 9993/10000 [01:55<00:00, 84.75it/s]0.9
+100%|█████████████████████████████████████| 10000/10000 [01:55<00:00, 86.45it/s]
+test accuracy: 
+0.8717
+train_time_seconds: 115.915449
+{Conv kernel_size:[1, 7] stride:[2, 2] num_filters:48}
+{Conv kernel_size:[7, 3] stride:[1, 1] num_filters:48}
+{Conv kernel_size:[1, 3] stride:[4, 4] num_filters:48}
+{Conv kernel_size:[1, 7] stride:[3, 3] num_filters:36}
+{Conv kernel_size:[5, 1] stride:[2, 2] num_filters:64}
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0)
+WARNING:tensorflow:From /home/albert/git/network_architecture_search/network.py:99 in __init__.: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+Network Initialized
+ 10%|███▉                                   | 995/10000 [00:12<01:54, 78.43it/s]0.82
+ 20%|███████▌                              | 1996/10000 [00:25<01:41, 78.68it/s]0.88
+ 30%|███████████▍                          | 2998/10000 [00:38<01:29, 78.55it/s]0.87
+ 40%|███████████████▏                      | 3993/10000 [00:51<01:14, 80.45it/s]0.93
+ 50%|██████████████████▉                   | 4995/10000 [01:04<01:05, 76.36it/s]0.91
+ 60%|██████████████████████▊               | 5993/10000 [01:17<00:49, 80.14it/s]0.9
+ 70%|██████████████████████████▌           | 6992/10000 [01:30<00:38, 77.69it/s]0.92
+ 80%|██████████████████████████████▍       | 7995/10000 [01:43<00:25, 77.97it/s]0.92
+ 90%|██████████████████████████████████▏   | 8992/10000 [01:56<00:13, 75.71it/s]0.87
+100%|█████████████████████████████████████▉| 9995/10000 [02:09<00:00, 78.47it/s]0.91
+100%|█████████████████████████████████████| 10000/10000 [02:09<00:00, 77.27it/s]
+test accuracy: 
+0.8819
+train_time_seconds: 129.666089
+{Conv kernel_size:[1, 7] stride:[2, 2] num_filters:48}
+{Conv kernel_size:[7, 3] stride:[1, 1] num_filters:48}
+{Conv kernel_size:[1, 3] stride:[4, 4] num_filters:48}
+{Conv kernel_size:[1, 7] stride:[3, 3] num_filters:36}
+{Conv kernel_size:[5, 1] stride:[2, 2] num_filters:64}
+{Conv kernel_size:[1, 7] stride:[2, 2] num_filters:48}
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0)
+WARNING:tensorflow:From /home/albert/git/network_architecture_search/network.py:99 in __init__.: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+Network Initialized
+ 10%|███▉                                   | 999/10000 [00:14<02:06, 71.15it/s]0.85
+ 20%|███████▌                              | 1994/10000 [00:28<01:55, 69.53it/s]0.77
+ 30%|███████████▍                          | 2996/10000 [00:42<01:41, 69.04it/s]0.81
+ 40%|███████████████▏                      | 3997/10000 [00:56<01:26, 69.52it/s]0.86
+ 50%|██████████████████▉                   | 4998/10000 [01:10<01:12, 68.87it/s]0.91
+ 60%|██████████████████████▊               | 5996/10000 [01:24<00:58, 68.51it/s]0.86
+ 70%|██████████████████████████▌           | 6997/10000 [01:39<00:44, 68.02it/s]0.9
+ 80%|██████████████████████████████▍       | 7995/10000 [01:53<00:28, 70.82it/s]0.93
+ 90%|██████████████████████████████████▏   | 8997/10000 [02:07<00:13, 72.45it/s]0.91
+100%|█████████████████████████████████████▉| 9992/10000 [02:21<00:00, 68.46it/s]0.89
+100%|█████████████████████████████████████| 10000/10000 [02:21<00:00, 71.35it/s]
+test accuracy: 
+0.8812
+train_time_seconds: 141.911159
+{Conv kernel_size:[1, 7] stride:[2, 2] num_filters:48}
+{Conv kernel_size:[7, 3] stride:[1, 1] num_filters:48}
+{Conv kernel_size:[1, 3] stride:[4, 4] num_filters:48}
+{Conv kernel_size:[1, 7] stride:[3, 3] num_filters:36}
+{Conv kernel_size:[5, 1] stride:[2, 2] num_filters:64}
+{Conv kernel_size:[1, 7] stride:[2, 2] num_filters:48}
+{Conv kernel_size:[5, 1] stride:[4, 4] num_filters:36}
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0)
+WARNING:tensorflow:From /home/albert/git/network_architecture_search/network.py:99 in __init__.: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+Network Initialized
+ 10%|███▉                                   | 996/10000 [00:15<02:15, 66.54it/s]0.9
+ 20%|███████▌                              | 1995/10000 [00:30<02:02, 65.21it/s]0.93
+ 30%|███████████▍                          | 2995/10000 [00:46<01:46, 65.58it/s]0.87
+ 40%|███████████████▏                      | 3997/10000 [01:01<01:31, 65.30it/s]0.92
+ 50%|██████████████████▉                   | 4996/10000 [01:17<01:11, 69.90it/s]0.92
+ 60%|██████████████████████▊               | 5997/10000 [01:32<01:03, 62.77it/s]0.89
+ 70%|██████████████████████████▌           | 6999/10000 [01:47<00:44, 67.52it/s]0.88
+ 80%|██████████████████████████████▍       | 7999/10000 [02:02<00:29, 67.35it/s]0.9
+ 90%|██████████████████████████████████▏   | 8998/10000 [02:18<00:15, 63.31it/s]0.93
+100%|█████████████████████████████████████▉| 9999/10000 [02:33<00:00, 64.91it/s]0.95
+100%|█████████████████████████████████████| 10000/10000 [02:33<00:00, 65.04it/s]
+test accuracy: 
+0.8814
+train_time_seconds: 154.023998
+{Conv kernel_size:[1, 7] stride:[2, 2] num_filters:48}
+{Conv kernel_size:[7, 3] stride:[1, 1] num_filters:48}
+{Conv kernel_size:[1, 3] stride:[4, 4] num_filters:48}
+{Conv kernel_size:[1, 7] stride:[3, 3] num_filters:36}
+{Conv kernel_size:[5, 1] stride:[2, 2] num_filters:64}
+{Conv kernel_size:[1, 7] stride:[2, 2] num_filters:48}
+{Conv kernel_size:[5, 1] stride:[4, 4] num_filters:36}
+{Conv kernel_size:[3, 7] stride:[3, 3] num_filters:24}
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0)
+WARNING:tensorflow:From /home/albert/git/network_architecture_search/network.py:99 in __init__.: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+Network Initialized
+ 10%|███▉                                   | 999/10000 [00:16<02:30, 59.94it/s]0.84
+ 20%|███████▌                              | 1995/10000 [00:33<02:06, 63.37it/s]0.88
+ 30%|███████████▍                          | 2997/10000 [00:49<01:51, 62.71it/s]0.94
+ 40%|███████████████▏                      | 3997/10000 [01:06<01:37, 61.55it/s]0.87
+ 50%|██████████████████▉                   | 4998/10000 [01:22<01:21, 61.50it/s]0.9
+ 60%|██████████████████████▊               | 5994/10000 [01:39<01:04, 62.53it/s]0.9
+ 70%|██████████████████████████▌           | 6995/10000 [01:55<00:49, 60.98it/s]0.89
+ 80%|██████████████████████████████▍       | 7998/10000 [02:12<00:33, 60.64it/s]0.93
+ 90%|██████████████████████████████████▏   | 8997/10000 [02:29<00:16, 60.09it/s]0.91
+100%|█████████████████████████████████████▉| 9993/10000 [02:45<00:00, 62.10it/s]0.89
+100%|█████████████████████████████████████| 10000/10000 [02:45<00:00, 60.91it/s]
+test accuracy: 
+0.8834
+train_time_seconds: 165.793685
+{Conv kernel_size:[1, 7] stride:[2, 2] num_filters:48}
+{Conv kernel_size:[7, 3] stride:[1, 1] num_filters:48}
+{Conv kernel_size:[1, 3] stride:[4, 4] num_filters:48}
+{Conv kernel_size:[1, 7] stride:[3, 3] num_filters:36}
+{Conv kernel_size:[5, 1] stride:[2, 2] num_filters:64}
+{Conv kernel_size:[1, 7] stride:[2, 2] num_filters:48}
+{Conv kernel_size:[5, 1] stride:[4, 4] num_filters:36}
+{Conv kernel_size:[3, 7] stride:[3, 3] num_filters:24}
+{Conv kernel_size:[7, 5] stride:[1, 1] num_filters:36}
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0)
+WARNING:tensorflow:From /home/albert/git/network_architecture_search/network.py:99 in __init__.: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+Network Initialized
+ 10%|███▉                                   | 994/10000 [00:17<02:38, 56.86it/s]0.85
+ 20%|███████▌                              | 1994/10000 [00:35<02:21, 56.53it/s]0.83
+ 30%|███████████▍                          | 2997/10000 [00:52<02:01, 57.45it/s]0.93
+ 40%|███████████████▏                      | 3998/10000 [01:10<01:50, 54.09it/s]0.84
+ 50%|██████████████████▉                   | 4995/10000 [01:28<01:31, 54.84it/s]0.94
+ 60%|██████████████████████▊               | 5996/10000 [01:46<01:13, 54.47it/s]0.86
+ 70%|██████████████████████████▌           | 6999/10000 [02:03<00:50, 59.25it/s]0.89
+ 80%|██████████████████████████████▍       | 7999/10000 [02:21<00:36, 55.46it/s]0.9
+ 90%|██████████████████████████████████▏   | 8999/10000 [02:38<00:17, 56.28it/s]0.92
+100%|█████████████████████████████████████▉| 9999/10000 [02:56<00:00, 58.25it/s]0.87
+100%|█████████████████████████████████████| 10000/10000 [02:56<00:00, 56.65it/s]
+test accuracy: 
+0.8797
+train_time_seconds: 176.804855
+{Conv kernel_size:[1, 7] stride:[2, 2] num_filters:48}
+{Conv kernel_size:[7, 3] stride:[1, 1] num_filters:48}
+{Conv kernel_size:[1, 3] stride:[4, 4] num_filters:48}
+{Conv kernel_size:[1, 7] stride:[3, 3] num_filters:36}
+{Conv kernel_size:[5, 1] stride:[2, 2] num_filters:64}
+{Conv kernel_size:[1, 7] stride:[2, 2] num_filters:48}
+{Conv kernel_size:[5, 1] stride:[4, 4] num_filters:36}
+{Conv kernel_size:[3, 7] stride:[3, 3] num_filters:24}
+{Conv kernel_size:[7, 5] stride:[1, 1] num_filters:36}
+{Conv kernel_size:[5, 3] stride:[4, 4] num_filters:24}
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0)
+WARNING:tensorflow:From /home/albert/git/network_architecture_search/network.py:99 in __init__.: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+Network Initialized
+  1%|▍                                      | 105/10000 [00:02<03:20, 49.25it/s]I tensorflow/core/common_runtime/gpu/pool_allocator.cc:247] PoolAllocator: After 7066866 get requests, put_count=7066866 evicted_count=1000 eviction_rate=0.000141505 and unsatisfied allocation rate=0.000155656
+ 10%|███▉                                   | 996/10000 [00:18<02:53, 51.87it/s]0.83
+ 12%|████▍                                 | 1184/10000 [00:22<02:40, 55.08it/s]I tensorflow/core/common_runtime/gpu/pool_allocator.cc:247] PoolAllocator: After 7231026 get requests, put_count=7231020 evicted_count=11000 eviction_rate=0.00152122 and unsatisfied allocation rate=0.00153588
+ 20%|███████▌                              | 1996/10000 [00:37<02:31, 52.79it/s]0.78
+ 30%|███████████▍                          | 2997/10000 [00:56<02:09, 54.07it/s]0.89
+ 40%|███████████████▏                      | 3998/10000 [01:14<01:51, 53.78it/s]0.93
+ 50%|██████████████████▉                   | 4996/10000 [01:33<01:38, 50.88it/s]0.9
+ 60%|██████████████████████▊               | 5996/10000 [01:52<01:13, 54.54it/s]0.91
+ 70%|██████████████████████████▌           | 6994/10000 [02:10<00:56, 53.47it/s]0.87
+ 80%|██████████████████████████████▍       | 7995/10000 [02:29<00:36, 54.73it/s]0.95
+ 90%|██████████████████████████████████▏   | 8994/10000 [02:48<00:18, 55.46it/s]0.92
+100%|█████████████████████████████████████▉| 9998/10000 [03:06<00:00, 55.03it/s]0.93
+100%|█████████████████████████████████████| 10000/10000 [03:07<00:00, 53.47it/s]
+test accuracy: 
+0.879
+train_time_seconds: 187.313776
+episode: 1
+{Conv kernel_size:[5, 7] stride:[1, 1] num_filters:36}
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0)
+WARNING:tensorflow:From /home/albert/git/network_architecture_search/network.py:99 in __init__.: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+Network Initialized
+ 10%|███▊                                  | 994/10000 [00:09<01:26, 103.58it/s]0.98
+ 20%|███████▍                             | 1994/10000 [00:19<01:18, 101.93it/s]1.0
+ 30%|███████████                          | 2995/10000 [00:29<01:08, 102.63it/s]0.99
+ 40%|███████████████▏                      | 3996/10000 [00:39<01:01, 97.99it/s]1.0
+ 50%|██████████████████▍                  | 4997/10000 [00:49<00:48, 103.10it/s]0.99
+ 60%|██████████████████████▏              | 5998/10000 [00:59<00:39, 102.51it/s]1.0
+ 70%|█████████████████████████▉           | 6999/10000 [01:09<00:29, 102.13it/s]1.0
+ 80%|█████████████████████████████▌       | 7989/10000 [01:18<00:19, 103.41it/s]0.99
+ 90%|█████████████████████████████████▎   | 8989/10000 [01:28<00:09, 102.41it/s]0.98
+100%|████████████████████████████████████▉| 9990/10000 [01:38<00:00, 102.44it/s]1.0
+100%|████████████████████████████████████| 10000/10000 [01:38<00:00, 101.26it/s]
+test accuracy: 
+0.9842
+train_time_seconds: 98.988331
+{Conv kernel_size:[5, 7] stride:[1, 1] num_filters:36}
+{Conv kernel_size:[7, 1] stride:[2, 2] num_filters:48}
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0)
+WARNING:tensorflow:From /home/albert/git/network_architecture_search/network.py:99 in __init__.: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+Network Initialized
+ 10%|███▊                                   | 991/10000 [00:12<01:49, 82.46it/s]0.98
+ 20%|███████▌                              | 1999/10000 [00:24<01:35, 83.97it/s]1.0
+ 30%|███████████▍                          | 2998/10000 [00:36<01:24, 82.58it/s]0.99
+ 40%|███████████████▏                      | 3997/10000 [00:48<01:12, 82.31it/s]1.0
+ 50%|██████████████████▉                   | 4996/10000 [01:01<01:02, 80.17it/s]1.0
+ 60%|██████████████████████▊               | 5994/10000 [01:13<00:48, 82.14it/s]0.99
+ 70%|██████████████████████████▌           | 6999/10000 [01:25<00:36, 81.77it/s]1.0
+ 80%|██████████████████████████████▍       | 7998/10000 [01:37<00:23, 83.63it/s]0.99
+ 90%|██████████████████████████████████▏   | 8997/10000 [01:49<00:11, 84.24it/s]1.0
+100%|█████████████████████████████████████▉| 9995/10000 [02:02<00:00, 82.53it/s]1.0
+100%|█████████████████████████████████████| 10000/10000 [02:02<00:00, 81.80it/s]
+test accuracy: 
+0.9898
+train_time_seconds: 122.556303
+{Conv kernel_size:[5, 7] stride:[1, 1] num_filters:36}
+{Conv kernel_size:[7, 1] stride:[2, 2] num_filters:48}
+{Conv kernel_size:[3, 1] stride:[4, 4] num_filters:48}
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0)
+WARNING:tensorflow:From /home/albert/git/network_architecture_search/network.py:99 in __init__.: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+Network Initialized
+ 10%|███▉                                   | 998/10000 [00:13<01:57, 76.37it/s]0.99
+ 20%|███████▌                              | 1992/10000 [00:26<01:45, 75.88it/s]0.99
+ 30%|███████████▎                          | 2993/10000 [00:39<01:44, 66.88it/s]0.99
+ 40%|███████████████▏                      | 3996/10000 [00:53<01:17, 77.31it/s]0.98
+ 50%|██████████████████▉                   | 4999/10000 [01:06<01:05, 75.83it/s]1.0
+ 60%|██████████████████████▊               | 5994/10000 [01:19<00:53, 74.64it/s]1.0
+ 70%|██████████████████████████▌           | 6998/10000 [01:33<00:39, 75.45it/s]1.0
+ 80%|██████████████████████████████▎       | 7992/10000 [01:46<00:26, 75.54it/s]1.0
+ 90%|██████████████████████████████████▏   | 8992/10000 [01:59<00:13, 75.21it/s]1.0
+100%|█████████████████████████████████████▉| 9992/10000 [02:12<00:00, 76.82it/s]1.0
+100%|█████████████████████████████████████| 10000/10000 [02:12<00:00, 76.97it/s]
+test accuracy: 
+0.9883
+train_time_seconds: 133.305078
+{Conv kernel_size:[5, 7] stride:[1, 1] num_filters:36}
+{Conv kernel_size:[7, 1] stride:[2, 2] num_filters:48}
+{Conv kernel_size:[3, 1] stride:[4, 4] num_filters:48}
+{Conv kernel_size:[3, 5] stride:[4, 4] num_filters:24}
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0)
+WARNING:tensorflow:From /home/albert/git/network_architecture_search/network.py:99 in __init__.: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+Network Initialized
+ 10%|███▉                                   | 995/10000 [00:14<02:13, 67.57it/s]0.96
+ 20%|███████▌                              | 1993/10000 [00:29<01:54, 69.81it/s]0.98
+ 30%|███████████▍                          | 2995/10000 [00:44<01:41, 68.80it/s]1.0
+ 40%|███████████████▏                      | 3994/10000 [00:58<01:27, 69.03it/s]0.99
+ 50%|██████████████████▉                   | 4993/10000 [01:13<01:13, 67.98it/s]0.97
+ 60%|██████████████████████▊               | 5995/10000 [01:28<00:59, 67.29it/s]0.99
+ 70%|██████████████████████████▌           | 6993/10000 [01:42<00:45, 65.46it/s]1.0
+ 80%|██████████████████████████████▍       | 7994/10000 [01:57<00:29, 68.13it/s]1.0
+ 90%|██████████████████████████████████▏   | 8993/10000 [02:12<00:14, 70.55it/s]1.0
+100%|█████████████████████████████████████▉| 9998/10000 [02:27<00:00, 69.75it/s]0.99
+100%|█████████████████████████████████████| 10000/10000 [02:27<00:00, 68.00it/s]
+test accuracy: 
+0.9851
+train_time_seconds: 147.375383
+{Conv kernel_size:[5, 7] stride:[1, 1] num_filters:36}
+{Conv kernel_size:[7, 1] stride:[2, 2] num_filters:48}
+{Conv kernel_size:[3, 1] stride:[4, 4] num_filters:48}
+{Conv kernel_size:[3, 5] stride:[4, 4] num_filters:24}
+{Conv kernel_size:[3, 5] stride:[4, 4] num_filters:24}
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0)
+WARNING:tensorflow:From /home/albert/git/network_architecture_search/network.py:99 in __init__.: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+Network Initialized
+ 10%|███▉                                   | 997/10000 [00:16<02:23, 62.87it/s]0.96
+ 20%|███████▌                              | 1999/10000 [00:32<02:08, 62.17it/s]1.0
+ 30%|███████████▎                          | 2993/10000 [00:48<01:55, 60.84it/s]1.0
+ 40%|███████████████▏                      | 3998/10000 [01:04<01:35, 62.56it/s]0.97
+ 50%|██████████████████▉                   | 4993/10000 [01:20<01:21, 61.63it/s]0.98
+ 60%|██████████████████████▊               | 5999/10000 [01:37<01:04, 61.92it/s]0.99
+ 70%|██████████████████████████▌           | 6994/10000 [01:53<00:48, 61.39it/s]0.98
+ 80%|██████████████████████████████▍       | 7996/10000 [02:09<00:33, 59.75it/s]1.0
+ 90%|██████████████████████████████████▏   | 8996/10000 [02:25<00:16, 62.47it/s]1.0
+100%|█████████████████████████████████████▉| 9999/10000 [02:42<00:00, 61.63it/s]1.0
+100%|█████████████████████████████████████| 10000/10000 [02:42<00:00, 61.71it/s]
+test accuracy: 
+0.9866
+train_time_seconds: 162.392491
+{Conv kernel_size:[5, 7] stride:[1, 1] num_filters:36}
+{Conv kernel_size:[7, 1] stride:[2, 2] num_filters:48}
+{Conv kernel_size:[3, 1] stride:[4, 4] num_filters:48}
+{Conv kernel_size:[3, 5] stride:[4, 4] num_filters:24}
+{Conv kernel_size:[3, 5] stride:[4, 4] num_filters:24}
+{Conv kernel_size:[3, 1] stride:[3, 3] num_filters:64}
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0)
+WARNING:tensorflow:From /home/albert/git/network_architecture_search/network.py:99 in __init__.: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+Network Initialized
+ 10%|███▉                                   | 996/10000 [00:17<02:34, 58.33it/s]1.0
+ 20%|███████▌                              | 1996/10000 [00:34<02:18, 57.79it/s]1.0
+ 30%|███████████▍                          | 2997/10000 [00:52<02:01, 57.81it/s]0.94
+ 40%|███████████████▏                      | 3994/10000 [01:09<01:42, 58.35it/s]0.98
+ 50%|██████████████████▉                   | 4999/10000 [01:26<01:21, 61.56it/s]1.0
+ 60%|██████████████████████▊               | 5996/10000 [01:43<01:05, 61.07it/s]0.99
+ 70%|██████████████████████████▌           | 6995/10000 [02:00<00:49, 60.54it/s]0.99
+ 80%|██████████████████████████████▍       | 7994/10000 [02:18<00:35, 56.13it/s]1.0
+ 90%|██████████████████████████████████▏   | 8999/10000 [02:35<00:17, 56.20it/s]0.99
+100%|█████████████████████████████████████▉| 9993/10000 [02:52<00:00, 58.12it/s]1.0
+100%|█████████████████████████████████████| 10000/10000 [02:52<00:00, 59.07it/s]
+test accuracy: 
+0.9853
+train_time_seconds: 173.300439
+{Conv kernel_size:[5, 7] stride:[1, 1] num_filters:36}
+{Conv kernel_size:[7, 1] stride:[2, 2] num_filters:48}
+{Conv kernel_size:[3, 1] stride:[4, 4] num_filters:48}
+{Conv kernel_size:[3, 5] stride:[4, 4] num_filters:24}
+{Conv kernel_size:[3, 5] stride:[4, 4] num_filters:24}
+{Conv kernel_size:[3, 1] stride:[3, 3] num_filters:64}
+{Conv kernel_size:[5, 1] stride:[2, 2] num_filters:64}
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0)
+WARNING:tensorflow:From /home/albert/git/network_architecture_search/network.py:99 in __init__.: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+Network Initialized
+ 10%|███▉                                   | 997/10000 [00:18<02:42, 55.31it/s]0.98
+ 20%|███████▌                              | 1994/10000 [00:37<02:27, 54.28it/s]0.99
+ 30%|███████████▎                          | 2993/10000 [00:55<02:03, 56.79it/s]1.0
+ 40%|███████████████▏                      | 3998/10000 [01:14<01:47, 55.81it/s]0.97
+ 50%|██████████████████▉                   | 4998/10000 [01:32<01:29, 55.60it/s]0.98
+ 60%|██████████████████████▊               | 5996/10000 [01:50<01:11, 56.11it/s]0.98
+ 70%|██████████████████████████▌           | 6998/10000 [02:09<00:55, 53.76it/s]1.0
+ 80%|██████████████████████████████▍       | 7999/10000 [02:28<00:36, 55.05it/s]1.0
+ 90%|██████████████████████████████████▏   | 8995/10000 [02:46<00:18, 53.98it/s]1.0
+100%|█████████████████████████████████████▉| 9994/10000 [03:05<00:00, 54.94it/s]0.99
+100%|█████████████████████████████████████| 10000/10000 [03:05<00:00, 55.74it/s]
+test accuracy: 
+0.9873
+train_time_seconds: 185.636036
+{Conv kernel_size:[5, 7] stride:[1, 1] num_filters:36}
+{Conv kernel_size:[7, 1] stride:[2, 2] num_filters:48}
+{Conv kernel_size:[3, 1] stride:[4, 4] num_filters:48}
+{Conv kernel_size:[3, 5] stride:[4, 4] num_filters:24}
+{Conv kernel_size:[3, 5] stride:[4, 4] num_filters:24}
+{Conv kernel_size:[3, 1] stride:[3, 3] num_filters:64}
+{Conv kernel_size:[5, 1] stride:[2, 2] num_filters:64}
+{Conv kernel_size:[5, 7] stride:[1, 1] num_filters:36}
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0)
+WARNING:tensorflow:From /home/albert/git/network_architecture_search/network.py:99 in __init__.: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+Network Initialized
+ 10%|███▉                                   | 995/10000 [00:19<02:55, 51.25it/s]0.94
+ 20%|███████▌                              | 1999/10000 [00:39<02:36, 51.12it/s]0.98
+ 30%|███████████▍                          | 2994/10000 [00:58<02:18, 50.47it/s]1.0
+ 40%|███████████████▏                      | 3996/10000 [01:18<01:59, 50.14it/s]0.97
+ 50%|██████████████████▉                   | 4996/10000 [01:38<01:35, 52.39it/s]0.99
+ 60%|██████████████████████▊               | 5995/10000 [01:58<01:21, 49.13it/s]0.97
+ 70%|██████████████████████████▌           | 6994/10000 [02:18<01:01, 48.81it/s]1.0
+ 80%|██████████████████████████████▍       | 7999/10000 [02:37<00:40, 49.83it/s]0.99
+ 90%|██████████████████████████████████▏   | 8998/10000 [02:57<00:19, 51.48it/s]1.0
+100%|█████████████████████████████████████▉| 9999/10000 [03:17<00:00, 49.89it/s]0.99
+100%|█████████████████████████████████████| 10000/10000 [03:17<00:00, 50.72it/s]
+test accuracy: 
+0.9867
+train_time_seconds: 197.551115
+{Conv kernel_size:[5, 7] stride:[1, 1] num_filters:36}
+{Conv kernel_size:[7, 1] stride:[2, 2] num_filters:48}
+{Conv kernel_size:[3, 1] stride:[4, 4] num_filters:48}
+{Conv kernel_size:[3, 5] stride:[4, 4] num_filters:24}
+{Conv kernel_size:[3, 5] stride:[4, 4] num_filters:24}
+{Conv kernel_size:[3, 1] stride:[3, 3] num_filters:64}
+{Conv kernel_size:[5, 1] stride:[2, 2] num_filters:64}
+{Conv kernel_size:[5, 7] stride:[1, 1] num_filters:36}
+{Conv kernel_size:[5, 1] stride:[2, 2] num_filters:64}
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0)
+WARNING:tensorflow:From /home/albert/git/network_architecture_search/network.py:99 in __init__.: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+Network Initialized
+ 10%|███▉                                   | 997/10000 [00:21<03:11, 46.94it/s]0.98
+ 20%|███████▌                              | 1995/10000 [00:42<02:47, 47.83it/s]0.97
+ 30%|███████████▍                          | 2995/10000 [01:03<02:23, 48.83it/s]0.99
+ 40%|███████████████▏                      | 3996/10000 [01:24<02:03, 48.80it/s]0.98
+ 50%|██████████████████▉                   | 4997/10000 [01:45<01:43, 48.22it/s]0.99
+ 60%|██████████████████████▊               | 5997/10000 [02:06<01:21, 49.42it/s]1.0
+ 70%|██████████████████████████▌           | 6998/10000 [02:27<01:01, 48.83it/s]0.98
+ 80%|██████████████████████████████▍       | 7999/10000 [02:48<00:40, 48.87it/s]0.98
+ 90%|██████████████████████████████████▏   | 8996/10000 [03:09<00:20, 49.44it/s]0.98
+100%|█████████████████████████████████████▉| 9997/10000 [03:30<00:00, 47.47it/s]0.98
+100%|█████████████████████████████████████| 10000/10000 [03:30<00:00, 47.58it/s]
+test accuracy: 
+0.9842
+train_time_seconds: 210.559679
+{Conv kernel_size:[5, 7] stride:[1, 1] num_filters:36}
+{Conv kernel_size:[7, 1] stride:[2, 2] num_filters:48}
+{Conv kernel_size:[3, 1] stride:[4, 4] num_filters:48}
+{Conv kernel_size:[3, 5] stride:[4, 4] num_filters:24}
+{Conv kernel_size:[3, 5] stride:[4, 4] num_filters:24}
+{Conv kernel_size:[3, 1] stride:[3, 3] num_filters:64}
+{Conv kernel_size:[5, 1] stride:[2, 2] num_filters:64}
+{Conv kernel_size:[5, 7] stride:[1, 1] num_filters:36}
+{Conv kernel_size:[5, 1] stride:[2, 2] num_filters:64}
+{Conv kernel_size:[1, 7] stride:[2, 2] num_filters:48}
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0)
+WARNING:tensorflow:From /home/albert/git/network_architecture_search/network.py:99 in __init__.: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+Network Initialized
+ 10%|███▉                                   | 998/10000 [00:22<03:12, 46.76it/s]0.97
+ 20%|███████▌                              | 1996/10000 [00:44<03:06, 42.82it/s]0.95
+ 30%|███████████▍                          | 2999/10000 [01:06<02:39, 43.92it/s]0.94
+ 40%|███████████████▏                      | 3997/10000 [01:28<02:09, 46.43it/s]0.95
+ 50%|██████████████████▉                   | 4998/10000 [01:50<01:51, 44.66it/s]1.0
+ 60%|██████████████████████▊               | 5997/10000 [02:12<01:26, 46.15it/s]I tensorflow/core/common_runtime/gpu/pool_allocator.cc:247] PoolAllocator: After 9368154 get requests, put_count=9368154 evicted_count=6000 eviction_rate=0.000640468 and unsatisfied allocation rate=0.000641535
+0.98
+ 70%|██████████████████████████▌           | 6999/10000 [02:34<01:05, 45.75it/s]1.0
+ 80%|██████████████████████████████▍       | 7998/10000 [02:56<00:43, 46.05it/s]0.96
+ 90%|██████████████████████████████████▏   | 8999/10000 [03:17<00:21, 45.76it/s]0.98
+100%|█████████████████████████████████████▉| 9995/10000 [03:39<00:00, 45.00it/s]1.0
+100%|█████████████████████████████████████| 10000/10000 [03:39<00:00, 44.85it/s]
+test accuracy: 
+0.986
+train_time_seconds: 220.217288
+episode: 2
+{Conv kernel_size:[5, 3] stride:[4, 4] num_filters:24}
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0)
+WARNING:tensorflow:From /home/albert/git/network_architecture_search/network.py:99 in __init__.: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+Network Initialized
+ 10%|███▋                                  | 980/10000 [00:03<00:33, 269.90it/s]0.99
+ 20%|███████▎                             | 1974/10000 [00:07<00:31, 255.16it/s]0.97
+ 30%|███████████                          | 2989/10000 [00:11<00:29, 234.95it/s]1.0
+ 40%|██████████████▋                      | 3981/10000 [00:15<00:22, 269.00it/s]0.92
+ 50%|██████████████████▍                  | 4995/10000 [00:18<00:18, 275.45it/s]0.99
+ 60%|██████████████████████▏              | 5999/10000 [00:22<00:14, 271.18it/s]0.97
+ 70%|█████████████████████████▉           | 6995/10000 [00:26<00:11, 266.90it/s]0.98
+ 80%|█████████████████████████████▌       | 7996/10000 [00:30<00:07, 252.85it/s]0.99
+ 90%|█████████████████████████████████▎   | 8996/10000 [00:33<00:03, 278.32it/s]0.96
+100%|████████████████████████████████████▉| 9987/10000 [00:37<00:00, 275.66it/s]0.98
+100%|████████████████████████████████████| 10000/10000 [00:37<00:00, 264.75it/s]
+test accuracy: 
+0.9747
+train_time_seconds: 37.821833
+{Conv kernel_size:[5, 3] stride:[4, 4] num_filters:24}
+{Conv kernel_size:[5, 3] stride:[1, 1] num_filters:64}
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0)
+WARNING:tensorflow:From /home/albert/git/network_architecture_search/network.py:99 in __init__.: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+Network Initialized
+ 10%|███▊                                  | 991/10000 [00:05<00:52, 173.08it/s]0.97
+ 20%|███████▍                             | 1999/10000 [00:11<00:44, 177.95it/s]0.98
+ 30%|███████████                          | 2982/10000 [00:17<00:40, 171.75it/s]0.98
+ 40%|██████████████▊                      | 3995/10000 [00:23<00:36, 162.66it/s]1.0
+ 50%|██████████████████▍                  | 4988/10000 [00:29<00:28, 173.98it/s]1.0
+ 60%|██████████████████████▏              | 5983/10000 [00:34<00:22, 177.92it/s]1.0
+ 70%|█████████████████████████▉           | 6995/10000 [00:40<00:16, 178.56it/s]1.0
+ 80%|█████████████████████████████▌       | 7989/10000 [00:46<00:11, 176.97it/s]1.0
+ 90%|█████████████████████████████████▎   | 8996/10000 [00:52<00:06, 161.79it/s]1.0
+100%|████████████████████████████████████▉| 9988/10000 [00:58<00:00, 179.22it/s]1.0
+100%|████████████████████████████████████| 10000/10000 [00:58<00:00, 171.32it/s]
+test accuracy: 
+0.9875
+train_time_seconds: 58.463285
+{Conv kernel_size:[5, 3] stride:[4, 4] num_filters:24}
+{Conv kernel_size:[5, 3] stride:[1, 1] num_filters:64}
+{Conv kernel_size:[5, 7] stride:[1, 1] num_filters:36}
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0)
+WARNING:tensorflow:From /home/albert/git/network_architecture_search/network.py:99 in __init__.: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+Network Initialized
+ 10%|███▊                                  | 996/10000 [00:07<01:10, 127.99it/s]0.98
+ 20%|███████▍                             | 1996/10000 [00:15<01:02, 127.31it/s]1.0
+ 30%|███████████                          | 2992/10000 [00:23<00:53, 131.71it/s]0.99
+ 40%|██████████████▊                      | 3988/10000 [00:31<00:45, 132.83it/s]1.0
+ 50%|██████████████████▍                  | 4987/10000 [00:39<00:44, 113.16it/s]1.0
+ 60%|██████████████████████▏              | 5993/10000 [00:47<00:31, 127.75it/s]1.0
+ 70%|█████████████████████████▉           | 6994/10000 [00:55<00:22, 132.72it/s]1.0
+ 80%|█████████████████████████████▌       | 7994/10000 [01:03<00:15, 125.86it/s]1.0
+ 90%|█████████████████████████████████▎   | 8999/10000 [01:11<00:07, 129.62it/s]1.0
+100%|████████████████████████████████████▉| 9998/10000 [01:19<00:00, 124.79it/s]1.0
+100%|████████████████████████████████████| 10000/10000 [01:19<00:00, 126.02it/s]
+test accuracy: 
+0.9895
+train_time_seconds: 79.509139
+{Conv kernel_size:[5, 3] stride:[4, 4] num_filters:24}
+{Conv kernel_size:[5, 3] stride:[1, 1] num_filters:64}
+{Conv kernel_size:[5, 7] stride:[1, 1] num_filters:36}
+{Conv kernel_size:[7, 3] stride:[3, 3] num_filters:24}
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0)
+WARNING:tensorflow:From /home/albert/git/network_architecture_search/network.py:99 in __init__.: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+Network Initialized
+ 10%|███▊                                  | 992/10000 [00:09<01:18, 114.57it/s]0.97
+ 20%|███████▎                             | 1992/10000 [00:18<01:14, 107.60it/s]0.98
+ 30%|███████████                          | 2988/10000 [00:27<01:04, 108.60it/s]0.99
+ 40%|██████████████▊                      | 3989/10000 [00:37<00:52, 113.90it/s]1.0
+ 50%|██████████████████▍                  | 4989/10000 [00:46<00:47, 106.19it/s]1.0
+ 60%|██████████████████████▊               | 5988/10000 [00:55<00:40, 99.14it/s]0.99
+ 70%|█████████████████████████▊           | 6989/10000 [01:05<00:28, 104.72it/s]1.0
+ 80%|█████████████████████████████▌       | 7988/10000 [01:14<00:18, 111.30it/s]1.0
+ 90%|█████████████████████████████████▎   | 8995/10000 [01:23<00:08, 113.29it/s]1.0
+100%|████████████████████████████████████▉| 9989/10000 [01:32<00:00, 110.63it/s]1.0
+100%|████████████████████████████████████| 10000/10000 [01:32<00:00, 107.64it/s]
+test accuracy: 
+0.9914
+train_time_seconds: 93.026587
+{Conv kernel_size:[5, 3] stride:[4, 4] num_filters:24}
+{Conv kernel_size:[5, 3] stride:[1, 1] num_filters:64}
+{Conv kernel_size:[5, 7] stride:[1, 1] num_filters:36}
+{Conv kernel_size:[7, 3] stride:[3, 3] num_filters:24}
+{Conv kernel_size:[1, 7] stride:[3, 3] num_filters:36}
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0)
+WARNING:tensorflow:From /home/albert/git/network_architecture_search/network.py:99 in __init__.: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+Network Initialized
+ 10%|███▉                                   | 999/10000 [00:10<01:39, 90.80it/s]0.99
+ 20%|███████▌                              | 1995/10000 [00:21<01:22, 96.79it/s]0.99
+ 30%|███████████▎                          | 2992/10000 [00:31<01:14, 94.09it/s]0.99
+ 40%|███████████████▏                      | 3993/10000 [00:42<01:07, 89.09it/s]1.0
+ 50%|██████████████████▍                  | 4999/10000 [00:52<00:49, 100.37it/s]1.0
+ 60%|██████████████████████▊               | 5990/10000 [01:03<00:43, 92.79it/s]1.0
+ 70%|██████████████████████████▌           | 6992/10000 [01:13<00:33, 90.36it/s]1.0
+ 80%|██████████████████████████████▍       | 7995/10000 [01:24<00:21, 93.15it/s]1.0
+ 90%|██████████████████████████████████▏   | 8990/10000 [01:35<00:10, 95.62it/s]1.0
+100%|█████████████████████████████████████▉| 9997/10000 [01:45<00:00, 96.38it/s]1.0
+100%|█████████████████████████████████████| 10000/10000 [01:45<00:00, 94.64it/s]
+test accuracy: 
+0.9876
+train_time_seconds: 105.801707
+{Conv kernel_size:[5, 3] stride:[4, 4] num_filters:24}
+{Conv kernel_size:[5, 3] stride:[1, 1] num_filters:64}
+{Conv kernel_size:[5, 7] stride:[1, 1] num_filters:36}
+{Conv kernel_size:[7, 3] stride:[3, 3] num_filters:24}
+{Conv kernel_size:[1, 7] stride:[3, 3] num_filters:36}
+{Conv kernel_size:[3, 5] stride:[1, 1] num_filters:64}
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0)
+WARNING:tensorflow:From /home/albert/git/network_architecture_search/network.py:99 in __init__.: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+Network Initialized
+ 10%|███▊                                   | 993/10000 [00:11<01:41, 89.08it/s]0.99
+ 20%|███████▌                              | 1996/10000 [00:23<01:37, 82.33it/s]0.99
+ 30%|███████████▍                          | 2994/10000 [00:35<01:19, 88.00it/s]0.98
+ 40%|███████████████▏                      | 3996/10000 [00:46<01:12, 82.76it/s]0.99
+ 50%|██████████████████▉                   | 4993/10000 [00:58<00:58, 85.24it/s]1.0
+ 60%|██████████████████████▊               | 5996/10000 [01:10<00:44, 90.33it/s]0.99
+ 70%|██████████████████████████▌           | 6992/10000 [01:21<00:34, 88.46it/s]0.99
+ 80%|██████████████████████████████▎       | 7993/10000 [01:33<00:24, 82.63it/s]1.0
+ 90%|██████████████████████████████████▏   | 8997/10000 [01:45<00:11, 85.50it/s]1.0
+100%|█████████████████████████████████████▉| 9994/10000 [01:56<00:00, 90.29it/s]1.0
+100%|█████████████████████████████████████| 10000/10000 [01:57<00:00, 85.44it/s]
+test accuracy: 
+0.9877
+train_time_seconds: 117.202907
+{Conv kernel_size:[5, 3] stride:[4, 4] num_filters:24}
+{Conv kernel_size:[5, 3] stride:[1, 1] num_filters:64}
+{Conv kernel_size:[5, 7] stride:[1, 1] num_filters:36}
+{Conv kernel_size:[7, 3] stride:[3, 3] num_filters:24}
+{Conv kernel_size:[1, 7] stride:[3, 3] num_filters:36}
+{Conv kernel_size:[3, 5] stride:[1, 1] num_filters:64}
+{Conv kernel_size:[7, 5] stride:[2, 2] num_filters:24}
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0)
+WARNING:tensorflow:From /home/albert/git/network_architecture_search/network.py:99 in __init__.: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+Network Initialized
+ 10%|███▉                                   | 998/10000 [00:12<01:48, 82.92it/s]0.99
+ 20%|███████▌                              | 1999/10000 [00:25<01:43, 77.02it/s]0.99
+ 30%|███████████▎                          | 2993/10000 [00:38<01:28, 79.16it/s]1.0
+ 40%|███████████████▏                      | 3998/10000 [00:50<01:16, 78.15it/s]0.99
+ 50%|██████████████████▉                   | 4997/10000 [01:03<01:02, 79.64it/s]0.98
+ 60%|██████████████████████▊               | 5995/10000 [01:16<00:49, 81.42it/s]1.0
+ 70%|██████████████████████████▌           | 6991/10000 [01:29<00:37, 79.81it/s]1.0
+ 80%|██████████████████████████████▍       | 7995/10000 [01:42<00:26, 76.61it/s]1.0
+ 90%|██████████████████████████████████▏   | 8999/10000 [01:55<00:13, 73.88it/s]1.0
+100%|█████████████████████████████████████▉| 9999/10000 [02:07<00:00, 76.99it/s]1.0
+100%|█████████████████████████████████████| 10000/10000 [02:07<00:00, 78.14it/s]
+test accuracy: 
+0.9878
+train_time_seconds: 128.116676
+{Conv kernel_size:[5, 3] stride:[4, 4] num_filters:24}
+{Conv kernel_size:[5, 3] stride:[1, 1] num_filters:64}
+{Conv kernel_size:[5, 7] stride:[1, 1] num_filters:36}
+{Conv kernel_size:[7, 3] stride:[3, 3] num_filters:24}
+{Conv kernel_size:[1, 7] stride:[3, 3] num_filters:36}
+{Conv kernel_size:[3, 5] stride:[1, 1] num_filters:64}
+{Conv kernel_size:[7, 5] stride:[2, 2] num_filters:24}
+{Conv kernel_size:[5, 1] stride:[4, 4] num_filters:36}
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0)
+WARNING:tensorflow:From /home/albert/git/network_architecture_search/network.py:99 in __init__.: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+Network Initialized
+ 10%|███▊                                   | 992/10000 [00:14<02:02, 73.27it/s]0.91
+ 20%|███████▌                              | 1997/10000 [00:27<01:53, 70.75it/s]0.98
+ 30%|███████████▍                          | 2994/10000 [00:41<01:34, 73.93it/s]1.0
+ 40%|███████████████▏                      | 3993/10000 [00:55<01:28, 67.93it/s]0.99
+ 50%|██████████████████▉                   | 4995/10000 [01:09<01:12, 68.75it/s]1.0
+ 60%|██████████████████████▊               | 5991/10000 [01:22<00:54, 74.06it/s]0.99
+ 70%|██████████████████████████▌           | 6995/10000 [01:36<00:41, 72.82it/s]1.0
+ 80%|██████████████████████████████▍       | 7998/10000 [01:50<00:28, 70.14it/s]0.98
+ 90%|██████████████████████████████████▏   | 8992/10000 [02:03<00:13, 73.91it/s]1.0
+100%|█████████████████████████████████████▉| 9992/10000 [02:17<00:00, 67.82it/s]0.99
+100%|█████████████████████████████████████| 10000/10000 [02:17<00:00, 70.47it/s]
+test accuracy: 
+0.9875
+train_time_seconds: 137.87945
+{Conv kernel_size:[5, 3] stride:[4, 4] num_filters:24}
+{Conv kernel_size:[5, 3] stride:[1, 1] num_filters:64}
+{Conv kernel_size:[5, 7] stride:[1, 1] num_filters:36}
+{Conv kernel_size:[7, 3] stride:[3, 3] num_filters:24}
+{Conv kernel_size:[1, 7] stride:[3, 3] num_filters:36}
+{Conv kernel_size:[3, 5] stride:[1, 1] num_filters:64}
+{Conv kernel_size:[7, 5] stride:[2, 2] num_filters:24}
+{Conv kernel_size:[5, 1] stride:[4, 4] num_filters:36}
+{Conv kernel_size:[1, 5] stride:[2, 2] num_filters:64}
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0)
+WARNING:tensorflow:From /home/albert/git/network_architecture_search/network.py:99 in __init__.: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+Network Initialized
+ 10%|███▉                                   | 998/10000 [00:14<02:15, 66.38it/s]0.98
+ 20%|███████▌                              | 1996/10000 [00:29<01:59, 66.89it/s]0.98
+ 30%|███████████▍                          | 2998/10000 [00:44<01:49, 63.94it/s]1.0
+ 40%|███████████████▏                      | 3993/10000 [00:59<01:31, 65.57it/s]0.98
+ 50%|██████████████████▉                   | 4995/10000 [01:14<01:17, 64.33it/s]0.99
+ 60%|██████████████████████▊               | 5994/10000 [01:29<01:02, 63.90it/s]1.0
+ 70%|██████████████████████████▌           | 6999/10000 [01:44<00:45, 66.01it/s]0.99
+ 80%|██████████████████████████████▍       | 7998/10000 [01:59<00:29, 68.20it/s]0.97
+ 90%|██████████████████████████████████▏   | 8993/10000 [02:14<00:15, 64.87it/s]0.99
+100%|█████████████████████████████████████▉| 9996/10000 [02:29<00:00, 66.85it/s]0.99
+100%|█████████████████████████████████████| 10000/10000 [02:29<00:00, 67.08it/s]
+test accuracy: 
+0.9879
+train_time_seconds: 149.242598
+{Conv kernel_size:[5, 3] stride:[4, 4] num_filters:24}
+{Conv kernel_size:[5, 3] stride:[1, 1] num_filters:64}
+{Conv kernel_size:[5, 7] stride:[1, 1] num_filters:36}
+{Conv kernel_size:[7, 3] stride:[3, 3] num_filters:24}
+{Conv kernel_size:[1, 7] stride:[3, 3] num_filters:36}
+{Conv kernel_size:[3, 5] stride:[1, 1] num_filters:64}
+{Conv kernel_size:[7, 5] stride:[2, 2] num_filters:24}
+{Conv kernel_size:[5, 1] stride:[4, 4] num_filters:36}
+{Conv kernel_size:[1, 5] stride:[2, 2] num_filters:64}
+{Conv kernel_size:[5, 7] stride:[1, 1] num_filters:36}
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0)
+WARNING:tensorflow:From /home/albert/git/network_architecture_search/network.py:99 in __init__.: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+Network Initialized
+ 10%|███▉                                   | 997/10000 [00:16<02:34, 58.36it/s]0.96
+ 20%|███████▌                              | 1994/10000 [00:32<02:07, 62.61it/s]0.99
+ 30%|███████████▎                          | 2993/10000 [00:48<01:52, 62.35it/s]0.99
+ 40%|███████████████▏                      | 3997/10000 [01:04<01:28, 67.83it/s]0.98
+ 50%|██████████████████▉                   | 4996/10000 [01:20<01:18, 64.00it/s]1.0
+ 60%|██████████████████████▊               | 5996/10000 [01:36<00:59, 66.82it/s]0.99
+ 70%|██████████████████████████▌           | 6996/10000 [01:51<00:47, 63.37it/s]0.99
+ 80%|██████████████████████████████▍       | 7998/10000 [02:07<00:31, 63.87it/s]1.0
+ 90%|██████████████████████████████████▏   | 8999/10000 [02:23<00:15, 63.49it/s]1.0
+100%|█████████████████████████████████████▉| 9995/10000 [02:39<00:00, 63.30it/s]1.0
+100%|█████████████████████████████████████| 10000/10000 [02:39<00:00, 62.64it/s]
+test accuracy: 
+0.9871
+train_time_seconds: 159.818799
+episode: 3
+{Conv kernel_size:[5, 7] stride:[1, 1] num_filters:36}
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0)
+WARNING:tensorflow:From /home/albert/git/network_architecture_search/network.py:99 in __init__.: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+Network Initialized
+ 10%|███▊                                  | 995/10000 [00:09<01:27, 103.05it/s]0.98
+ 20%|███████▌                              | 1996/10000 [00:19<01:21, 97.85it/s]1.0
+ 30%|███████████                          | 2997/10000 [00:29<01:06, 104.71it/s]0.99
+ 40%|██████████████▊                      | 3998/10000 [00:39<00:58, 102.55it/s]0.98
+ 50%|██████████████████▍                  | 4999/10000 [00:49<00:48, 103.27it/s]0.99
+ 60%|██████████████████████▏              | 5989/10000 [00:58<00:38, 103.89it/s]1.0
+ 70%|█████████████████████████▊           | 6990/10000 [01:08<00:29, 102.41it/s]0.99
+ 80%|█████████████████████████████▌       | 7991/10000 [01:18<00:19, 104.47it/s]1.0
+ 90%|█████████████████████████████████▎   | 8992/10000 [01:28<00:09, 104.36it/s]1.0
+100%|████████████████████████████████████▉| 9992/10000 [01:37<00:00, 103.21it/s]0.99
+100%|████████████████████████████████████| 10000/10000 [01:38<00:00, 102.01it/s]
+test accuracy: 
+0.9864
+train_time_seconds: 98.232589
+{Conv kernel_size:[5, 7] stride:[1, 1] num_filters:36}
+{Conv kernel_size:[7, 3] stride:[1, 1] num_filters:48}
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0)
+WARNING:tensorflow:From /home/albert/git/network_architecture_search/network.py:99 in __init__.: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+Network Initialized
+ 10%|███▉                                   | 996/10000 [00:22<03:20, 44.80it/s]0.98
+ 20%|███████▌                              | 1996/10000 [00:45<02:56, 45.31it/s]1.0
+ 30%|███████████▍                          | 2996/10000 [01:07<02:38, 44.23it/s]1.0
+ 40%|███████████████▏                      | 3996/10000 [01:30<02:16, 44.08it/s]0.99
+ 50%|██████████████████▉                   | 4996/10000 [01:52<01:51, 45.08it/s]0.99
+ 60%|██████████████████████▊               | 5996/10000 [02:15<01:29, 44.58it/s]1.0
+ 70%|██████████████████████████▌           | 6996/10000 [02:37<01:07, 44.48it/s]1.0
+ 80%|██████████████████████████████▍       | 7996/10000 [03:00<00:45, 44.51it/s]0.99
+ 90%|██████████████████████████████████▏   | 8996/10000 [03:22<00:22, 43.90it/s]1.0
+100%|█████████████████████████████████████▉| 9996/10000 [03:45<00:00, 44.46it/s]0.99
+100%|█████████████████████████████████████| 10000/10000 [03:45<00:00, 44.37it/s]
+test accuracy: 
+0.9898
+train_time_seconds: 226.125865
+{Conv kernel_size:[5, 7] stride:[1, 1] num_filters:36}
+{Conv kernel_size:[7, 3] stride:[1, 1] num_filters:48}
+{Conv kernel_size:[7, 3] stride:[3, 3] num_filters:24}
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0)
+WARNING:tensorflow:From /home/albert/git/network_architecture_search/network.py:99 in __init__.: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+Network Initialized
+ 10%|███▉                                   | 997/10000 [00:22<03:20, 44.83it/s]0.98
+ 20%|███████▌                              | 1997/10000 [00:44<02:58, 44.94it/s]0.98
+ 30%|███████████▍                          | 2997/10000 [01:07<02:35, 44.95it/s]0.99
+ 40%|███████████████▏                      | 3997/10000 [01:29<02:17, 43.78it/s]0.99
+ 50%|██████████████████▉                   | 4997/10000 [01:52<01:51, 44.96it/s]1.0
+ 60%|██████████████████████▊               | 5997/10000 [02:14<01:30, 44.42it/s]0.99
+ 70%|██████████████████████████▌           | 6997/10000 [02:37<01:07, 44.38it/s]1.0
+ 80%|██████████████████████████████▍       | 7997/10000 [02:59<00:45, 44.31it/s]1.0
+ 90%|██████████████████████████████████▏   | 8997/10000 [03:22<00:22, 44.49it/s]1.0
+100%|█████████████████████████████████████▉| 9997/10000 [03:44<00:00, 44.80it/s]1.0
+100%|█████████████████████████████████████| 10000/10000 [03:44<00:00, 44.50it/s]
+test accuracy: 
+0.9911
+train_time_seconds: 225.281325
+{Conv kernel_size:[5, 7] stride:[1, 1] num_filters:36}
+{Conv kernel_size:[7, 3] stride:[1, 1] num_filters:48}
+{Conv kernel_size:[7, 3] stride:[3, 3] num_filters:24}
+{Conv kernel_size:[5, 1] stride:[2, 2] num_filters:64}
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0)
+WARNING:tensorflow:From /home/albert/git/network_architecture_search/network.py:99 in __init__.: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+Network Initialized
+ 10%|███▉                                   | 997/10000 [00:23<03:35, 41.86it/s]0.98
+ 20%|███████▌                              | 1997/10000 [00:47<03:09, 42.21it/s]1.0
+ 30%|███████████▍                          | 2996/10000 [01:11<02:44, 42.45it/s]0.98
+ 40%|███████████████▏                      | 3996/10000 [01:35<02:26, 41.10it/s]1.0
+ 50%|██████████████████▉                   | 4996/10000 [01:59<01:57, 42.41it/s]0.99
+ 60%|██████████████████████▊               | 5996/10000 [02:23<01:36, 41.60it/s]1.0
+ 70%|██████████████████████████▌           | 6995/10000 [02:47<01:12, 41.52it/s]1.0
+ 80%|██████████████████████████████▍       | 7995/10000 [03:10<00:47, 42.21it/s]1.0
+ 90%|██████████████████████████████████▏   | 8995/10000 [03:34<00:24, 41.07it/s]1.0
+100%|█████████████████████████████████████▉| 9999/10000 [03:59<00:00, 42.40it/s]1.0
+100%|█████████████████████████████████████| 10000/10000 [03:59<00:00, 41.84it/s]
+test accuracy: 
+0.9921
+train_time_seconds: 239.618684
+{Conv kernel_size:[5, 7] stride:[1, 1] num_filters:36}
+{Conv kernel_size:[7, 3] stride:[1, 1] num_filters:48}
+{Conv kernel_size:[7, 3] stride:[3, 3] num_filters:24}
+{Conv kernel_size:[5, 1] stride:[2, 2] num_filters:64}
+{Conv kernel_size:[7, 1] stride:[2, 2] num_filters:48}
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0)
+WARNING:tensorflow:From /home/albert/git/network_architecture_search/network.py:99 in __init__.: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+Network Initialized
+ 10%|███▉                                   | 998/10000 [00:25<03:44, 40.01it/s]0.99
+ 20%|███████▌                              | 1999/10000 [00:50<03:19, 40.13it/s]1.0
+ 30%|███████████▍                          | 2999/10000 [01:15<02:58, 39.31it/s]0.97
+ 40%|███████████████▏                      | 3995/10000 [01:41<02:29, 40.14it/s]0.99
+ 50%|██████████████████▉                   | 4995/10000 [02:06<02:05, 39.79it/s]1.0
+ 60%|██████████████████████▊               | 5997/10000 [02:31<01:43, 38.55it/s]1.0
+ 70%|██████████████████████████▌           | 6999/10000 [02:57<01:13, 40.80it/s]0.99
+ 80%|██████████████████████████████▍       | 7998/10000 [03:22<00:49, 40.22it/s]1.0
+ 90%|██████████████████████████████████▏   | 8998/10000 [03:47<00:25, 38.74it/s]0.99
+100%|█████████████████████████████████████▉| 9996/10000 [04:12<00:00, 40.26it/s]1.0
+100%|█████████████████████████████████████| 10000/10000 [04:12<00:00, 39.54it/s]
+test accuracy: 
+0.988
+train_time_seconds: 253.498891
+{Conv kernel_size:[5, 7] stride:[1, 1] num_filters:36}
+{Conv kernel_size:[7, 3] stride:[1, 1] num_filters:48}
+{Conv kernel_size:[7, 3] stride:[3, 3] num_filters:24}
+{Conv kernel_size:[5, 1] stride:[2, 2] num_filters:64}
+{Conv kernel_size:[7, 1] stride:[2, 2] num_filters:48}
+{Conv kernel_size:[3, 7] stride:[3, 3] num_filters:24}
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0)
+WARNING:tensorflow:From /home/albert/git/network_architecture_search/network.py:99 in __init__.: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+Network Initialized
+ 10%|███▉                                   | 996/10000 [00:26<03:59, 37.57it/s]0.98
+ 20%|███████▌                              | 1998/10000 [00:52<03:31, 37.89it/s]1.0
+ 30%|███████████▍                          | 2999/10000 [01:19<03:07, 37.37it/s]0.98
+ 40%|███████████████▏                      | 3996/10000 [01:45<02:40, 37.37it/s]0.99
+ 50%|██████████████████▉                   | 4997/10000 [02:11<02:10, 38.40it/s]1.0
+ 60%|██████████████████████▊               | 5997/10000 [02:38<01:45, 38.10it/s]1.0
+ 70%|██████████████████████████▌           | 6997/10000 [03:04<01:17, 38.71it/s]1.0
+ 80%|██████████████████████████████▍       | 7996/10000 [03:31<00:54, 36.59it/s]1.0
+ 90%|██████████████████████████████████▏   | 8997/10000 [03:57<00:26, 37.73it/s]1.0
+100%|█████████████████████████████████████▉| 9996/10000 [04:23<00:00, 37.54it/s]1.0
+100%|█████████████████████████████████████| 10000/10000 [04:24<00:00, 37.02it/s]
+test accuracy: 
+0.9885
+train_time_seconds: 264.66642
+{Conv kernel_size:[5, 7] stride:[1, 1] num_filters:36}
+{Conv kernel_size:[7, 3] stride:[1, 1] num_filters:48}
+{Conv kernel_size:[7, 3] stride:[3, 3] num_filters:24}
+{Conv kernel_size:[5, 1] stride:[2, 2] num_filters:64}
+{Conv kernel_size:[7, 1] stride:[2, 2] num_filters:48}
+{Conv kernel_size:[3, 7] stride:[3, 3] num_filters:24}
+{Conv kernel_size:[1, 3] stride:[3, 3] num_filters:64}
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0)
+WARNING:tensorflow:From /home/albert/git/network_architecture_search/network.py:99 in __init__.: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+Network Initialized
+ 10%|███▉                                   | 998/10000 [00:27<04:19, 34.67it/s]0.96
+ 20%|███████▌                              | 1999/10000 [00:55<03:33, 37.48it/s]0.99
+ 30%|███████████▍                          | 2997/10000 [01:23<03:17, 35.43it/s]1.0
+ 40%|███████████████▏                      | 3999/10000 [01:51<02:45, 36.35it/s]1.0
+ 50%|██████████████████▉                   | 4998/10000 [02:18<02:19, 35.98it/s]0.97
+ 60%|██████████████████████▊               | 5999/10000 [02:46<01:50, 36.21it/s]0.99
+ 70%|██████████████████████████▌           | 6999/10000 [03:14<01:23, 35.79it/s]1.0
+ 80%|██████████████████████████████▍       | 7997/10000 [03:42<00:57, 34.70it/s]1.0
+ 90%|██████████████████████████████████▏   | 8999/10000 [04:10<00:27, 36.27it/s]1.0
+100%|█████████████████████████████████████▉| 9996/10000 [04:37<00:00, 36.49it/s]1.0
+100%|█████████████████████████████████████| 10000/10000 [04:37<00:00, 36.52it/s]
+test accuracy: 
+0.9892
+train_time_seconds: 278.398681
+{Conv kernel_size:[5, 7] stride:[1, 1] num_filters:36}
+{Conv kernel_size:[7, 3] stride:[1, 1] num_filters:48}
+{Conv kernel_size:[7, 3] stride:[3, 3] num_filters:24}
+{Conv kernel_size:[5, 1] stride:[2, 2] num_filters:64}
+{Conv kernel_size:[7, 1] stride:[2, 2] num_filters:48}
+{Conv kernel_size:[3, 7] stride:[3, 3] num_filters:24}
+{Conv kernel_size:[1, 3] stride:[3, 3] num_filters:64}
+{Conv kernel_size:[5, 1] stride:[4, 4] num_filters:36}
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0)
+WARNING:tensorflow:From /home/albert/git/network_architecture_search/network.py:99 in __init__.: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+Network Initialized
+ 10%|███▉                                   | 997/10000 [00:29<04:09, 36.05it/s]1.0
+ 20%|███████▌                              | 1997/10000 [00:58<03:54, 34.10it/s]1.0
+ 30%|███████████▍                          | 2997/10000 [01:27<03:27, 33.77it/s]1.0
+ 40%|███████████████▏                      | 3997/10000 [01:57<02:58, 33.70it/s]0.98
+ 50%|██████████████████▉                   | 4997/10000 [02:26<02:30, 33.30it/s]1.0
+ 60%|██████████████████████▊               | 5997/10000 [02:56<01:55, 34.67it/s]0.99
+ 70%|██████████████████████████▌           | 6997/10000 [03:25<01:24, 35.55it/s]1.0
+ 80%|██████████████████████████████▍       | 7997/10000 [03:54<00:59, 33.39it/s]1.0
+ 90%|██████████████████████████████████▏   | 8997/10000 [04:23<00:29, 34.23it/s]1.0
+100%|█████████████████████████████████████▉| 9997/10000 [04:53<00:00, 33.90it/s]1.0
+100%|█████████████████████████████████████| 10000/10000 [04:53<00:00, 34.10it/s]
+test accuracy: 
+0.9886
+train_time_seconds: 293.839198
+{Conv kernel_size:[5, 7] stride:[1, 1] num_filters:36}
+{Conv kernel_size:[7, 3] stride:[1, 1] num_filters:48}
+{Conv kernel_size:[7, 3] stride:[3, 3] num_filters:24}
+{Conv kernel_size:[5, 1] stride:[2, 2] num_filters:64}
+{Conv kernel_size:[7, 1] stride:[2, 2] num_filters:48}
+{Conv kernel_size:[3, 7] stride:[3, 3] num_filters:24}
+{Conv kernel_size:[1, 3] stride:[3, 3] num_filters:64}
+{Conv kernel_size:[5, 1] stride:[4, 4] num_filters:36}
+{Conv kernel_size:[1, 3] stride:[4, 4] num_filters:48}
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0)
+WARNING:tensorflow:From /home/albert/git/network_architecture_search/network.py:99 in __init__.: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+Network Initialized
+ 10%|███▉                                   | 998/10000 [00:30<04:42, 31.85it/s]0.98
+ 20%|███████▌                              | 1998/10000 [01:01<04:04, 32.69it/s]0.97
+ 30%|███████████▍                          | 2997/10000 [01:31<03:23, 34.40it/s]0.99
+ 40%|███████████████▏                      | 3997/10000 [02:02<03:01, 33.05it/s]0.99
+ 50%|██████████████████▉                   | 4997/10000 [02:32<02:30, 33.17it/s]1.0
+ 60%|██████████████████████▊               | 5997/10000 [03:02<01:57, 34.03it/s]1.0
+ 70%|██████████████████████████▌           | 6997/10000 [03:33<01:33, 31.96it/s]0.98
+ 80%|██████████████████████████████▍       | 7997/10000 [04:03<00:59, 33.72it/s]1.0
+ 90%|██████████████████████████████████▏   | 8997/10000 [04:34<00:30, 32.81it/s]1.0
+100%|█████████████████████████████████████▉| 9997/10000 [05:04<00:00, 31.52it/s]0.99
+100%|█████████████████████████████████████| 10000/10000 [05:04<00:00, 32.80it/s]
+test accuracy: 
+0.9893
+train_time_seconds: 305.557744
+{Conv kernel_size:[5, 7] stride:[1, 1] num_filters:36}
+{Conv kernel_size:[7, 3] stride:[1, 1] num_filters:48}
+{Conv kernel_size:[7, 3] stride:[3, 3] num_filters:24}
+{Conv kernel_size:[5, 1] stride:[2, 2] num_filters:64}
+{Conv kernel_size:[7, 1] stride:[2, 2] num_filters:48}
+{Conv kernel_size:[3, 7] stride:[3, 3] num_filters:24}
+{Conv kernel_size:[1, 3] stride:[3, 3] num_filters:64}
+{Conv kernel_size:[5, 1] stride:[4, 4] num_filters:36}
+{Conv kernel_size:[1, 3] stride:[4, 4] num_filters:48}
+{Conv kernel_size:[1, 5] stride:[2, 2] num_filters:64}
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0)
+WARNING:tensorflow:From /home/albert/git/network_architecture_search/network.py:99 in __init__.: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+Network Initialized
+ 10%|███▉                                   | 999/10000 [00:31<04:39, 32.17it/s]0.97
+ 20%|███████▌                              | 1998/10000 [01:03<04:12, 31.71it/s]1.0
+ 30%|███████████▍                          | 2997/10000 [01:34<03:32, 32.98it/s]0.97
+ 40%|███████████████▏                      | 3996/10000 [02:06<03:14, 30.89it/s]1.0
+ 50%|██████████████████▉                   | 4997/10000 [02:38<02:42, 30.82it/s]1.0
+ 60%|██████████████████████▊               | 5999/10000 [03:10<02:03, 32.39it/s]0.98
+ 70%|██████████████████████████▌           | 6997/10000 [03:42<01:35, 31.58it/s]1.0
+ 80%|██████████████████████████████▍       | 7997/10000 [04:13<01:00, 33.31it/s]0.99
+ 90%|██████████████████████████████████▏   | 8996/10000 [04:45<00:31, 31.93it/s]0.99
+100%|█████████████████████████████████████▉| 9996/10000 [05:17<00:00, 31.70it/s]1.0
+100%|█████████████████████████████████████| 10000/10000 [05:17<00:00, 32.16it/s]
+test accuracy: 
+0.9879
+train_time_seconds: 317.97763
+episode: 4
+{Conv kernel_size:[5, 3] stride:[1, 1] num_filters:64}
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0)
+WARNING:tensorflow:From /home/albert/git/network_architecture_search/network.py:99 in __init__.: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+Network Initialized
+ 10%|███▉                                   | 996/10000 [00:14<02:14, 66.88it/s]0.97
+ 20%|███████▌                              | 1993/10000 [00:29<01:56, 68.85it/s]0.97
+ 30%|███████████▍                          | 2996/10000 [00:44<01:42, 68.54it/s]1.0
+ 40%|███████████████▏                      | 3993/10000 [00:58<01:27, 68.91it/s]0.99
+ 50%|██████████████████▉                   | 4995/10000 [01:13<01:13, 68.08it/s]0.99
+ 60%|██████████████████████▊               | 5994/10000 [01:28<00:58, 68.59it/s]0.99
+ 70%|██████████████████████████▌           | 6997/10000 [01:42<00:44, 68.04it/s]1.0
+ 80%|██████████████████████████████▍       | 7998/10000 [01:57<00:29, 68.15it/s]1.0
+ 90%|██████████████████████████████████▏   | 8997/10000 [02:12<00:14, 68.57it/s]1.0
+100%|█████████████████████████████████████▉| 9993/10000 [02:27<00:00, 68.60it/s]1.0
+100%|█████████████████████████████████████| 10000/10000 [02:27<00:00, 68.82it/s]
+test accuracy: 
+0.9782
+train_time_seconds: 147.605941
+{Conv kernel_size:[5, 3] stride:[1, 1] num_filters:64}
+{Conv kernel_size:[3, 5] stride:[4, 4] num_filters:24}
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0)
+WARNING:tensorflow:From /home/albert/git/network_architecture_search/network.py:99 in __init__.: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+Network Initialized
+ 10%|███▊                                   | 993/10000 [00:14<02:07, 70.59it/s]0.99
+ 20%|███████▌                              | 1992/10000 [00:28<01:54, 69.82it/s]0.98
+ 30%|███████████▍                          | 2998/10000 [00:42<01:39, 70.20it/s]0.99
+ 40%|███████████████▏                      | 3994/10000 [00:57<01:26, 69.82it/s]1.0
+ 50%|██████████████████▉                   | 4996/10000 [01:11<01:12, 68.91it/s]0.99
+ 60%|██████████████████████▊               | 5999/10000 [01:25<00:56, 70.39it/s]1.0
+ 70%|██████████████████████████▌           | 6996/10000 [01:40<00:43, 69.72it/s]1.0
+ 80%|██████████████████████████████▎       | 7992/10000 [01:54<00:28, 70.08it/s]0.99
+ 90%|██████████████████████████████████▏   | 8999/10000 [02:08<00:14, 68.99it/s]1.0
+100%|█████████████████████████████████████▉| 9997/10000 [02:22<00:00, 70.89it/s]1.0
+100%|█████████████████████████████████████| 10000/10000 [02:23<00:00, 69.93it/s]
+test accuracy: 
+0.9862
+train_time_seconds: 143.384828
+{Conv kernel_size:[5, 3] stride:[1, 1] num_filters:64}
+{Conv kernel_size:[3, 5] stride:[4, 4] num_filters:24}
+{Conv kernel_size:[1, 3] stride:[3, 3] num_filters:64}
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0)
+WARNING:tensorflow:From /home/albert/git/network_architecture_search/network.py:99 in __init__.: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+Network Initialized
+ 10%|███▉                                   | 997/10000 [00:15<02:20, 64.18it/s]0.96
+ 20%|███████▌                              | 1999/10000 [00:31<02:09, 61.83it/s]0.99
+ 30%|███████████▎                          | 2993/10000 [00:47<01:54, 60.98it/s]0.94
+ 40%|███████████████▏                      | 3994/10000 [01:03<01:31, 65.68it/s]0.99
+ 50%|██████████████████▉                   | 4995/10000 [01:19<01:18, 63.83it/s]0.98
+ 60%|██████████████████████▊               | 5996/10000 [01:35<01:01, 64.71it/s]0.98
+ 70%|██████████████████████████▌           | 6997/10000 [01:50<00:46, 64.98it/s]0.99
+ 80%|██████████████████████████████▍       | 7998/10000 [02:06<00:32, 62.06it/s]0.96
+ 90%|██████████████████████████████████▏   | 8999/10000 [02:22<00:16, 62.39it/s]1.0
+100%|█████████████████████████████████████▉| 9994/10000 [02:38<00:00, 63.33it/s]1.0
+100%|█████████████████████████████████████| 10000/10000 [02:38<00:00, 63.07it/s]
+test accuracy: 
+0.9633
+train_time_seconds: 158.93365
+{Conv kernel_size:[5, 3] stride:[1, 1] num_filters:64}
+{Conv kernel_size:[3, 5] stride:[4, 4] num_filters:24}
+{Conv kernel_size:[1, 3] stride:[3, 3] num_filters:64}
+{Conv kernel_size:[1, 7] stride:[2, 2] num_filters:48}
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0)
+WARNING:tensorflow:From /home/albert/git/network_architecture_search/network.py:99 in __init__.: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+Network Initialized
+ 10%|███▊                                   | 993/10000 [00:17<02:37, 57.14it/s]0.57
+ 20%|███████▌                              | 1993/10000 [00:34<02:12, 60.32it/s]0.66
+ 30%|███████████▍                          | 2996/10000 [00:51<01:58, 58.95it/s]0.7
+ 40%|███████████████▏                      | 3997/10000 [01:08<01:43, 57.72it/s]0.7
+ 50%|██████████████████▉                   | 4994/10000 [01:25<01:24, 59.30it/s]0.63
+ 60%|██████████████████████▊               | 5995/10000 [01:42<01:06, 60.08it/s]0.73
+ 70%|██████████████████████████▌           | 6998/10000 [01:59<00:50, 59.03it/s]0.75
+ 80%|██████████████████████████████▍       | 7995/10000 [02:16<00:33, 60.31it/s]0.66
+ 90%|██████████████████████████████████▏   | 8993/10000 [02:34<00:16, 60.49it/s]0.74
+100%|█████████████████████████████████████▉| 9995/10000 [02:51<00:00, 59.19it/s]0.66
+100%|█████████████████████████████████████| 10000/10000 [02:51<00:00, 58.41it/s]
+test accuracy: 
+0.6651
+train_time_seconds: 171.587136
+{Conv kernel_size:[5, 3] stride:[1, 1] num_filters:64}
+{Conv kernel_size:[3, 5] stride:[4, 4] num_filters:24}
+{Conv kernel_size:[1, 3] stride:[3, 3] num_filters:64}
+{Conv kernel_size:[1, 7] stride:[2, 2] num_filters:48}
+{Conv kernel_size:[7, 1] stride:[2, 2] num_filters:48}
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0)
+WARNING:tensorflow:From /home/albert/git/network_architecture_search/network.py:99 in __init__.: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+Network Initialized
+ 10%|███▉                                   | 998/10000 [00:18<02:43, 54.99it/s]0.7
+ 20%|███████▌                              | 1996/10000 [00:36<02:27, 54.11it/s]0.62
+ 30%|███████████▍                          | 2994/10000 [00:55<02:06, 55.59it/s]0.71
+ 40%|███████████████▏                      | 3996/10000 [01:13<01:51, 53.98it/s]0.68
+ 50%|██████████████████▉                   | 4995/10000 [01:32<01:34, 52.77it/s]0.75
+ 60%|██████████████████████▊               | 5995/10000 [01:50<01:11, 55.84it/s]0.6
+ 70%|██████████████████████████▌           | 6996/10000 [02:09<00:56, 53.24it/s]0.71
+ 80%|██████████████████████████████▍       | 7999/10000 [02:27<00:37, 52.78it/s]0.61
+ 90%|██████████████████████████████████▏   | 8994/10000 [02:46<00:17, 56.59it/s]0.7
+100%|█████████████████████████████████████▉| 9994/10000 [03:04<00:00, 54.50it/s]0.67
+100%|█████████████████████████████████████| 10000/10000 [03:04<00:00, 54.11it/s]
+test accuracy: 
+0.6738
+train_time_seconds: 185.207928
+{Conv kernel_size:[5, 3] stride:[1, 1] num_filters:64}
+{Conv kernel_size:[3, 5] stride:[4, 4] num_filters:24}
+{Conv kernel_size:[1, 3] stride:[3, 3] num_filters:64}
+{Conv kernel_size:[1, 7] stride:[2, 2] num_filters:48}
+{Conv kernel_size:[7, 1] stride:[2, 2] num_filters:48}
+{Conv kernel_size:[5, 3] stride:[1, 1] num_filters:64}
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0)
+WARNING:tensorflow:From /home/albert/git/network_architecture_search/network.py:99 in __init__.: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+Network Initialized
+ 10%|███▉                                   | 996/10000 [00:19<02:48, 53.48it/s]0.65
+ 20%|███████▌                              | 1997/10000 [00:39<02:35, 51.54it/s]0.73
+ 30%|███████████▍                          | 2998/10000 [00:59<02:13, 52.27it/s]0.64
+ 40%|███████████████▏                      | 3998/10000 [01:19<01:57, 51.16it/s]0.72
+ 50%|██████████████████▉                   | 4996/10000 [01:39<01:35, 52.23it/s]0.7
+ 60%|██████████████████████▊               | 5996/10000 [01:59<01:23, 48.02it/s]0.67
+ 70%|██████████████████████████▌           | 6994/10000 [02:19<00:57, 52.39it/s]0.59
+ 80%|██████████████████████████████▍       | 7994/10000 [02:38<00:38, 51.47it/s]0.73
+ 90%|██████████████████████████████████▏   | 8997/10000 [02:58<00:20, 49.19it/s]0.78
+100%|█████████████████████████████████████▉| 9994/10000 [03:18<00:00, 54.15it/s]0.65
+100%|█████████████████████████████████████| 10000/10000 [03:18<00:00, 54.24it/s]
+test accuracy: 
+0.6754
+train_time_seconds: 199.125523
+{Conv kernel_size:[5, 3] stride:[1, 1] num_filters:64}
+{Conv kernel_size:[3, 5] stride:[4, 4] num_filters:24}
+{Conv kernel_size:[1, 3] stride:[3, 3] num_filters:64}
+{Conv kernel_size:[1, 7] stride:[2, 2] num_filters:48}
+{Conv kernel_size:[7, 1] stride:[2, 2] num_filters:48}
+{Conv kernel_size:[5, 3] stride:[1, 1] num_filters:64}
+{Conv kernel_size:[5, 1] stride:[2, 2] num_filters:64}
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0)
+WARNING:tensorflow:From /home/albert/git/network_architecture_search/network.py:99 in __init__.: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+Network Initialized
+ 10%|███▉                                   | 998/10000 [00:21<03:11, 46.89it/s]0.64
+ 20%|███████▌                              | 1999/10000 [00:42<02:48, 47.62it/s]0.77
+ 30%|███████████▍                          | 2997/10000 [01:03<02:39, 43.87it/s]0.64
+ 40%|███████████████▏                      | 3995/10000 [01:25<02:07, 47.24it/s]0.65
+ 50%|██████████████████▉                   | 4995/10000 [01:46<01:47, 46.35it/s]0.71
+ 60%|██████████████████████▊               | 5997/10000 [02:07<01:24, 47.50it/s]0.63
+ 70%|██████████████████████████▌           | 6996/10000 [02:28<01:05, 45.66it/s]0.74
+ 80%|██████████████████████████████▍       | 7998/10000 [02:50<00:42, 47.16it/s]0.64
+ 90%|██████████████████████████████████▏   | 8999/10000 [03:11<00:20, 48.61it/s]0.79
+100%|█████████████████████████████████████▉| 9998/10000 [03:32<00:00, 46.77it/s]0.72
+100%|█████████████████████████████████████| 10000/10000 [03:33<00:00, 46.95it/s]
+test accuracy: 
+0.6751
+train_time_seconds: 213.410768
+{Conv kernel_size:[5, 3] stride:[1, 1] num_filters:64}
+{Conv kernel_size:[3, 5] stride:[4, 4] num_filters:24}
+{Conv kernel_size:[1, 3] stride:[3, 3] num_filters:64}
+{Conv kernel_size:[1, 7] stride:[2, 2] num_filters:48}
+{Conv kernel_size:[7, 1] stride:[2, 2] num_filters:48}
+{Conv kernel_size:[5, 3] stride:[1, 1] num_filters:64}
+{Conv kernel_size:[5, 1] stride:[2, 2] num_filters:64}
+{Conv kernel_size:[3, 1] stride:[4, 4] num_filters:48}
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0)
+WARNING:tensorflow:From /home/albert/git/network_architecture_search/network.py:99 in __init__.: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+Network Initialized
+ 10%|███▉                                   | 996/10000 [00:21<03:13, 46.43it/s]0.65
+ 20%|███████▌                              | 1995/10000 [00:44<02:49, 47.25it/s]0.67
+ 30%|███████████▍                          | 2998/10000 [01:05<02:25, 48.11it/s]0.72
+ 40%|███████████████▏                      | 3997/10000 [01:27<02:08, 46.72it/s]0.72
+ 50%|██████████████████▉                   | 4998/10000 [01:49<01:49, 45.80it/s]0.72
+ 60%|██████████████████████▊               | 5998/10000 [02:11<01:26, 46.40it/s]0.72
+ 70%|██████████████████████████▌           | 6997/10000 [02:33<01:06, 45.44it/s]0.69
+ 80%|██████████████████████████████▍       | 7996/10000 [02:55<00:44, 45.32it/s]0.66
+ 90%|██████████████████████████████████▏   | 8997/10000 [03:17<00:21, 46.12it/s]0.71
+100%|█████████████████████████████████████▉| 9996/10000 [03:38<00:00, 45.93it/s]0.73
+100%|█████████████████████████████████████| 10000/10000 [03:39<00:00, 45.65it/s]
+test accuracy: 
+0.6734
+train_time_seconds: 219.484326
+{Conv kernel_size:[5, 3] stride:[1, 1] num_filters:64}
+{Conv kernel_size:[3, 5] stride:[4, 4] num_filters:24}
+{Conv kernel_size:[1, 3] stride:[3, 3] num_filters:64}
+{Conv kernel_size:[1, 7] stride:[2, 2] num_filters:48}
+{Conv kernel_size:[7, 1] stride:[2, 2] num_filters:48}
+{Conv kernel_size:[5, 3] stride:[1, 1] num_filters:64}
+{Conv kernel_size:[5, 1] stride:[2, 2] num_filters:64}
+{Conv kernel_size:[3, 1] stride:[4, 4] num_filters:48}
+{Conv kernel_size:[5, 1] stride:[2, 2] num_filters:64}
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0)
+WARNING:tensorflow:From /home/albert/git/network_architecture_search/network.py:99 in __init__.: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+Network Initialized
+ 10%|███▉                                   | 996/10000 [00:23<03:25, 43.72it/s]0.66
+ 20%|███████▌                              | 1998/10000 [00:46<03:08, 42.47it/s]0.7
+ 30%|███████████▍                          | 2998/10000 [01:09<02:33, 45.62it/s]0.64
+ 40%|███████████████▏                      | 3998/10000 [01:32<02:20, 42.86it/s]0.78
+ 50%|██████████████████▉                   | 4997/10000 [01:55<01:57, 42.59it/s]0.68
+ 60%|██████████████████████▊               | 5998/10000 [02:18<01:32, 43.14it/s]0.7
+ 70%|██████████████████████████▌           | 6998/10000 [02:42<01:10, 42.34it/s]0.61
+ 80%|██████████████████████████████▍       | 7997/10000 [03:05<00:45, 43.58it/s]0.65
+ 90%|██████████████████████████████████▏   | 8995/10000 [03:28<00:23, 42.96it/s]0.65
+100%|█████████████████████████████████████▉| 9995/10000 [03:51<00:00, 43.30it/s]0.62
+100%|█████████████████████████████████████| 10000/10000 [03:51<00:00, 44.09it/s]
+test accuracy: 
+0.6741
+train_time_seconds: 232.0616
+{Conv kernel_size:[5, 3] stride:[1, 1] num_filters:64}
+{Conv kernel_size:[3, 5] stride:[4, 4] num_filters:24}
+{Conv kernel_size:[1, 3] stride:[3, 3] num_filters:64}
+{Conv kernel_size:[1, 7] stride:[2, 2] num_filters:48}
+{Conv kernel_size:[7, 1] stride:[2, 2] num_filters:48}
+{Conv kernel_size:[5, 3] stride:[1, 1] num_filters:64}
+{Conv kernel_size:[5, 1] stride:[2, 2] num_filters:64}
+{Conv kernel_size:[3, 1] stride:[4, 4] num_filters:48}
+{Conv kernel_size:[5, 1] stride:[2, 2] num_filters:64}
+{Conv kernel_size:[3, 1] stride:[4, 4] num_filters:48}
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0)
+WARNING:tensorflow:From /home/albert/git/network_architecture_search/network.py:99 in __init__.: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+Network Initialized
+ 10%|███▉                                   | 996/10000 [00:24<03:33, 42.15it/s]0.55
+ 20%|███████▌                              | 1997/10000 [00:48<03:06, 42.95it/s]0.71
+ 30%|███████████▍                          | 2998/10000 [01:12<02:51, 40.78it/s]0.71
+ 40%|███████████████▏                      | 3997/10000 [01:37<02:24, 41.48it/s]0.67
+ 50%|██████████████████▉                   | 4998/10000 [02:01<02:06, 39.60it/s]0.69
+ 60%|██████████████████████▊               | 5997/10000 [02:25<01:32, 43.46it/s]0.63
+ 70%|██████████████████████████▌           | 6997/10000 [02:49<01:11, 41.97it/s]0.66
+ 80%|██████████████████████████████▍       | 7999/10000 [03:13<00:47, 42.07it/s]0.72
+ 90%|██████████████████████████████████▏   | 8995/10000 [03:37<00:23, 42.94it/s]0.73
+100%|█████████████████████████████████████▉| 9999/10000 [04:02<00:00, 38.74it/s]0.64
+100%|█████████████████████████████████████| 10000/10000 [04:02<00:00, 41.27it/s]
+test accuracy: 
+0.6716
+train_time_seconds: 242.722765
+episode: 5
+{Conv kernel_size:[7, 5] stride:[2, 2] num_filters:24}
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0)
+WARNING:tensorflow:From /home/albert/git/network_architecture_search/network.py:99 in __init__.: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+Network Initialized
+ 10%|███▊                                  | 988/10000 [00:04<00:36, 249.18it/s]0.96
+ 20%|███████▎                             | 1978/10000 [00:08<00:32, 246.69it/s]1.0
+ 30%|███████████                          | 2992/10000 [00:12<00:28, 244.83it/s]0.99
+ 40%|██████████████▊                      | 3999/10000 [00:16<00:25, 237.88it/s]1.0
+ 50%|██████████████████▍                  | 4989/10000 [00:20<00:21, 231.72it/s]0.98
+ 60%|██████████████████████               | 5976/10000 [00:24<00:16, 246.91it/s]0.99
+ 70%|█████████████████████████▉           | 6995/10000 [00:29<00:12, 248.71it/s]0.98
+ 80%|█████████████████████████████▌       | 7978/10000 [00:33<00:08, 240.99it/s]0.99
+ 90%|█████████████████████████████████▏   | 8979/10000 [00:37<00:04, 237.00it/s]1.0
+100%|████████████████████████████████████▉| 9992/10000 [00:41<00:00, 235.58it/s]1.0
+100%|████████████████████████████████████| 10000/10000 [00:41<00:00, 238.90it/s]
+test accuracy: 
+0.9834
+train_time_seconds: 41.930745
+{Conv kernel_size:[7, 5] stride:[2, 2] num_filters:24}
+{Conv kernel_size:[3, 7] stride:[1, 1] num_filters:48}
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0)
+WARNING:tensorflow:From /home/albert/git/network_architecture_search/network.py:99 in __init__.: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+Network Initialized
+ 10%|███▊                                  | 997/10000 [00:07<01:11, 125.44it/s]0.99
+ 20%|███████▎                             | 1991/10000 [00:15<01:01, 130.39it/s]0.98
+ 30%|███████████                          | 2998/10000 [00:22<00:52, 134.39it/s]1.0
+ 40%|██████████████▊                      | 3996/10000 [00:30<00:45, 133.12it/s]1.0
+ 50%|██████████████████▍                  | 4992/10000 [00:38<00:37, 135.33it/s]0.99
+ 60%|██████████████████████▏              | 5986/10000 [00:45<00:31, 129.30it/s]1.0
+ 70%|█████████████████████████▉           | 6995/10000 [00:53<00:22, 132.27it/s]1.0
+ 80%|█████████████████████████████▌       | 7986/10000 [01:00<00:15, 133.71it/s]1.0
+ 90%|█████████████████████████████████▎   | 8994/10000 [01:08<00:07, 134.19it/s]1.0
+100%|████████████████████████████████████▉| 9990/10000 [01:16<00:00, 132.98it/s]1.0
+100%|████████████████████████████████████| 10000/10000 [01:16<00:00, 130.92it/s]
+test accuracy: 
+0.9914
+train_time_seconds: 76.578318
+{Conv kernel_size:[7, 5] stride:[2, 2] num_filters:24}
+{Conv kernel_size:[3, 7] stride:[1, 1] num_filters:48}
+{Conv kernel_size:[7, 5] stride:[1, 1] num_filters:36}
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0)
+WARNING:tensorflow:From /home/albert/git/network_architecture_search/network.py:99 in __init__.: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+Network Initialized
+ 10%|███▉                                   | 994/10000 [00:12<01:48, 82.89it/s]1.0
+ 20%|███████▌                              | 1992/10000 [00:24<01:40, 79.37it/s]0.98
+ 30%|███████████▎                          | 2991/10000 [00:36<01:23, 84.02it/s]0.99
+ 40%|███████████████▏                      | 3999/10000 [00:48<01:11, 83.35it/s]1.0
+ 50%|██████████████████▉                   | 4999/10000 [01:00<00:59, 84.04it/s]1.0
+ 60%|██████████████████████▊               | 5998/10000 [01:12<00:47, 84.10it/s]1.0
+ 70%|██████████████████████████▌           | 6997/10000 [01:24<00:36, 83.22it/s]1.0
+ 80%|██████████████████████████████▍       | 7996/10000 [01:36<00:23, 83.57it/s]1.0
+ 90%|██████████████████████████████████▏   | 8995/10000 [01:48<00:12, 82.96it/s]1.0
+100%|█████████████████████████████████████▉| 9994/10000 [02:01<00:00, 84.86it/s]1.0
+100%|█████████████████████████████████████| 10000/10000 [02:01<00:00, 82.49it/s]
+test accuracy: 
+0.9904
+train_time_seconds: 121.579988
+{Conv kernel_size:[7, 5] stride:[2, 2] num_filters:24}
+{Conv kernel_size:[3, 7] stride:[1, 1] num_filters:48}
+{Conv kernel_size:[7, 5] stride:[1, 1] num_filters:36}
+{Conv kernel_size:[5, 1] stride:[2, 2] num_filters:64}
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0)
+WARNING:tensorflow:From /home/albert/git/network_architecture_search/network.py:99 in __init__.: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+Network Initialized
+ 10%|███▉                                   | 996/10000 [00:13<02:01, 73.88it/s]0.99
+ 20%|███████▌                              | 1999/10000 [00:27<01:45, 75.79it/s]0.99
+ 30%|███████████▍                          | 2995/10000 [00:40<01:34, 74.13it/s]1.0
+ 40%|███████████████▏                      | 3997/10000 [00:53<01:17, 77.21it/s]1.0
+ 50%|██████████████████▉                   | 4998/10000 [01:07<01:06, 74.72it/s]0.99
+ 60%|██████████████████████▊               | 5996/10000 [01:20<00:51, 77.59it/s]1.0
+ 70%|██████████████████████████▌           | 6992/10000 [01:34<00:39, 75.97it/s]1.0
+ 80%|██████████████████████████████▍       | 7997/10000 [01:47<00:26, 75.42it/s]1.0
+ 90%|██████████████████████████████████▏   | 8992/10000 [02:00<00:13, 76.06it/s]1.0
+100%|█████████████████████████████████████▉| 9996/10000 [02:14<00:00, 75.47it/s]1.0
+100%|█████████████████████████████████████| 10000/10000 [02:14<00:00, 74.44it/s]
+test accuracy: 
+0.9919
+train_time_seconds: 134.650802
+{Conv kernel_size:[7, 5] stride:[2, 2] num_filters:24}
+{Conv kernel_size:[3, 7] stride:[1, 1] num_filters:48}
+{Conv kernel_size:[7, 5] stride:[1, 1] num_filters:36}
+{Conv kernel_size:[5, 1] stride:[2, 2] num_filters:64}
+{Conv kernel_size:[5, 3] stride:[4, 4] num_filters:24}
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0)
+WARNING:tensorflow:From /home/albert/git/network_architecture_search/network.py:99 in __init__.: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+Network Initialized
+ 10%|███▊                                   | 993/10000 [00:14<02:13, 67.38it/s]1.0
+ 20%|███████▌                              | 1998/10000 [00:29<01:57, 68.22it/s]1.0
+ 30%|███████████▍                          | 2995/10000 [00:44<01:40, 69.45it/s]1.0
+ 40%|███████████████▏                      | 3998/10000 [00:59<01:28, 67.91it/s]1.0
+ 50%|██████████████████▉                   | 4993/10000 [01:13<01:11, 69.84it/s]1.0
+ 60%|██████████████████████▊               | 5995/10000 [01:28<00:58, 68.32it/s]1.0
+ 70%|██████████████████████████▌           | 6993/10000 [01:43<00:44, 67.17it/s]1.0
+ 80%|██████████████████████████████▍       | 7998/10000 [01:58<00:30, 65.61it/s]1.0
+ 90%|██████████████████████████████████▏   | 8995/10000 [02:12<00:15, 66.94it/s]1.0
+100%|█████████████████████████████████████▉| 9998/10000 [02:27<00:00, 66.88it/s]1.0
+100%|█████████████████████████████████████| 10000/10000 [02:27<00:00, 67.75it/s]
+test accuracy: 
+0.9906
+train_time_seconds: 147.911891
+{Conv kernel_size:[7, 5] stride:[2, 2] num_filters:24}
+{Conv kernel_size:[3, 7] stride:[1, 1] num_filters:48}
+{Conv kernel_size:[7, 5] stride:[1, 1] num_filters:36}
+{Conv kernel_size:[5, 1] stride:[2, 2] num_filters:64}
+{Conv kernel_size:[5, 3] stride:[4, 4] num_filters:24}
+{Conv kernel_size:[3, 7] stride:[3, 3] num_filters:24}
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0)
+WARNING:tensorflow:From /home/albert/git/network_architecture_search/network.py:99 in __init__.: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+Network Initialized
+ 10%|███▉                                   | 994/10000 [00:16<02:21, 63.56it/s]0.99
+ 20%|███████▌                              | 1994/10000 [00:32<02:08, 62.17it/s]1.0
+ 30%|███████████▍                          | 2995/10000 [00:48<01:53, 61.75it/s]0.99
+ 40%|███████████████▏                      | 3997/10000 [01:04<01:37, 61.46it/s]1.0
+ 50%|██████████████████▉                   | 4997/10000 [01:20<01:21, 61.71it/s]1.0
+ 60%|██████████████████████▊               | 5993/10000 [01:36<01:04, 61.85it/s]1.0
+ 70%|██████████████████████████▌           | 6994/10000 [01:52<00:48, 61.63it/s]1.0
+ 80%|██████████████████████████████▍       | 7994/10000 [02:08<00:31, 63.23it/s]1.0
+ 90%|██████████████████████████████████▏   | 8998/10000 [02:25<00:16, 61.35it/s]1.0
+100%|█████████████████████████████████████▉| 9999/10000 [02:41<00:00, 61.59it/s]1.0
+100%|█████████████████████████████████████| 10000/10000 [02:41<00:00, 61.95it/s]
+test accuracy: 
+0.9912
+train_time_seconds: 161.753736
+{Conv kernel_size:[7, 5] stride:[2, 2] num_filters:24}
+{Conv kernel_size:[3, 7] stride:[1, 1] num_filters:48}
+{Conv kernel_size:[7, 5] stride:[1, 1] num_filters:36}
+{Conv kernel_size:[5, 1] stride:[2, 2] num_filters:64}
+{Conv kernel_size:[5, 3] stride:[4, 4] num_filters:24}
+{Conv kernel_size:[3, 7] stride:[3, 3] num_filters:24}
+{Conv kernel_size:[5, 7] stride:[2, 2] num_filters:24}
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0)
+WARNING:tensorflow:From /home/albert/git/network_architecture_search/network.py:99 in __init__.: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+Network Initialized
+ 10%|███▉                                   | 998/10000 [00:17<02:39, 56.50it/s]0.97
+ 20%|███████▌                              | 1994/10000 [00:34<02:17, 58.19it/s]0.97
+ 30%|███████████▍                          | 2997/10000 [00:52<01:59, 58.61it/s]1.0
+ 40%|███████████████▏                      | 3994/10000 [01:09<01:47, 55.82it/s]1.0
+ 50%|██████████████████▉                   | 4997/10000 [01:27<01:23, 59.67it/s]1.0
+ 60%|██████████████████████▊               | 5999/10000 [01:44<01:11, 55.99it/s]1.0
+ 70%|██████████████████████████▌           | 6997/10000 [02:02<00:52, 57.66it/s]1.0
+ 80%|██████████████████████████████▍       | 7998/10000 [02:19<00:35, 56.55it/s]0.99
+ 90%|██████████████████████████████████▏   | 8997/10000 [02:37<00:17, 58.20it/s]1.0
+100%|█████████████████████████████████████▉| 9996/10000 [02:54<00:00, 57.67it/s]1.0
+100%|█████████████████████████████████████| 10000/10000 [02:54<00:00, 57.23it/s]
+test accuracy: 
+0.9913
+train_time_seconds: 175.075665
+{Conv kernel_size:[7, 5] stride:[2, 2] num_filters:24}
+{Conv kernel_size:[3, 7] stride:[1, 1] num_filters:48}
+{Conv kernel_size:[7, 5] stride:[1, 1] num_filters:36}
+{Conv kernel_size:[5, 1] stride:[2, 2] num_filters:64}
+{Conv kernel_size:[5, 3] stride:[4, 4] num_filters:24}
+{Conv kernel_size:[3, 7] stride:[3, 3] num_filters:24}
+{Conv kernel_size:[5, 7] stride:[2, 2] num_filters:24}
+{Conv kernel_size:[7, 1] stride:[2, 2] num_filters:48}
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0)
+WARNING:tensorflow:From /home/albert/git/network_architecture_search/network.py:99 in __init__.: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+Network Initialized
+ 10%|███▉                                   | 994/10000 [00:18<02:44, 54.69it/s]0.98
+ 20%|███████▌                              | 1999/10000 [00:37<02:30, 53.01it/s]0.98
+ 30%|███████████▍                          | 2994/10000 [00:55<02:08, 54.36it/s]1.0
+ 40%|███████████████▏                      | 3996/10000 [01:14<01:49, 54.78it/s]1.0
+ 50%|██████████████████▉                   | 4996/10000 [01:32<01:31, 54.92it/s]1.0
+ 60%|██████████████████████▊               | 5998/10000 [01:50<01:09, 57.32it/s]0.99
+ 70%|██████████████████████████▌           | 6996/10000 [02:09<00:55, 54.13it/s]1.0
+ 80%|██████████████████████████████▍       | 7996/10000 [02:27<00:35, 56.49it/s]1.0
+ 90%|██████████████████████████████████▏   | 8999/10000 [02:46<00:18, 54.60it/s]1.0
+100%|█████████████████████████████████████▉| 9997/10000 [03:04<00:00, 54.69it/s]1.0
+100%|█████████████████████████████████████| 10000/10000 [03:04<00:00, 54.10it/s]
+test accuracy: 
+0.9929
+train_time_seconds: 185.194765
+{Conv kernel_size:[7, 5] stride:[2, 2] num_filters:24}
+{Conv kernel_size:[3, 7] stride:[1, 1] num_filters:48}
+{Conv kernel_size:[7, 5] stride:[1, 1] num_filters:36}
+{Conv kernel_size:[5, 1] stride:[2, 2] num_filters:64}
+{Conv kernel_size:[5, 3] stride:[4, 4] num_filters:24}
+{Conv kernel_size:[3, 7] stride:[3, 3] num_filters:24}
+{Conv kernel_size:[5, 7] stride:[2, 2] num_filters:24}
+{Conv kernel_size:[7, 1] stride:[2, 2] num_filters:48}
+{Conv kernel_size:[7, 1] stride:[3, 3] num_filters:36}
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0)
+WARNING:tensorflow:From /home/albert/git/network_architecture_search/network.py:99 in __init__.: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+Network Initialized
+ 10%|███▉                                   | 996/10000 [00:19<02:59, 50.19it/s]0.98
+ 20%|███████▌                              | 1999/10000 [00:39<02:27, 54.15it/s]0.99
+ 30%|███████████▍                          | 2997/10000 [00:59<02:08, 54.44it/s]0.98
+ 40%|███████████████▏                      | 3996/10000 [01:19<01:58, 50.47it/s]1.0
+ 50%|██████████████████▉                   | 4995/10000 [01:39<01:36, 52.01it/s]1.0
+ 60%|██████████████████████▊               | 5998/10000 [01:58<01:20, 50.02it/s]1.0
+ 70%|██████████████████████████▌           | 6996/10000 [02:18<00:55, 54.10it/s]1.0
+ 80%|██████████████████████████████▍       | 7994/10000 [02:38<00:42, 47.35it/s]1.0
+ 90%|██████████████████████████████████▏   | 8996/10000 [02:58<00:19, 52.54it/s]0.99
+100%|█████████████████████████████████████▉| 9998/10000 [03:17<00:00, 50.91it/s]1.0
+100%|█████████████████████████████████████| 10000/10000 [03:17<00:00, 50.58it/s]
+test accuracy: 
+0.9913
+train_time_seconds: 198.044453
+{Conv kernel_size:[7, 5] stride:[2, 2] num_filters:24}
+{Conv kernel_size:[3, 7] stride:[1, 1] num_filters:48}
+{Conv kernel_size:[7, 5] stride:[1, 1] num_filters:36}
+{Conv kernel_size:[5, 1] stride:[2, 2] num_filters:64}
+{Conv kernel_size:[5, 3] stride:[4, 4] num_filters:24}
+{Conv kernel_size:[3, 7] stride:[3, 3] num_filters:24}
+{Conv kernel_size:[5, 7] stride:[2, 2] num_filters:24}
+{Conv kernel_size:[7, 1] stride:[2, 2] num_filters:48}
+{Conv kernel_size:[7, 1] stride:[3, 3] num_filters:36}
+{Conv kernel_size:[3, 7] stride:[3, 3] num_filters:24}
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0)
+WARNING:tensorflow:From /home/albert/git/network_architecture_search/network.py:99 in __init__.: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+Network Initialized
+ 10%|███▉                                   | 999/10000 [00:21<03:12, 46.64it/s]1.0
+ 20%|███████▌                              | 1997/10000 [00:41<02:44, 48.60it/s]0.99
+ 30%|███████████▍                          | 2998/10000 [01:02<02:28, 47.01it/s]0.99
+ 40%|███████████████▏                      | 3995/10000 [01:23<02:01, 49.24it/s]0.99
+ 50%|██████████████████▉                   | 4999/10000 [01:44<01:43, 48.31it/s]1.0
+ 60%|██████████████████████▊               | 5996/10000 [02:05<01:25, 46.77it/s]1.0
+ 70%|██████████████████████████▌           | 6999/10000 [02:26<01:02, 48.30it/s]0.99
+ 80%|██████████████████████████████▍       | 7996/10000 [02:47<00:42, 47.30it/s]1.0
+ 90%|██████████████████████████████████▏   | 8996/10000 [03:08<00:20, 47.97it/s]1.0
+100%|█████████████████████████████████████▉| 9995/10000 [03:29<00:00, 50.92it/s]1.0
+100%|█████████████████████████████████████| 10000/10000 [03:29<00:00, 47.80it/s]
+test accuracy: 
+0.9923
+train_time_seconds: 209.584071
+episode: 6
+{Conv kernel_size:[3, 7] stride:[1, 1] num_filters:48}
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0)
+WARNING:tensorflow:From /home/albert/git/network_architecture_search/network.py:99 in __init__.: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+Network Initialized
+ 10%|███▉                                   | 994/10000 [00:11<01:44, 86.52it/s]0.97
+ 20%|███████▌                              | 1993/10000 [00:23<01:33, 85.36it/s]1.0
+ 30%|███████████▎                          | 2992/10000 [00:35<01:22, 85.40it/s]0.99
+ 40%|███████████████▏                      | 3991/10000 [00:47<01:11, 84.46it/s]1.0
+ 50%|██████████████████▉                   | 4999/10000 [00:59<00:59, 84.42it/s]0.98
+ 60%|██████████████████████▊               | 5998/10000 [01:11<00:46, 85.88it/s]0.99
+ 70%|██████████████████████████▌           | 6998/10000 [01:23<00:35, 85.17it/s]1.0
+ 80%|██████████████████████████████▍       | 7997/10000 [01:34<00:23, 85.87it/s]1.0
+ 90%|██████████████████████████████████▏   | 8996/10000 [01:46<00:11, 85.66it/s]1.0
+100%|█████████████████████████████████████▉| 9995/10000 [01:58<00:00, 81.39it/s]1.0
+100%|█████████████████████████████████████| 10000/10000 [01:58<00:00, 84.20it/s]
+test accuracy: 
+0.9838
+train_time_seconds: 119.048197
+{Conv kernel_size:[3, 7] stride:[1, 1] num_filters:48}
+{Conv kernel_size:[7, 1] stride:[2, 2] num_filters:48}
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0)
+WARNING:tensorflow:From /home/albert/git/network_architecture_search/network.py:99 in __init__.: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+Network Initialized
+ 10%|███▉                                   | 997/10000 [00:14<02:07, 70.67it/s]1.0
+ 20%|███████▌                              | 1996/10000 [00:28<01:56, 68.53it/s]0.99
+ 30%|███████████▍                          | 2994/10000 [00:42<01:38, 71.01it/s]0.99
+ 40%|███████████████▏                      | 3996/10000 [00:57<01:24, 71.34it/s]0.99
+ 50%|██████████████████▉                   | 4997/10000 [01:11<01:10, 70.65it/s]0.99
+ 60%|██████████████████████▊               | 5994/10000 [01:25<00:57, 70.28it/s]1.0
+ 70%|██████████████████████████▌           | 6995/10000 [01:40<00:42, 70.15it/s]0.99
+ 80%|██████████████████████████████▎       | 7992/10000 [01:54<00:28, 70.06it/s]1.0
+ 90%|██████████████████████████████████▏   | 8999/10000 [02:09<00:14, 71.46it/s]0.99
+100%|█████████████████████████████████████▉| 9999/10000 [02:23<00:00, 70.38it/s]1.0
+100%|█████████████████████████████████████| 10000/10000 [02:23<00:00, 69.67it/s]
+test accuracy: 
+0.9873
+train_time_seconds: 143.90191
+{Conv kernel_size:[3, 7] stride:[1, 1] num_filters:48}
+{Conv kernel_size:[7, 1] stride:[2, 2] num_filters:48}
+{Conv kernel_size:[7, 3] stride:[1, 1] num_filters:48}
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0)
+WARNING:tensorflow:From /home/albert/git/network_architecture_search/network.py:99 in __init__.: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+Network Initialized
+ 10%|███▉                                   | 999/10000 [00:18<02:42, 55.55it/s]0.99
+ 20%|███████▌                              | 1995/10000 [00:35<02:20, 56.83it/s]1.0
+ 30%|███████████▍                          | 2997/10000 [00:54<02:05, 56.02it/s]1.0
+ 40%|███████████████▏                      | 3999/10000 [01:12<01:47, 56.02it/s]1.0
+ 50%|██████████████████▉                   | 4995/10000 [01:30<01:29, 55.99it/s]1.0
+ 60%|██████████████████████▊               | 5997/10000 [01:48<01:11, 56.33it/s]0.99
+ 70%|██████████████████████████▌           | 6999/10000 [02:06<00:54, 55.55it/s]1.0
+ 80%|██████████████████████████████▍       | 7995/10000 [02:24<00:35, 55.90it/s]0.98
+ 90%|██████████████████████████████████▏   | 8997/10000 [02:42<00:18, 55.59it/s]1.0
+100%|█████████████████████████████████████▉| 9999/10000 [03:00<00:00, 56.78it/s]1.0
+100%|█████████████████████████████████████| 10000/10000 [03:00<00:00, 55.36it/s]
+test accuracy: 
+0.9921
+train_time_seconds: 181.105943
+{Conv kernel_size:[3, 7] stride:[1, 1] num_filters:48}
+{Conv kernel_size:[7, 1] stride:[2, 2] num_filters:48}
+{Conv kernel_size:[7, 3] stride:[1, 1] num_filters:48}
+{Conv kernel_size:[7, 1] stride:[2, 2] num_filters:48}
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0)
+WARNING:tensorflow:From /home/albert/git/network_architecture_search/network.py:99 in __init__.: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+Network Initialized
+ 10%|███▉                                   | 994/10000 [00:19<02:56, 51.10it/s]0.98
+ 20%|███████▌                              | 1996/10000 [00:39<02:33, 52.00it/s]0.98
+ 30%|███████████▍                          | 2997/10000 [00:58<02:15, 51.70it/s]1.0
+ 40%|███████████████▏                      | 3998/10000 [01:18<01:59, 50.34it/s]1.0
+ 50%|██████████████████▉                   | 4999/10000 [01:37<01:36, 51.99it/s]1.0
+ 60%|██████████████████████▊               | 5999/10000 [01:57<01:17, 51.46it/s]0.99
+ 70%|██████████████████████████▌           | 6994/10000 [02:16<00:58, 51.07it/s]1.0
+ 80%|██████████████████████████████▍       | 7995/10000 [02:36<00:39, 51.36it/s]1.0
+ 90%|██████████████████████████████████▏   | 8996/10000 [02:56<00:19, 51.93it/s]1.0
+100%|█████████████████████████████████████▉| 9996/10000 [03:15<00:00, 51.21it/s]1.0
+100%|█████████████████████████████████████| 10000/10000 [03:15<00:00, 51.10it/s]
+test accuracy: 
+0.9922
+train_time_seconds: 196.179711
+{Conv kernel_size:[3, 7] stride:[1, 1] num_filters:48}
+{Conv kernel_size:[7, 1] stride:[2, 2] num_filters:48}
+{Conv kernel_size:[7, 3] stride:[1, 1] num_filters:48}
+{Conv kernel_size:[7, 1] stride:[2, 2] num_filters:48}
+{Conv kernel_size:[3, 7] stride:[1, 1] num_filters:48}
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0)
+WARNING:tensorflow:From /home/albert/git/network_architecture_search/network.py:99 in __init__.: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+Network Initialized
+ 10%|███▉                                   | 997/10000 [00:21<03:12, 46.67it/s]0.98
+ 20%|███████▌                              | 1997/10000 [00:42<02:51, 46.64it/s]1.0
+ 30%|███████████▍                          | 2999/10000 [01:03<02:29, 46.77it/s]0.99
+ 40%|███████████████▏                      | 3998/10000 [01:25<02:07, 47.17it/s]1.0
+ 50%|██████████████████▉                   | 4997/10000 [01:46<01:46, 46.98it/s]1.0
+ 60%|██████████████████████▊               | 5998/10000 [02:07<01:24, 47.47it/s]1.0
+ 70%|██████████████████████████▌           | 6998/10000 [02:29<01:04, 46.19it/s]1.0
+ 80%|██████████████████████████████▍       | 7997/10000 [02:50<00:42, 46.84it/s]1.0
+ 90%|██████████████████████████████████▏   | 8998/10000 [03:11<00:20, 47.88it/s]1.0
+100%|█████████████████████████████████████▉| 9999/10000 [03:32<00:00, 47.36it/s]1.0
+100%|█████████████████████████████████████| 10000/10000 [03:32<00:00, 47.00it/s]
+test accuracy: 
+0.9934
+train_time_seconds: 213.33223
+{Conv kernel_size:[3, 7] stride:[1, 1] num_filters:48}
+{Conv kernel_size:[7, 1] stride:[2, 2] num_filters:48}
+{Conv kernel_size:[7, 3] stride:[1, 1] num_filters:48}
+{Conv kernel_size:[7, 1] stride:[2, 2] num_filters:48}
+{Conv kernel_size:[3, 7] stride:[1, 1] num_filters:48}
+{Conv kernel_size:[5, 7] stride:[1, 1] num_filters:36}
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0)
+WARNING:tensorflow:From /home/albert/git/network_architecture_search/network.py:99 in __init__.: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+Network Initialized
+ 10%|███▉                                   | 996/10000 [00:23<03:20, 44.85it/s]1.0
+ 20%|███████▌                              | 1996/10000 [00:46<03:05, 43.14it/s]0.97
+ 30%|███████████▍                          | 2996/10000 [01:09<02:40, 43.51it/s]1.0
+ 40%|███████████████▏                      | 3996/10000 [01:33<02:22, 42.15it/s]0.99
+ 50%|██████████████████▉                   | 4995/10000 [01:56<01:53, 44.13it/s]1.0
+ 60%|██████████████████████▊               | 5995/10000 [02:20<01:32, 43.23it/s]0.99
+ 70%|██████████████████████████▌           | 6999/10000 [02:43<01:09, 43.25it/s]1.0
+ 80%|██████████████████████████████▍       | 7999/10000 [03:07<00:45, 43.81it/s]1.0
+ 90%|██████████████████████████████████▏   | 8999/10000 [03:30<00:23, 42.07it/s]0.99
+100%|█████████████████████████████████████▉| 9999/10000 [03:53<00:00, 41.47it/s]1.0
+100%|█████████████████████████████████████| 10000/10000 [03:53<00:00, 42.78it/s]
+test accuracy: 
+0.9915
+train_time_seconds: 234.35993
+{Conv kernel_size:[3, 7] stride:[1, 1] num_filters:48}
+{Conv kernel_size:[7, 1] stride:[2, 2] num_filters:48}
+{Conv kernel_size:[7, 3] stride:[1, 1] num_filters:48}
+{Conv kernel_size:[7, 1] stride:[2, 2] num_filters:48}
+{Conv kernel_size:[3, 7] stride:[1, 1] num_filters:48}
+{Conv kernel_size:[5, 7] stride:[1, 1] num_filters:36}
+{Conv kernel_size:[1, 5] stride:[4, 4] num_filters:36}
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0)
+WARNING:tensorflow:From /home/albert/git/network_architecture_search/network.py:99 in __init__.: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+Network Initialized
+ 10%|███▉                                   | 996/10000 [00:24<03:33, 42.22it/s]1.0
+ 20%|███████▌                              | 1996/10000 [00:48<03:15, 40.91it/s]1.0
+ 30%|███████████▍                          | 2996/10000 [01:13<02:47, 41.77it/s]1.0
+ 40%|███████████████▏                      | 3997/10000 [01:38<02:23, 41.92it/s]0.99
+ 50%|██████████████████▉                   | 4999/10000 [02:02<02:02, 40.87it/s]1.0
+ 60%|██████████████████████▊               | 5997/10000 [02:27<01:35, 41.79it/s]0.99
+ 70%|██████████████████████████▌           | 6995/10000 [02:51<01:11, 42.17it/s]0.99
+ 80%|██████████████████████████████▍       | 7998/10000 [03:15<00:47, 42.49it/s]1.0
+ 90%|██████████████████████████████████▏   | 8997/10000 [03:40<00:25, 39.28it/s]1.0
+100%|█████████████████████████████████████▉| 9998/10000 [04:04<00:00, 40.55it/s]1.0
+100%|█████████████████████████████████████| 10000/10000 [04:04<00:00, 40.84it/s]
+test accuracy: 
+0.993
+train_time_seconds: 245.452139
+{Conv kernel_size:[3, 7] stride:[1, 1] num_filters:48}
+{Conv kernel_size:[7, 1] stride:[2, 2] num_filters:48}
+{Conv kernel_size:[7, 3] stride:[1, 1] num_filters:48}
+{Conv kernel_size:[7, 1] stride:[2, 2] num_filters:48}
+{Conv kernel_size:[3, 7] stride:[1, 1] num_filters:48}
+{Conv kernel_size:[5, 7] stride:[1, 1] num_filters:36}
+{Conv kernel_size:[1, 5] stride:[4, 4] num_filters:36}
+{Conv kernel_size:[3, 1] stride:[4, 4] num_filters:48}
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0)
+WARNING:tensorflow:From /home/albert/git/network_architecture_search/network.py:99 in __init__.: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+Network Initialized
+ 10%|███▉                                   | 996/10000 [00:25<03:48, 39.36it/s]0.98
+ 20%|███████▌                              | 1999/10000 [00:51<03:23, 39.26it/s]0.98
+ 30%|███████████▍                          | 2995/10000 [01:17<03:02, 38.32it/s]0.99
+ 40%|███████████████▏                      | 3996/10000 [01:43<02:31, 39.53it/s]0.99
+ 50%|██████████████████▉                   | 4996/10000 [02:09<02:09, 38.67it/s]1.0
+ 60%|██████████████████████▊               | 5996/10000 [02:35<01:45, 37.88it/s]1.0
+ 70%|██████████████████████████▌           | 6998/10000 [03:01<01:18, 38.46it/s]1.0
+ 80%|██████████████████████████████▍       | 7998/10000 [03:27<00:50, 39.28it/s]1.0
+ 90%|██████████████████████████████████▏   | 8997/10000 [03:52<00:26, 38.35it/s]0.99
+100%|█████████████████████████████████████▉| 9997/10000 [04:18<00:00, 38.50it/s]1.0
+100%|█████████████████████████████████████| 10000/10000 [04:18<00:00, 38.64it/s]
+test accuracy: 
+0.9916
+train_time_seconds: 259.412806
+{Conv kernel_size:[3, 7] stride:[1, 1] num_filters:48}
+{Conv kernel_size:[7, 1] stride:[2, 2] num_filters:48}
+{Conv kernel_size:[7, 3] stride:[1, 1] num_filters:48}
+{Conv kernel_size:[7, 1] stride:[2, 2] num_filters:48}
+{Conv kernel_size:[3, 7] stride:[1, 1] num_filters:48}
+{Conv kernel_size:[5, 7] stride:[1, 1] num_filters:36}
+{Conv kernel_size:[1, 5] stride:[4, 4] num_filters:36}
+{Conv kernel_size:[3, 1] stride:[4, 4] num_filters:48}
+{Conv kernel_size:[3, 1] stride:[4, 4] num_filters:48}
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0)
+WARNING:tensorflow:From /home/albert/git/network_architecture_search/network.py:99 in __init__.: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+Network Initialized
+ 10%|███▉                                   | 998/10000 [00:27<03:58, 37.80it/s]0.98
+ 20%|███████▌                              | 1999/10000 [00:54<03:39, 36.52it/s]0.99
+ 30%|███████████▍                          | 2995/10000 [01:21<03:07, 37.29it/s]0.98
+ 40%|███████████████▏                      | 3999/10000 [01:48<02:43, 36.78it/s]0.97
+ 50%|██████████████████▉                   | 4997/10000 [02:15<02:15, 36.83it/s]1.0
+ 60%|██████████████████████▊               | 5998/10000 [02:42<01:47, 37.37it/s]1.0
+ 70%|██████████████████████████▌           | 6998/10000 [03:09<01:19, 38.00it/s]1.0
+ 80%|██████████████████████████████▍       | 7998/10000 [03:36<00:54, 36.53it/s]1.0
+ 90%|██████████████████████████████████▏   | 8999/10000 [04:03<00:27, 36.23it/s]1.0
+100%|█████████████████████████████████████▉| 9996/10000 [04:30<00:00, 37.54it/s]1.0
+100%|█████████████████████████████████████| 10000/10000 [04:30<00:00, 37.36it/s]
+test accuracy: 
+0.9932
+train_time_seconds: 271.064885
+{Conv kernel_size:[3, 7] stride:[1, 1] num_filters:48}
+{Conv kernel_size:[7, 1] stride:[2, 2] num_filters:48}
+{Conv kernel_size:[7, 3] stride:[1, 1] num_filters:48}
+{Conv kernel_size:[7, 1] stride:[2, 2] num_filters:48}
+{Conv kernel_size:[3, 7] stride:[1, 1] num_filters:48}
+{Conv kernel_size:[5, 7] stride:[1, 1] num_filters:36}
+{Conv kernel_size:[1, 5] stride:[4, 4] num_filters:36}
+{Conv kernel_size:[3, 1] stride:[4, 4] num_filters:48}
+{Conv kernel_size:[3, 1] stride:[4, 4] num_filters:48}
+{Conv kernel_size:[1, 7] stride:[2, 2] num_filters:48}
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0)
+WARNING:tensorflow:From /home/albert/git/network_architecture_search/network.py:99 in __init__.: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+Network Initialized
+ 10%|███▉                                   | 997/10000 [00:28<04:21, 34.48it/s]0.96
+ 20%|███████▌                              | 1997/10000 [00:56<03:48, 35.00it/s]0.99
+ 30%|███████████▍                          | 2997/10000 [01:25<03:19, 35.08it/s]0.99
+ 40%|███████████████▏                      | 3997/10000 [01:53<02:50, 35.14it/s]0.99
+ 50%|██████████████████▉                   | 4999/10000 [02:22<02:21, 35.36it/s]1.0
+ 60%|██████████████████████▊               | 5999/10000 [02:50<01:53, 35.11it/s]1.0
+ 70%|██████████████████████████▌           | 6996/10000 [03:18<01:28, 33.78it/s]1.0
+ 80%|██████████████████████████████▍       | 7999/10000 [03:47<00:55, 35.75it/s]1.0
+ 90%|██████████████████████████████████▏   | 8999/10000 [04:15<00:28, 35.23it/s]1.0
+100%|█████████████████████████████████████▉| 9999/10000 [04:44<00:00, 34.35it/s]0.98
+100%|█████████████████████████████████████| 10000/10000 [04:44<00:00, 35.20it/s]
+test accuracy: 
+0.9925
+train_time_seconds: 284.69867
+episode: 7
+{Conv kernel_size:[1, 5] stride:[4, 4] num_filters:36}
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0)
+WARNING:tensorflow:From /home/albert/git/network_architecture_search/network.py:99 in __init__.: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+Network Initialized
+ 10%|███▊                                  | 996/10000 [00:03<00:33, 264.98it/s]0.94
+ 20%|███████▎                             | 1978/10000 [00:07<00:31, 256.32it/s]0.96
+ 30%|███████████                          | 2987/10000 [00:11<00:28, 244.76it/s]0.94
+ 40%|██████████████▊                      | 3993/10000 [00:15<00:23, 256.42it/s]0.95
+ 50%|██████████████████▍                  | 4978/10000 [00:19<00:18, 266.44it/s]0.92
+ 60%|██████████████████████               | 5975/10000 [00:23<00:15, 266.37it/s]0.94
+ 70%|█████████████████████████▊           | 6980/10000 [00:27<00:11, 263.76it/s]0.92
+ 80%|█████████████████████████████▌       | 7989/10000 [00:31<00:08, 249.07it/s]0.9
+ 90%|█████████████████████████████████▏   | 8978/10000 [00:35<00:04, 226.77it/s]0.9
+100%|████████████████████████████████████▉| 9987/10000 [00:39<00:00, 260.96it/s]0.94
+100%|████████████████████████████████████| 10000/10000 [00:39<00:00, 256.08it/s]
+test accuracy: 
+0.9239
+train_time_seconds: 39.107481
+{Conv kernel_size:[1, 5] stride:[4, 4] num_filters:36}
+{Conv kernel_size:[3, 5] stride:[1, 1] num_filters:64}
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0)
+WARNING:tensorflow:From /home/albert/git/network_architecture_search/network.py:99 in __init__.: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+Network Initialized
+ 10%|███▋                                  | 982/10000 [00:05<00:49, 183.07it/s]0.95
+ 20%|███████▎                             | 1986/10000 [00:11<00:43, 182.21it/s]0.99
+ 30%|███████████                          | 2996/10000 [00:16<00:36, 191.64it/s]0.98
+ 40%|██████████████▊                      | 3998/10000 [00:22<00:34, 174.65it/s]0.98
+ 50%|██████████████████▍                  | 4982/10000 [00:27<00:27, 184.70it/s]0.95
+ 60%|██████████████████████▏              | 5996/10000 [00:33<00:21, 184.54it/s]0.98
+ 70%|█████████████████████████▊           | 6992/10000 [00:38<00:16, 184.95it/s]0.96
+ 80%|█████████████████████████████▌       | 7988/10000 [00:44<00:11, 175.18it/s]0.99
+ 90%|█████████████████████████████████▎   | 8991/10000 [00:50<00:05, 183.06it/s]0.99
+100%|████████████████████████████████████▉| 9999/10000 [00:55<00:00, 162.65it/s]1.0
+100%|████████████████████████████████████| 10000/10000 [00:55<00:00, 179.50it/s]
+test accuracy: 
+0.9592
+train_time_seconds: 55.813094
+{Conv kernel_size:[1, 5] stride:[4, 4] num_filters:36}
+{Conv kernel_size:[3, 5] stride:[1, 1] num_filters:64}
+{Conv kernel_size:[5, 1] stride:[2, 2] num_filters:64}
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0)
+WARNING:tensorflow:From /home/albert/git/network_architecture_search/network.py:99 in __init__.: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+Network Initialized
+ 10%|███▊                                  | 993/10000 [00:06<01:02, 144.02it/s]0.95
+ 20%|███████▎                             | 1983/10000 [00:13<00:54, 147.21it/s]0.98
+ 30%|███████████                          | 2990/10000 [00:20<00:48, 143.99it/s]0.95
+ 40%|██████████████▊                      | 3994/10000 [00:27<00:38, 154.62it/s]0.97
+ 50%|██████████████████▍                  | 4990/10000 [00:33<00:32, 151.94it/s]0.98
+ 60%|██████████████████████▏              | 5985/10000 [00:40<00:27, 144.55it/s]0.99
+ 70%|█████████████████████████▊           | 6990/10000 [00:47<00:20, 149.50it/s]0.99
+ 80%|█████████████████████████████▌       | 7997/10000 [00:54<00:13, 143.32it/s]0.99
+ 90%|█████████████████████████████████▎   | 8994/10000 [01:00<00:06, 148.39it/s]0.99
+100%|████████████████████████████████████▉| 9992/10000 [01:07<00:00, 149.31it/s]0.98
+100%|████████████████████████████████████| 10000/10000 [01:07<00:00, 147.99it/s]
+test accuracy: 
+0.9599
+train_time_seconds: 67.673964
+{Conv kernel_size:[1, 5] stride:[4, 4] num_filters:36}
+{Conv kernel_size:[3, 5] stride:[1, 1] num_filters:64}
+{Conv kernel_size:[5, 1] stride:[2, 2] num_filters:64}
+{Conv kernel_size:[5, 7] stride:[2, 2] num_filters:24}
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0)
+WARNING:tensorflow:From /home/albert/git/network_architecture_search/network.py:99 in __init__.: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+Network Initialized
+ 10%|███▊                                  | 992/10000 [00:08<01:17, 115.96it/s]0.92
+ 20%|███████▎                             | 1990/10000 [00:16<01:04, 124.53it/s]0.99
+ 30%|███████████                          | 2994/10000 [00:24<00:56, 123.23it/s]0.98
+ 40%|██████████████▊                      | 3997/10000 [00:32<00:46, 128.39it/s]0.99
+ 50%|██████████████████▍                  | 4997/10000 [00:41<00:37, 132.42it/s]0.99
+ 60%|██████████████████████▏              | 5994/10000 [00:49<00:32, 122.54it/s]0.98
+ 70%|█████████████████████████▉           | 6999/10000 [00:57<00:23, 125.91it/s]0.99
+ 80%|█████████████████████████████▌       | 7991/10000 [01:05<00:16, 121.79it/s]1.0
+ 90%|█████████████████████████████████▎   | 8998/10000 [01:13<00:07, 130.34it/s]1.0
+100%|████████████████████████████████████▉| 9991/10000 [01:21<00:00, 127.73it/s]1.0
+100%|████████████████████████████████████| 10000/10000 [01:21<00:00, 122.26it/s]
+test accuracy: 
+0.9615
+train_time_seconds: 81.900526
+{Conv kernel_size:[1, 5] stride:[4, 4] num_filters:36}
+{Conv kernel_size:[3, 5] stride:[1, 1] num_filters:64}
+{Conv kernel_size:[5, 1] stride:[2, 2] num_filters:64}
+{Conv kernel_size:[5, 7] stride:[2, 2] num_filters:24}
+{Conv kernel_size:[7, 3] stride:[1, 1] num_filters:48}
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0)
+WARNING:tensorflow:From /home/albert/git/network_architecture_search/network.py:99 in __init__.: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+Network Initialized
+ 10%|███▊                                  | 998/10000 [00:09<01:25, 105.06it/s]0.95
+ 20%|███████▌                              | 1992/10000 [00:18<01:21, 97.74it/s]0.99
+ 30%|███████████▎                          | 2990/10000 [00:28<01:10, 99.21it/s]0.96
+ 40%|██████████████▊                      | 3998/10000 [00:37<00:51, 116.39it/s]0.98
+ 50%|██████████████████▍                  | 4996/10000 [00:47<00:46, 107.66it/s]0.99
+ 60%|██████████████████████▏              | 5996/10000 [00:56<00:37, 106.01it/s]0.97
+ 70%|█████████████████████████▉           | 6995/10000 [01:06<00:27, 108.27it/s]1.0
+ 80%|█████████████████████████████▌       | 7988/10000 [01:15<00:18, 110.31it/s]1.0
+ 90%|█████████████████████████████████▎   | 8993/10000 [01:24<00:09, 108.51it/s]1.0
+100%|████████████████████████████████████▉| 9990/10000 [01:34<00:00, 107.98it/s]1.0
+100%|████████████████████████████████████| 10000/10000 [01:34<00:00, 105.95it/s]
+test accuracy: 
+0.9611
+train_time_seconds: 94.514575
+{Conv kernel_size:[1, 5] stride:[4, 4] num_filters:36}
+{Conv kernel_size:[3, 5] stride:[1, 1] num_filters:64}
+{Conv kernel_size:[5, 1] stride:[2, 2] num_filters:64}
+{Conv kernel_size:[5, 7] stride:[2, 2] num_filters:24}
+{Conv kernel_size:[7, 3] stride:[1, 1] num_filters:48}
+{Conv kernel_size:[5, 1] stride:[4, 4] num_filters:36}
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0)
+WARNING:tensorflow:From /home/albert/git/network_architecture_search/network.py:99 in __init__.: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+Network Initialized
+ 10%|███▉                                   | 996/10000 [00:10<01:39, 90.61it/s]0.95
+ 20%|███████▌                              | 1993/10000 [00:21<01:21, 97.95it/s]0.97
+ 30%|███████████▍                          | 2997/10000 [00:32<01:16, 91.91it/s]0.98
+ 40%|███████████████▏                      | 3993/10000 [00:42<01:02, 95.52it/s]0.97
+ 50%|██████████████████▉                   | 4990/10000 [00:53<00:50, 98.61it/s]0.98
+ 60%|██████████████████████▊               | 5995/10000 [01:04<00:44, 89.14it/s]0.99
+ 70%|██████████████████████████▌           | 6992/10000 [01:15<00:30, 98.04it/s]0.99
+ 80%|██████████████████████████████▎       | 7991/10000 [01:25<00:20, 96.49it/s]1.0
+ 90%|██████████████████████████████████▏   | 8993/10000 [01:36<00:10, 94.70it/s]0.97
+100%|█████████████████████████████████████▉| 9998/10000 [01:47<00:00, 94.39it/s]0.98
+100%|█████████████████████████████████████| 10000/10000 [01:47<00:00, 93.40it/s]
+test accuracy: 
+0.9596
+train_time_seconds: 107.191102
+{Conv kernel_size:[1, 5] stride:[4, 4] num_filters:36}
+{Conv kernel_size:[3, 5] stride:[1, 1] num_filters:64}
+{Conv kernel_size:[5, 1] stride:[2, 2] num_filters:64}
+{Conv kernel_size:[5, 7] stride:[2, 2] num_filters:24}
+{Conv kernel_size:[7, 3] stride:[1, 1] num_filters:48}
+{Conv kernel_size:[5, 1] stride:[4, 4] num_filters:36}
+{Conv kernel_size:[7, 3] stride:[1, 1] num_filters:48}
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0)
+WARNING:tensorflow:From /home/albert/git/network_architecture_search/network.py:99 in __init__.: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+Network Initialized
+ 10%|███▊                                   | 991/10000 [00:11<01:43, 87.33it/s]0.94
+ 20%|███████▌                              | 1995/10000 [00:23<01:33, 86.05it/s]0.96
+ 30%|███████████▍                          | 2996/10000 [00:35<01:22, 84.74it/s]1.0
+ 40%|███████████████▏                      | 3994/10000 [00:47<01:16, 78.96it/s]0.99
+ 50%|██████████████████▉                   | 4995/10000 [00:58<00:54, 91.26it/s]0.98
+ 60%|██████████████████████▊               | 5992/10000 [01:10<00:47, 85.16it/s]0.98
+ 70%|██████████████████████████▌           | 6997/10000 [01:22<00:36, 82.62it/s]0.99
+ 80%|██████████████████████████████▍       | 7999/10000 [01:34<00:22, 90.73it/s]0.99
+ 90%|██████████████████████████████████▏   | 8999/10000 [01:45<00:11, 84.10it/s]0.99
+100%|█████████████████████████████████████▉| 9995/10000 [01:57<00:00, 83.35it/s]0.99
+100%|█████████████████████████████████████| 10000/10000 [01:57<00:00, 85.10it/s]
+test accuracy: 
+0.959
+train_time_seconds: 117.645698
+{Conv kernel_size:[1, 5] stride:[4, 4] num_filters:36}
+{Conv kernel_size:[3, 5] stride:[1, 1] num_filters:64}
+{Conv kernel_size:[5, 1] stride:[2, 2] num_filters:64}
+{Conv kernel_size:[5, 7] stride:[2, 2] num_filters:24}
+{Conv kernel_size:[7, 3] stride:[1, 1] num_filters:48}
+{Conv kernel_size:[5, 1] stride:[4, 4] num_filters:36}
+{Conv kernel_size:[7, 3] stride:[1, 1] num_filters:48}
+{Conv kernel_size:[3, 7] stride:[1, 1] num_filters:48}
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0)
+WARNING:tensorflow:From /home/albert/git/network_architecture_search/network.py:99 in __init__.: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+Network Initialized
+ 10%|███▊                                   | 992/10000 [00:12<01:58, 76.15it/s]0.95
+ 20%|███████▌                              | 1998/10000 [00:25<01:38, 81.21it/s]0.95
+ 30%|███████████▍                          | 2997/10000 [00:38<01:25, 81.45it/s]0.97
+ 40%|███████████████▏                      | 3991/10000 [00:51<01:13, 81.35it/s]0.97
+ 50%|██████████████████▉                   | 4995/10000 [01:03<01:03, 78.54it/s]0.99
+ 60%|██████████████████████▊               | 5997/10000 [01:16<00:52, 76.94it/s]0.98
+ 70%|██████████████████████████▌           | 6996/10000 [01:29<00:38, 77.60it/s]0.99
+ 80%|██████████████████████████████▍       | 7997/10000 [01:42<00:25, 78.64it/s]1.0
+ 90%|██████████████████████████████████▏   | 8999/10000 [01:55<00:13, 72.66it/s]0.96
+100%|█████████████████████████████████████▉| 9994/10000 [02:08<00:00, 78.37it/s]0.99
+100%|█████████████████████████████████████| 10000/10000 [02:08<00:00, 78.02it/s]
+test accuracy: 
+0.9605
+train_time_seconds: 128.327924
+{Conv kernel_size:[1, 5] stride:[4, 4] num_filters:36}
+{Conv kernel_size:[3, 5] stride:[1, 1] num_filters:64}
+{Conv kernel_size:[5, 1] stride:[2, 2] num_filters:64}
+{Conv kernel_size:[5, 7] stride:[2, 2] num_filters:24}
+{Conv kernel_size:[7, 3] stride:[1, 1] num_filters:48}
+{Conv kernel_size:[5, 1] stride:[4, 4] num_filters:36}
+{Conv kernel_size:[7, 3] stride:[1, 1] num_filters:48}
+{Conv kernel_size:[3, 7] stride:[1, 1] num_filters:48}
+{Conv kernel_size:[3, 5] stride:[4, 4] num_filters:24}
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0)
+WARNING:tensorflow:From /home/albert/git/network_architecture_search/network.py:99 in __init__.: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+Network Initialized
+ 10%|███▉                                   | 996/10000 [00:14<02:03, 72.85it/s]0.93
+ 20%|███████▌                              | 1996/10000 [00:27<01:52, 70.99it/s]0.93
+ 30%|███████████▍                          | 2996/10000 [00:41<01:35, 73.20it/s]0.94
+ 40%|███████████████▏                      | 3995/10000 [00:55<01:20, 74.23it/s]0.97
+ 50%|██████████████████▉                   | 4992/10000 [01:09<01:05, 76.02it/s]0.98
+ 60%|██████████████████████▊               | 5992/10000 [01:23<00:56, 71.45it/s]0.96
+ 70%|██████████████████████████▌           | 6999/10000 [01:37<00:43, 69.69it/s]0.99
+ 80%|██████████████████████████████▎       | 7992/10000 [01:50<00:28, 71.54it/s]1.0
+ 90%|██████████████████████████████████▏   | 8995/10000 [02:04<00:13, 72.50it/s]0.99
+100%|█████████████████████████████████████▉| 9996/10000 [02:18<00:00, 77.65it/s]0.99
+100%|█████████████████████████████████████| 10000/10000 [02:18<00:00, 72.18it/s]
+test accuracy: 
+0.9598
+train_time_seconds: 138.68867
+{Conv kernel_size:[1, 5] stride:[4, 4] num_filters:36}
+{Conv kernel_size:[3, 5] stride:[1, 1] num_filters:64}
+{Conv kernel_size:[5, 1] stride:[2, 2] num_filters:64}
+{Conv kernel_size:[5, 7] stride:[2, 2] num_filters:24}
+{Conv kernel_size:[7, 3] stride:[1, 1] num_filters:48}
+{Conv kernel_size:[5, 1] stride:[4, 4] num_filters:36}
+{Conv kernel_size:[7, 3] stride:[1, 1] num_filters:48}
+{Conv kernel_size:[3, 7] stride:[1, 1] num_filters:48}
+{Conv kernel_size:[3, 5] stride:[4, 4] num_filters:24}
+{Conv kernel_size:[7, 3] stride:[1, 1] num_filters:48}
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0)
+WARNING:tensorflow:From /home/albert/git/network_architecture_search/network.py:99 in __init__.: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+Network Initialized
+ 10%|███▉                                   | 994/10000 [00:15<02:17, 65.37it/s]0.93
+ 20%|███████▌                              | 1998/10000 [00:29<02:01, 65.64it/s]0.93
+ 30%|███████████▍                          | 2998/10000 [00:44<01:42, 68.18it/s]0.95
+ 40%|███████████████▏                      | 3999/10000 [00:59<01:29, 67.13it/s]0.97
+ 50%|██████████████████▉                   | 4995/10000 [01:14<01:16, 65.80it/s]0.96
+ 60%|██████████████████████▊               | 5993/10000 [01:29<00:56, 70.84it/s]0.98
+ 70%|██████████████████████████▌           | 6999/10000 [01:44<00:43, 68.52it/s]0.97
+ 80%|██████████████████████████████▍       | 7996/10000 [01:59<00:29, 66.84it/s]0.99
+ 90%|██████████████████████████████████▏   | 8993/10000 [02:14<00:14, 68.06it/s]0.95
+100%|█████████████████████████████████████▉| 9994/10000 [02:29<00:00, 70.52it/s]0.99
+100%|█████████████████████████████████████| 10000/10000 [02:29<00:00, 66.70it/s]
+test accuracy: 
+0.9589
+train_time_seconds: 150.090217
+episode: 8
+{Conv kernel_size:[3, 1] stride:[3, 3] num_filters:64}
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0)
+WARNING:tensorflow:From /home/albert/git/network_architecture_search/network.py:99 in __init__.: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+Network Initialized
+ 10%|███▊                                  | 995/10000 [00:04<00:38, 233.85it/s]0.92
+ 20%|███████▍                             | 1998/10000 [00:08<00:35, 224.76it/s]0.95
+ 30%|███████████                          | 2982/10000 [00:12<00:29, 235.24it/s]0.94
+ 40%|██████████████▊                      | 3991/10000 [00:17<00:24, 245.76it/s]0.96
+ 50%|██████████████████▍                  | 4993/10000 [00:21<00:21, 236.72it/s]0.93
+ 60%|██████████████████████▏              | 5990/10000 [00:26<00:17, 234.38it/s]0.89
+ 70%|█████████████████████████▊           | 6983/10000 [00:30<00:13, 224.39it/s]0.94
+ 80%|█████████████████████████████▌       | 7994/10000 [00:34<00:09, 207.35it/s]0.91
+ 90%|█████████████████████████████████▎   | 8999/10000 [00:39<00:04, 230.77it/s]0.94
+100%|████████████████████████████████████▉| 9976/10000 [00:43<00:00, 242.14it/s]0.93
+100%|████████████████████████████████████| 10000/10000 [00:43<00:00, 230.25it/s]
+test accuracy: 
+0.9384
+train_time_seconds: 43.505258
+{Conv kernel_size:[3, 1] stride:[3, 3] num_filters:64}
+{Conv kernel_size:[5, 7] stride:[2, 2] num_filters:24}
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0)
+WARNING:tensorflow:From /home/albert/git/network_architecture_search/network.py:99 in __init__.: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+Network Initialized
+ 10%|███▊                                  | 989/10000 [00:06<00:53, 168.91it/s]0.95
+ 20%|███████▍                             | 1999/10000 [00:12<00:49, 161.89it/s]0.95
+ 30%|███████████                          | 2990/10000 [00:18<00:43, 160.66it/s]0.98
+ 40%|██████████████▊                      | 3987/10000 [00:24<00:36, 166.20it/s]0.95
+ 50%|██████████████████▍                  | 4990/10000 [00:30<00:28, 175.15it/s]0.98
+ 60%|██████████████████████▏              | 5996/10000 [00:36<00:23, 171.38it/s]0.99
+ 70%|█████████████████████████▊           | 6988/10000 [00:42<00:17, 168.99it/s]0.99
+ 80%|█████████████████████████████▌       | 7983/10000 [00:48<00:11, 168.16it/s]0.99
+ 90%|█████████████████████████████████▎   | 8990/10000 [00:54<00:06, 147.01it/s]1.0
+100%|████████████████████████████████████▉| 9994/10000 [01:00<00:00, 164.83it/s]0.98
+100%|████████████████████████████████████| 10000/10000 [01:00<00:00, 165.01it/s]
+test accuracy: 
+0.9727
+train_time_seconds: 60.723011
+{Conv kernel_size:[3, 1] stride:[3, 3] num_filters:64}
+{Conv kernel_size:[5, 7] stride:[2, 2] num_filters:24}
+{Conv kernel_size:[3, 5] stride:[4, 4] num_filters:24}
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0)
+WARNING:tensorflow:From /home/albert/git/network_architecture_search/network.py:99 in __init__.: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+Network Initialized
+ 10%|███▋                                  | 986/10000 [00:07<01:03, 142.91it/s]0.93
+ 20%|███████▎                             | 1993/10000 [00:15<00:59, 135.46it/s]0.98
+ 30%|███████████                          | 2992/10000 [00:22<00:49, 141.47it/s]0.98
+ 40%|██████████████▋                      | 3986/10000 [00:30<00:45, 133.20it/s]0.98
+ 50%|██████████████████▍                  | 4986/10000 [00:37<00:37, 132.14it/s]0.99
+ 60%|██████████████████████▏              | 5992/10000 [00:45<00:30, 131.39it/s]0.97
+ 70%|█████████████████████████▊           | 6991/10000 [00:52<00:21, 139.60it/s]0.97
+ 80%|█████████████████████████████▌       | 7996/10000 [01:00<00:15, 129.44it/s]0.99
+ 90%|█████████████████████████████████▎   | 8989/10000 [01:07<00:07, 132.11it/s]1.0
+100%|████████████████████████████████████▉| 9989/10000 [01:15<00:00, 117.47it/s]0.98
+100%|████████████████████████████████████| 10000/10000 [01:15<00:00, 132.65it/s]
+test accuracy: 
+0.9721
+train_time_seconds: 75.498166
+{Conv kernel_size:[3, 1] stride:[3, 3] num_filters:64}
+{Conv kernel_size:[5, 7] stride:[2, 2] num_filters:24}
+{Conv kernel_size:[3, 5] stride:[4, 4] num_filters:24}
+{Conv kernel_size:[5, 3] stride:[1, 1] num_filters:64}
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0)
+WARNING:tensorflow:From /home/albert/git/network_architecture_search/network.py:99 in __init__.: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+Network Initialized
+ 10%|███▊                                  | 991/10000 [00:08<01:21, 110.01it/s]0.98
+ 20%|███████▍                             | 1998/10000 [00:17<01:08, 117.32it/s]0.93
+ 30%|███████████                          | 2996/10000 [00:26<01:01, 113.93it/s]1.0
+ 40%|██████████████▊                      | 3989/10000 [00:35<00:50, 119.72it/s]0.99
+ 50%|██████████████████▍                  | 4990/10000 [00:44<00:44, 112.39it/s]1.0
+ 60%|██████████████████████▏              | 5999/10000 [00:53<00:35, 111.90it/s]0.98
+ 70%|█████████████████████████▉           | 6994/10000 [01:02<00:28, 105.87it/s]1.0
+ 80%|█████████████████████████████▌       | 7993/10000 [01:11<00:17, 115.59it/s]1.0
+ 90%|█████████████████████████████████▎   | 8992/10000 [01:19<00:08, 114.83it/s]0.99
+100%|████████████████████████████████████▉| 9988/10000 [01:28<00:00, 113.55it/s]1.0
+100%|████████████████████████████████████| 10000/10000 [01:29<00:00, 112.34it/s]
+test accuracy: 
+0.9734
+train_time_seconds: 89.146765
+{Conv kernel_size:[3, 1] stride:[3, 3] num_filters:64}
+{Conv kernel_size:[5, 7] stride:[2, 2] num_filters:24}
+{Conv kernel_size:[3, 5] stride:[4, 4] num_filters:24}
+{Conv kernel_size:[5, 3] stride:[1, 1] num_filters:64}
+{Conv kernel_size:[7, 5] stride:[2, 2] num_filters:24}
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0)
+WARNING:tensorflow:From /home/albert/git/network_architecture_search/network.py:99 in __init__.: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+Network Initialized
+ 10%|███▊                                   | 993/10000 [00:10<01:37, 92.02it/s]0.99
+ 20%|███████▍                             | 1999/10000 [00:20<01:19, 100.17it/s]0.96
+ 30%|███████████▍                          | 2994/10000 [00:30<01:11, 97.86it/s]0.98
+ 40%|██████████████▊                      | 3993/10000 [00:41<00:59, 100.94it/s]0.97
+ 50%|██████████████████▍                  | 4992/10000 [00:51<00:48, 103.28it/s]0.99
+ 60%|██████████████████████▏              | 5996/10000 [01:01<00:39, 101.15it/s]0.99
+ 70%|██████████████████████████▌           | 6995/10000 [01:11<00:30, 98.80it/s]0.99
+ 80%|██████████████████████████████▎       | 7990/10000 [01:22<00:20, 99.50it/s]0.97
+ 90%|█████████████████████████████████▎   | 8989/10000 [01:32<00:09, 102.50it/s]0.98
+100%|█████████████████████████████████████▉| 9993/10000 [01:42<00:00, 96.06it/s]1.0
+100%|█████████████████████████████████████| 10000/10000 [01:42<00:00, 97.42it/s]
+test accuracy: 
+0.9769
+train_time_seconds: 102.78764
+{Conv kernel_size:[3, 1] stride:[3, 3] num_filters:64}
+{Conv kernel_size:[5, 7] stride:[2, 2] num_filters:24}
+{Conv kernel_size:[3, 5] stride:[4, 4] num_filters:24}
+{Conv kernel_size:[5, 3] stride:[1, 1] num_filters:64}
+{Conv kernel_size:[7, 5] stride:[2, 2] num_filters:24}
+{Conv kernel_size:[7, 5] stride:[2, 2] num_filters:24}
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0)
+WARNING:tensorflow:From /home/albert/git/network_architecture_search/network.py:99 in __init__.: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+Network Initialized
+ 10%|███▉                                   | 994/10000 [00:11<01:42, 88.05it/s]0.97
+ 20%|███████▌                              | 1993/10000 [00:22<01:40, 80.01it/s]1.0
+ 30%|███████████▍                          | 2998/10000 [00:34<01:14, 93.53it/s]0.97
+ 40%|███████████████▏                      | 3992/10000 [00:45<01:04, 92.68it/s]0.98
+ 50%|██████████████████▉                   | 4990/10000 [00:56<00:53, 93.77it/s]0.96
+ 60%|██████████████████████▊               | 5997/10000 [01:08<00:44, 89.27it/s]0.98
+ 70%|██████████████████████████▌           | 6998/10000 [01:19<00:33, 88.53it/s]1.0
+ 80%|██████████████████████████████▎       | 7993/10000 [01:30<00:21, 91.76it/s]0.97
+ 90%|██████████████████████████████████▏   | 8994/10000 [01:42<00:11, 88.61it/s]0.99
+100%|█████████████████████████████████████▉| 9992/10000 [01:53<00:00, 88.49it/s]0.99
+100%|█████████████████████████████████████| 10000/10000 [01:53<00:00, 88.15it/s]
+test accuracy: 
+0.9708
+train_time_seconds: 113.601387
+{Conv kernel_size:[3, 1] stride:[3, 3] num_filters:64}
+{Conv kernel_size:[5, 7] stride:[2, 2] num_filters:24}
+{Conv kernel_size:[3, 5] stride:[4, 4] num_filters:24}
+{Conv kernel_size:[5, 3] stride:[1, 1] num_filters:64}
+{Conv kernel_size:[7, 5] stride:[2, 2] num_filters:24}
+{Conv kernel_size:[7, 5] stride:[2, 2] num_filters:24}
+{Conv kernel_size:[5, 7] stride:[1, 1] num_filters:36}
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0)
+WARNING:tensorflow:From /home/albert/git/network_architecture_search/network.py:99 in __init__.: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+Network Initialized
+ 10%|███▉                                   | 997/10000 [00:12<01:50, 81.60it/s]0.95
+ 20%|███████▌                              | 1998/10000 [00:24<01:38, 81.55it/s]0.99
+ 30%|███████████▍                          | 2999/10000 [00:37<01:33, 74.98it/s]0.97
+ 40%|███████████████▏                      | 3993/10000 [00:49<01:13, 82.25it/s]0.97
+ 50%|██████████████████▉                   | 4993/10000 [01:02<01:03, 79.10it/s]0.96
+ 60%|██████████████████████▊               | 5999/10000 [01:14<00:49, 80.95it/s]0.98
+ 70%|██████████████████████████▌           | 6999/10000 [01:27<00:37, 80.33it/s]0.99
+ 80%|██████████████████████████████▎       | 7990/10000 [01:39<00:24, 80.88it/s]0.97
+ 90%|██████████████████████████████████▏   | 8998/10000 [01:52<00:12, 77.25it/s]0.97
+100%|█████████████████████████████████████▉| 9994/10000 [02:04<00:00, 83.59it/s]0.99
+100%|█████████████████████████████████████| 10000/10000 [02:04<00:00, 80.23it/s]
+test accuracy: 
+0.9712
+train_time_seconds: 124.799021
+{Conv kernel_size:[3, 1] stride:[3, 3] num_filters:64}
+{Conv kernel_size:[5, 7] stride:[2, 2] num_filters:24}
+{Conv kernel_size:[3, 5] stride:[4, 4] num_filters:24}
+{Conv kernel_size:[5, 3] stride:[1, 1] num_filters:64}
+{Conv kernel_size:[7, 5] stride:[2, 2] num_filters:24}
+{Conv kernel_size:[7, 5] stride:[2, 2] num_filters:24}
+{Conv kernel_size:[5, 7] stride:[1, 1] num_filters:36}
+{Conv kernel_size:[7, 3] stride:[3, 3] num_filters:24}
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0)
+WARNING:tensorflow:From /home/albert/git/network_architecture_search/network.py:99 in __init__.: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+Network Initialized
+ 10%|███▊                                   | 993/10000 [00:13<02:04, 72.56it/s]0.97
+ 20%|███████▌                              | 1993/10000 [00:27<01:48, 73.95it/s]0.93
+ 30%|███████████▎                          | 2993/10000 [00:40<01:36, 72.68it/s]0.96
+ 40%|███████████████▏                      | 3994/10000 [00:54<01:21, 73.66it/s]0.99
+ 50%|██████████████████▉                   | 4995/10000 [01:07<01:08, 73.36it/s]0.98
+ 60%|██████████████████████▊               | 5993/10000 [01:21<00:55, 72.43it/s]0.97
+ 70%|██████████████████████████▌           | 6998/10000 [01:34<00:41, 72.74it/s]0.99
+ 80%|██████████████████████████████▍       | 7999/10000 [01:48<00:26, 74.29it/s]0.98
+ 90%|██████████████████████████████████▏   | 8992/10000 [02:02<00:14, 70.34it/s]0.98
+100%|█████████████████████████████████████▉| 9992/10000 [02:15<00:00, 75.40it/s]0.99
+100%|█████████████████████████████████████| 10000/10000 [02:15<00:00, 73.74it/s]
+test accuracy: 
+0.9711
+train_time_seconds: 135.941087
+{Conv kernel_size:[3, 1] stride:[3, 3] num_filters:64}
+{Conv kernel_size:[5, 7] stride:[2, 2] num_filters:24}
+{Conv kernel_size:[3, 5] stride:[4, 4] num_filters:24}
+{Conv kernel_size:[5, 3] stride:[1, 1] num_filters:64}
+{Conv kernel_size:[7, 5] stride:[2, 2] num_filters:24}
+{Conv kernel_size:[7, 5] stride:[2, 2] num_filters:24}
+{Conv kernel_size:[5, 7] stride:[1, 1] num_filters:36}
+{Conv kernel_size:[7, 3] stride:[3, 3] num_filters:24}
+{Conv kernel_size:[5, 1] stride:[4, 4] num_filters:36}
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0)
+WARNING:tensorflow:From /home/albert/git/network_architecture_search/network.py:99 in __init__.: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+Network Initialized
+ 10%|███▊                                   | 992/10000 [00:14<02:13, 67.68it/s]0.98
+ 20%|███████▌                              | 1996/10000 [00:29<01:55, 69.38it/s]0.96
+ 30%|███████████▍                          | 2998/10000 [00:44<01:42, 68.50it/s]0.95
+ 40%|███████████████▏                      | 3999/10000 [00:59<01:26, 68.99it/s]0.98
+ 50%|██████████████████▉                   | 4998/10000 [01:13<01:16, 65.10it/s]0.99
+ 60%|██████████████████████▊               | 5998/10000 [01:28<01:01, 65.41it/s]0.99
+ 70%|██████████████████████████▌           | 6995/10000 [01:43<00:45, 65.81it/s]0.99
+ 80%|██████████████████████████████▍       | 7999/10000 [01:57<00:29, 68.78it/s]1.0
+ 90%|██████████████████████████████████▏   | 8995/10000 [02:12<00:15, 64.02it/s]0.96
+100%|█████████████████████████████████████▉| 9995/10000 [02:27<00:00, 68.29it/s]1.0
+100%|█████████████████████████████████████| 10000/10000 [02:27<00:00, 67.97it/s]
+test accuracy: 
+0.9705
+train_time_seconds: 147.283474
+{Conv kernel_size:[3, 1] stride:[3, 3] num_filters:64}
+{Conv kernel_size:[5, 7] stride:[2, 2] num_filters:24}
+{Conv kernel_size:[3, 5] stride:[4, 4] num_filters:24}
+{Conv kernel_size:[5, 3] stride:[1, 1] num_filters:64}
+{Conv kernel_size:[7, 5] stride:[2, 2] num_filters:24}
+{Conv kernel_size:[7, 5] stride:[2, 2] num_filters:24}
+{Conv kernel_size:[5, 7] stride:[1, 1] num_filters:36}
+{Conv kernel_size:[7, 3] stride:[3, 3] num_filters:24}
+{Conv kernel_size:[5, 1] stride:[4, 4] num_filters:36}
+{Conv kernel_size:[7, 3] stride:[1, 1] num_filters:48}
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0)
+WARNING:tensorflow:From /home/albert/git/network_architecture_search/network.py:99 in __init__.: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+Network Initialized
+ 10%|███▉                                   | 995/10000 [00:15<02:25, 61.82it/s]0.95
+ 20%|███████▌                              | 1999/10000 [00:31<02:06, 63.27it/s]0.97
+ 30%|███████████▍                          | 2994/10000 [00:47<01:54, 61.18it/s]0.99
+ 40%|███████████████▏                      | 3993/10000 [01:03<01:32, 64.85it/s]0.94
+ 50%|██████████████████▉                   | 4998/10000 [01:19<01:18, 63.98it/s]0.98
+ 60%|██████████████████████▊               | 5994/10000 [01:34<01:02, 63.72it/s]0.97
+ 70%|██████████████████████████▌           | 6995/10000 [01:50<00:45, 66.24it/s]0.99
+ 80%|██████████████████████████████▍       | 7998/10000 [02:06<00:31, 63.53it/s]0.95
+ 90%|██████████████████████████████████▏   | 8997/10000 [02:22<00:15, 65.15it/s]0.97
+100%|█████████████████████████████████████▉| 9997/10000 [02:37<00:00, 65.51it/s]1.0
+100%|█████████████████████████████████████| 10000/10000 [02:37<00:00, 63.38it/s]
+test accuracy: 
+0.9731
+train_time_seconds: 157.951845
+episode: 9
+{Conv kernel_size:[1, 5] stride:[2, 2] num_filters:64}
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0)
+WARNING:tensorflow:From /home/albert/git/network_architecture_search/network.py:99 in __init__.: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+Network Initialized
+ 10%|███▊                                  | 991/10000 [00:05<00:53, 169.41it/s]0.93
+ 20%|███████▎                             | 1988/10000 [00:11<00:45, 176.15it/s]0.98
+ 30%|███████████                          | 2988/10000 [00:17<00:39, 175.93it/s]0.95
+ 40%|██████████████▋                      | 3983/10000 [00:23<00:33, 177.12it/s]0.91
+ 50%|██████████████████▍                  | 4992/10000 [00:29<00:28, 177.21it/s]0.96
+ 60%|██████████████████████▏              | 5986/10000 [00:35<00:22, 175.93it/s]0.99
+ 70%|█████████████████████████▊           | 6983/10000 [00:40<00:19, 153.05it/s]0.96
+ 80%|█████████████████████████████▌       | 7985/10000 [00:46<00:11, 174.48it/s]0.96
+ 90%|█████████████████████████████████▏   | 8984/10000 [00:52<00:05, 174.46it/s]0.98
+100%|████████████████████████████████████▉| 9998/10000 [00:58<00:00, 176.76it/s]0.99
+100%|████████████████████████████████████| 10000/10000 [00:58<00:00, 170.96it/s]
+test accuracy: 
+0.9563
+train_time_seconds: 58.610389
+{Conv kernel_size:[1, 5] stride:[2, 2] num_filters:64}
+{Conv kernel_size:[7, 1] stride:[3, 3] num_filters:36}
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0)
+WARNING:tensorflow:From /home/albert/git/network_architecture_search/network.py:99 in __init__.: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+Network Initialized
+ 10%|███▊                                  | 997/10000 [00:06<01:00, 149.41it/s]0.95
+ 20%|███████▍                             | 1996/10000 [00:13<00:53, 148.30it/s]0.95
+ 30%|███████████                          | 2991/10000 [00:20<00:46, 150.83it/s]0.98
+ 40%|██████████████▊                      | 3991/10000 [00:27<00:39, 152.73it/s]0.97
+ 50%|██████████████████▍                  | 4986/10000 [00:33<00:32, 156.38it/s]1.0
+ 60%|██████████████████████▏              | 5984/10000 [00:40<00:27, 148.50it/s]0.99
+ 70%|█████████████████████████▊           | 6989/10000 [00:47<00:20, 149.94it/s]0.98
+ 80%|█████████████████████████████▌       | 7994/10000 [00:54<00:14, 134.01it/s]0.99
+ 90%|█████████████████████████████████▎   | 8995/10000 [01:00<00:06, 150.73it/s]0.99
+100%|████████████████████████████████████▉| 9997/10000 [01:07<00:00, 147.54it/s]0.98
+100%|████████████████████████████████████| 10000/10000 [01:07<00:00, 147.59it/s]
+test accuracy: 
+0.9761
+train_time_seconds: 67.893563
+{Conv kernel_size:[1, 5] stride:[2, 2] num_filters:64}
+{Conv kernel_size:[7, 1] stride:[3, 3] num_filters:36}
+{Conv kernel_size:[7, 3] stride:[3, 3] num_filters:24}
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0)
+WARNING:tensorflow:From /home/albert/git/network_architecture_search/network.py:99 in __init__.: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+Network Initialized
+ 10%|███▊                                  | 999/10000 [00:08<01:14, 120.95it/s]0.95
+ 20%|███████▎                             | 1992/10000 [00:16<01:06, 121.21it/s]0.98
+ 30%|███████████                          | 2993/10000 [00:25<01:00, 116.14it/s]0.99
+ 40%|██████████████▊                      | 3991/10000 [00:33<00:48, 122.95it/s]0.99
+ 50%|██████████████████▍                  | 4995/10000 [00:41<00:41, 119.98it/s]0.98
+ 60%|██████████████████████▏              | 5995/10000 [00:50<00:32, 122.33it/s]0.99
+ 70%|█████████████████████████▊           | 6993/10000 [00:58<00:23, 127.32it/s]0.99
+ 80%|█████████████████████████████▌       | 7999/10000 [01:07<00:16, 119.34it/s]1.0
+ 90%|█████████████████████████████████▎   | 8988/10000 [01:15<00:09, 106.19it/s]1.0
+100%|████████████████████████████████████▉| 9987/10000 [01:23<00:00, 120.93it/s]1.0
+100%|████████████████████████████████████| 10000/10000 [01:24<00:00, 119.49it/s]
+test accuracy: 
+0.9801
+train_time_seconds: 84.163027
+{Conv kernel_size:[1, 5] stride:[2, 2] num_filters:64}
+{Conv kernel_size:[7, 1] stride:[3, 3] num_filters:36}
+{Conv kernel_size:[7, 3] stride:[3, 3] num_filters:24}
+{Conv kernel_size:[7, 3] stride:[1, 1] num_filters:48}
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0)
+WARNING:tensorflow:From /home/albert/git/network_architecture_search/network.py:99 in __init__.: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+Network Initialized
+ 10%|███▊                                  | 990/10000 [00:09<01:25, 104.88it/s]0.96
+ 20%|███████▎                             | 1990/10000 [00:19<01:14, 107.98it/s]0.99
+ 30%|███████████                          | 2995/10000 [00:29<01:04, 107.89it/s]0.99
+ 40%|██████████████▊                      | 3995/10000 [00:38<00:57, 104.33it/s]1.0
+ 50%|██████████████████▍                  | 4989/10000 [00:48<00:48, 102.91it/s]1.0
+ 60%|██████████████████████▏              | 5992/10000 [00:58<00:37, 106.27it/s]0.99
+ 70%|█████████████████████████▉           | 6996/10000 [01:08<00:29, 101.51it/s]1.0
+ 80%|█████████████████████████████▌       | 7989/10000 [01:18<00:18, 106.86it/s]1.0
+ 90%|█████████████████████████████████▎   | 8997/10000 [01:27<00:09, 102.34it/s]1.0
+100%|█████████████████████████████████████▉| 9994/10000 [01:37<00:00, 97.39it/s]1.0
+100%|████████████████████████████████████| 10000/10000 [01:37<00:00, 102.38it/s]
+test accuracy: 
+0.9821
+train_time_seconds: 97.836853
+{Conv kernel_size:[1, 5] stride:[2, 2] num_filters:64}
+{Conv kernel_size:[7, 1] stride:[3, 3] num_filters:36}
+{Conv kernel_size:[7, 3] stride:[3, 3] num_filters:24}
+{Conv kernel_size:[7, 3] stride:[1, 1] num_filters:48}
+{Conv kernel_size:[1, 7] stride:[3, 3] num_filters:36}
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0)
+WARNING:tensorflow:From /home/albert/git/network_architecture_search/network.py:99 in __init__.: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+Network Initialized
+ 10%|███▉                                   | 998/10000 [00:11<01:35, 94.48it/s]0.98
+ 20%|███████▌                              | 1997/10000 [00:22<01:26, 92.25it/s]0.98
+ 30%|███████████▎                          | 2990/10000 [00:33<01:15, 93.06it/s]0.99
+ 40%|███████████████▏                      | 3997/10000 [00:44<01:08, 87.24it/s]1.0
+ 50%|██████████████████▉                   | 4996/10000 [00:55<00:55, 89.50it/s]1.0
+ 60%|██████████████████████▊               | 5999/10000 [01:06<00:45, 87.38it/s]0.99
+ 70%|██████████████████████████▌           | 6990/10000 [01:17<00:32, 91.31it/s]1.0
+ 80%|██████████████████████████████▎       | 7993/10000 [01:28<00:22, 89.05it/s]1.0
+ 90%|██████████████████████████████████▏   | 8999/10000 [01:39<00:10, 96.25it/s]0.99
+100%|█████████████████████████████████████▉| 9997/10000 [01:50<00:00, 90.36it/s]1.0
+100%|█████████████████████████████████████| 10000/10000 [01:50<00:00, 90.53it/s]
+test accuracy: 
+0.9821
+train_time_seconds: 110.623631
+{Conv kernel_size:[1, 5] stride:[2, 2] num_filters:64}
+{Conv kernel_size:[7, 1] stride:[3, 3] num_filters:36}
+{Conv kernel_size:[7, 3] stride:[3, 3] num_filters:24}
+{Conv kernel_size:[7, 3] stride:[1, 1] num_filters:48}
+{Conv kernel_size:[1, 7] stride:[3, 3] num_filters:36}
+{Conv kernel_size:[1, 7] stride:[3, 3] num_filters:36}
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0)
+WARNING:tensorflow:From /home/albert/git/network_architecture_search/network.py:99 in __init__.: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+Network Initialized
+ 10%|███▉                                   | 995/10000 [00:12<01:54, 78.68it/s]0.98
+ 20%|███████▌                              | 1992/10000 [00:24<01:36, 82.70it/s]0.96
+ 30%|███████████▍                          | 2994/10000 [00:36<01:24, 83.21it/s]0.97
+ 40%|███████████████▏                      | 3996/10000 [00:48<01:13, 81.63it/s]0.99
+ 50%|██████████████████▉                   | 4993/10000 [01:01<00:59, 83.92it/s]0.99
+ 60%|██████████████████████▊               | 5992/10000 [01:13<00:48, 82.64it/s]0.99
+ 70%|██████████████████████████▌           | 6999/10000 [01:25<00:36, 82.38it/s]0.95
+ 80%|██████████████████████████████▎       | 7991/10000 [01:38<00:24, 81.09it/s]1.0
+ 90%|██████████████████████████████████▏   | 8999/10000 [01:50<00:11, 83.76it/s]0.98
+100%|█████████████████████████████████████▉| 9991/10000 [02:02<00:00, 83.07it/s]0.99
+100%|█████████████████████████████████████| 10000/10000 [02:02<00:00, 79.11it/s]
+test accuracy: 
+0.9806
+train_time_seconds: 122.771766
+{Conv kernel_size:[1, 5] stride:[2, 2] num_filters:64}
+{Conv kernel_size:[7, 1] stride:[3, 3] num_filters:36}
+{Conv kernel_size:[7, 3] stride:[3, 3] num_filters:24}
+{Conv kernel_size:[7, 3] stride:[1, 1] num_filters:48}
+{Conv kernel_size:[1, 7] stride:[3, 3] num_filters:36}
+{Conv kernel_size:[1, 7] stride:[3, 3] num_filters:36}
+{Conv kernel_size:[1, 5] stride:[4, 4] num_filters:36}
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0)
+WARNING:tensorflow:From /home/albert/git/network_architecture_search/network.py:99 in __init__.: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+Network Initialized
+ 10%|███▉                                   | 995/10000 [00:13<02:04, 72.19it/s]0.97
+ 20%|███████▌                              | 1995/10000 [00:26<01:44, 76.87it/s]1.0
+ 30%|███████████▎                          | 2992/10000 [00:39<01:33, 74.95it/s]1.0
+ 40%|███████████████▏                      | 3993/10000 [00:52<01:23, 72.26it/s]0.98
+ 50%|██████████████████▉                   | 4994/10000 [01:06<01:05, 76.05it/s]0.98
+ 60%|██████████████████████▊               | 5997/10000 [01:19<00:50, 79.73it/s]1.0
+ 70%|██████████████████████████▌           | 6998/10000 [01:32<00:40, 74.91it/s]1.0
+ 80%|██████████████████████████████▍       | 7994/10000 [01:45<00:26, 75.68it/s]1.0
+ 90%|██████████████████████████████████▏   | 8998/10000 [01:59<00:14, 70.73it/s]0.99
+100%|█████████████████████████████████████▉| 9994/10000 [02:12<00:00, 77.72it/s]0.99
+100%|█████████████████████████████████████| 10000/10000 [02:12<00:00, 75.39it/s]
+test accuracy: 
+0.9813
+train_time_seconds: 132.829123
+{Conv kernel_size:[1, 5] stride:[2, 2] num_filters:64}
+{Conv kernel_size:[7, 1] stride:[3, 3] num_filters:36}
+{Conv kernel_size:[7, 3] stride:[3, 3] num_filters:24}
+{Conv kernel_size:[7, 3] stride:[1, 1] num_filters:48}
+{Conv kernel_size:[1, 7] stride:[3, 3] num_filters:36}
+{Conv kernel_size:[1, 7] stride:[3, 3] num_filters:36}
+{Conv kernel_size:[1, 5] stride:[4, 4] num_filters:36}
+{Conv kernel_size:[5, 1] stride:[4, 4] num_filters:36}
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0)
+WARNING:tensorflow:From /home/albert/git/network_architecture_search/network.py:99 in __init__.: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+Network Initialized
+ 10%|███▉                                   | 994/10000 [00:14<02:03, 73.11it/s]1.0
+ 20%|███████▌                              | 1997/10000 [00:28<01:52, 71.03it/s]0.96
+ 30%|███████████▍                          | 2995/10000 [00:43<01:46, 65.60it/s]0.99
+ 40%|███████████████▏                      | 3999/10000 [00:57<01:20, 74.22it/s]0.98
+ 50%|██████████████████▉                   | 4999/10000 [01:12<01:09, 72.02it/s]0.92
+ 60%|██████████████████████▊               | 5999/10000 [01:26<00:55, 71.54it/s]1.0
+ 70%|██████████████████████████▌           | 6994/10000 [01:40<00:42, 70.85it/s]0.99
+ 80%|██████████████████████████████▎       | 7992/10000 [01:54<00:27, 72.60it/s]1.0
+ 90%|██████████████████████████████████▏   | 8998/10000 [02:09<00:14, 70.16it/s]1.0
+100%|█████████████████████████████████████▉| 9994/10000 [02:23<00:00, 66.61it/s]0.99
+100%|█████████████████████████████████████| 10000/10000 [02:23<00:00, 69.51it/s]
+test accuracy: 
+0.9802
+train_time_seconds: 144.040927
+{Conv kernel_size:[1, 5] stride:[2, 2] num_filters:64}
+{Conv kernel_size:[7, 1] stride:[3, 3] num_filters:36}
+{Conv kernel_size:[7, 3] stride:[3, 3] num_filters:24}
+{Conv kernel_size:[7, 3] stride:[1, 1] num_filters:48}
+{Conv kernel_size:[1, 7] stride:[3, 3] num_filters:36}
+{Conv kernel_size:[1, 7] stride:[3, 3] num_filters:36}
+{Conv kernel_size:[1, 5] stride:[4, 4] num_filters:36}
+{Conv kernel_size:[5, 1] stride:[4, 4] num_filters:36}
+{Conv kernel_size:[7, 1] stride:[2, 2] num_filters:48}
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0)
+WARNING:tensorflow:From /home/albert/git/network_architecture_search/network.py:99 in __init__.: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+Network Initialized
+ 10%|███▉                                   | 994/10000 [00:15<02:15, 66.27it/s]0.92
+ 20%|███████▌                              | 1995/10000 [00:30<01:59, 67.11it/s]0.96
+ 30%|███████████▎                          | 2993/10000 [00:46<01:45, 66.40it/s]0.99
+ 40%|███████████████▏                      | 3994/10000 [01:01<01:37, 61.60it/s]1.0
+ 50%|██████████████████▉                   | 4996/10000 [01:17<01:15, 65.97it/s]0.98
+ 60%|██████████████████████▊               | 5996/10000 [01:32<01:01, 65.56it/s]0.98
+ 70%|██████████████████████████▌           | 6994/10000 [01:48<00:45, 65.95it/s]0.96
+ 80%|██████████████████████████████▍       | 7998/10000 [02:04<00:29, 67.94it/s]0.98
+ 90%|██████████████████████████████████▏   | 8998/10000 [02:19<00:16, 62.28it/s]1.0
+100%|█████████████████████████████████████▉| 9993/10000 [02:34<00:00, 65.47it/s]0.98
+100%|█████████████████████████████████████| 10000/10000 [02:35<00:00, 64.25it/s]
+test accuracy: 
+0.9817
+train_time_seconds: 155.30738
+{Conv kernel_size:[1, 5] stride:[2, 2] num_filters:64}
+{Conv kernel_size:[7, 1] stride:[3, 3] num_filters:36}
+{Conv kernel_size:[7, 3] stride:[3, 3] num_filters:24}
+{Conv kernel_size:[7, 3] stride:[1, 1] num_filters:48}
+{Conv kernel_size:[1, 7] stride:[3, 3] num_filters:36}
+{Conv kernel_size:[1, 7] stride:[3, 3] num_filters:36}
+{Conv kernel_size:[1, 5] stride:[4, 4] num_filters:36}
+{Conv kernel_size:[5, 1] stride:[4, 4] num_filters:36}
+{Conv kernel_size:[7, 1] stride:[2, 2] num_filters:48}
+{Conv kernel_size:[7, 3] stride:[3, 3] num_filters:24}
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0)
+WARNING:tensorflow:From /home/albert/git/network_architecture_search/network.py:99 in __init__.: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.
+Instructions for updating:
+Use `tf.global_variables_initializer` instead.
+Network Initialized
+ 10%|███▉                                   | 999/10000 [00:16<02:28, 60.48it/s]0.97
+ 20%|███████▌                              | 1998/10000 [00:33<02:05, 63.61it/s]0.96
+ 30%|███████████▎                          | 2993/10000 [00:49<01:55, 60.46it/s]0.98
+ 40%|███████████████▏                      | 3998/10000 [01:06<01:38, 60.72it/s]0.98
+ 50%|██████████████████▉                   | 4993/10000 [01:23<01:27, 57.39it/s]0.99
+ 60%|██████████████████████▊               | 5997/10000 [01:39<01:07, 58.90it/s]1.0
+ 70%|██████████████████████████▌           | 6998/10000 [01:56<00:47, 63.15it/s]0.99
+ 80%|██████████████████████████████▍       | 7995/10000 [02:13<00:32, 60.80it/s]0.98
+ 90%|██████████████████████████████████▏   | 8996/10000 [02:30<00:17, 58.97it/s]1.0
+100%|█████████████████████████████████████▉| 9997/10000 [02:47<00:00, 60.79it/s]0.99
+100%|█████████████████████████████████████| 10000/10000 [02:47<00:00, 59.71it/s]
+test accuracy: 
+0.9828
+train_time_seconds: 167.683834
