@@ -19,7 +19,166 @@ cifar10_test, cifar10_labels_test = cifar10.load_test_files()
 
 
 def main():
-    run_experiment_qnetwork()
+    run_experiment_qnetwork1()
+
+
+def run_experiment_qnetwork1():
+    qnetwork = QNetworkLSTM(args=None, num_actions=4, scope_name="global")
+
+    experience_replay = []
+    folder = None
+    #folder = 'full run qnetwork'#'2017-03-09 22:39:45.174536'
+    if folder==None:
+        folder = startTime.isoformat(' ')
+
+    path = "./models_cifar/" + folder 
+    if not os.path.exists(path):
+        os.makedirs(path)
+    experience_replay_file = path + "/experience_replay.p"
+
+    experience_replay = []
+    #with open(experience_replay_file, 'rb') as pfile:
+    #    experience_replay = pickle.load(pfile)
+    
+    def trainNetwork(network, epochs, test_saves, experience_replay, experience_replay_file, historic_accuracies, episode, greedy_epsilon=1.0):
+        saver_file = path + "/" + str(len(experience_replay))
+        startTrainTime = datetime.now()
+        test_acc, test_accuracies = train(network, epochs=epochs, batch_size=100, test_saves=test_saves)
+        endTrainTime = datetime.now()
+        delta = endTrainTime - startTrainTime
+        train_time_seconds = delta.seconds + delta.microseconds/1E6
+        print("train_time_seconds:", train_time_seconds)
+        network.save(saver_file)
+        historic_accuracies = list(historic_accuracies)
+        historic_accuracies.append(test_acc)
+        output = {'greedy_epsilon': greedy_epsilon, 'encoding':list(encoding), 'test_accuracy':test_acc, 'index':len(experience_replay), 'layers':layers, 'episode':episode, 'train_time_seconds':train_time_seconds, 'test_accuracies':test_accuracies, 'historic_accuracies':list(historic_accuracies)}
+        experience_replay.append(output)
+        with open(experience_replay_file, 'wb') as pfile:
+            pickle.dump(experience_replay, pfile, protocol=pickle.HIGHEST_PROTOCOL)
+
+        return output
+
+
+
+    greedy_epsilon = 1.0
+    layers_nums = 3
+    for start in range(10):
+        #greedy_epsilon = max(greedy_epsilon - 0.1, 0)
+        encoding = get_encoding(qnetwork, greedy_epsilon, layers_nums*4) 
+        layers = decodeNetwork(encoding)
+        with Network(input_size=[32,32,3], reshape_shape=[-1,32,32,3], num_classes=10, learning_rate=0.001, layers=layers, scope_name='global') as network:
+            epochs = 10000
+            test_saves = 10
+            output = trainNetwork(network, epochs, test_saves, experience_replay, experience_replay_file, [], episode=start, greedy_epsilon=1.0)
+
+    skip = 3
+    for layers_nums in range(6, 21, skip):
+        episodes = 0
+        last = [e for e in experience_replay if len(e['layers']) + skip == layers_nums]
+        for dic in last:
+            last_index = dic['index']
+            historic_accuracies = list(dic['historic_accuracies'])
+            encoding = extend_encoding(qnetwork, dic['encoding'], 1.0, layers_nums*4)
+            layers = decodeNetwork(encoding)
+            with Network(input_size=[32,32,3], reshape_shape=[-1,32,32,3], num_classes=10, learning_rate=0.001, layers=layers, scope_name='global') as network:
+                vs = network.graph.get_collection(tf.GraphKeys.TRAINABLE_VARIABLES, scope='global')
+                variables = []
+                for i in range(layers_nums - skip):
+                    variables.extend([var for var in vs if var.name.startswith('global/'+str(i)+'/')])
+
+                for v in variables:
+                    print(v)
+                network.restore_part(path + "/" + str(last_index), variables)
+
+                epochs = 10000
+                test_saves = 10
+                output = trainNetwork(network, epochs, test_saves, experience_replay, experience_replay_file, historic_accuracies, episode=dic['episode'], greedy_epsilon=1.0)
+            episodes += 1
+
+        temp = [ex for ex in experience_replay if len(ex['layers']) == layers_nums]
+        actions = np.array([encoding_to_one_hot(rep['encoding']) for rep in temp])
+        rewards = []
+        for dic in temp:
+            rew = []
+            last_accuracy = 0
+            for acc in dic['historic_accuracies']:
+                rew.extend([0]*(4*skip-1))
+                rew.append(acc - last_accuracy)
+                last_accuracy = acc
+            rewards.append(rew)
+        rewards = np.array(rewards)
+        terminals = np.array([[0, 0, 0, 0]*(layers_nums-1) + [0, 0, 0, 1] for rep in temp])
+        for i in range(2500):
+            indices = np.random.choice(actions.shape[0], size=2)
+            a = actions[indices]
+            r = rewards[indices]
+            t = terminals[indices]
+            #if i%100==0:
+            #    network.sess.run(network.update_target_variables_op)
+            #    print("update")
+            loss = qnetwork.train(actions=a, rewards=r, is_terminals=t)
+            if i%100==0:
+                print(i)
+                print('loss', loss)
+
+        for i in range(5):
+            greedy_epsilon = max(0.8-i*0.3, 0)
+            all_encoding = get_encoding(qnetwork, greedy_epsilon, layers_nums*4) 
+            for num_layers in range(3,layers_nums+1, skip):
+                encoding = all_encoding[0:num_layers*4]
+                #encoding = [2, 2, 1, 2, 2, 3]
+                print(encoding)
+                layers = decodeNetwork(encoding)
+                print(layers)
+                with Network(input_size=[32,32,3], reshape_shape=[-1,32,32,3], num_classes=10, learning_rate=0.001, layers=layers, scope_name='global') as network:
+                    if num_layers > 3:
+                        last_index = len(experience_replay)-1
+
+                        vs = network.graph.get_collection(tf.GraphKeys.TRAINABLE_VARIABLES, scope='global')
+                        variables = []
+                        for i in range(num_layers - skip):
+                            variables.extend([var for var in vs if var.name.startswith('global/'+str(i)+'/')])
+
+                        for v in variables:
+                            print(v)
+                        network.restore_part(path + "/" + str(last_index), variables)
+
+                        historic_accuracies = list(experience_replay[last_index]['historic_accuracies'])
+                    else:
+                        historic_accuracies = []
+
+                    epochs = 10000
+                    test_saves = 10
+                    output = trainNetwork(network, epochs, test_saves, experience_replay, experience_replay_file, historic_accuracies, episode=episodes, greedy_epsilon=greedy_epsilon)
+                episodes += 1
+
+            temp = [ex for ex in experience_replay if len(ex['layers']) == layers_nums]
+            actions = np.array([encoding_to_one_hot(rep['encoding']) for rep in temp])
+            rewards = []
+            for dic in temp:
+                rew = []
+                last_accuracy = 0
+                for acc in dic['historic_accuracies']:
+                    rew.extend([0]*(4*skip-1))
+                    rew.append(acc - last_accuracy)
+                    last_accuracy = acc
+                rewards.append(rew)
+            rewards = np.array(rewards)
+            terminals = np.array([[0, 0, 0, 0]*(layers_nums-1) + [0, 0, 0, 1] for rep in temp])
+            for i in range(100):
+                indices = np.random.choice(actions.shape[0], size=2)
+                a = actions[indices]
+                r = rewards[indices]
+                t = terminals[indices]
+                #if i%100==0:
+                #    network.sess.run(network.update_target_variables_op)
+                #    print("update")
+                loss = qnetwork.train(actions=a, rewards=r, is_terminals=t)
+                if i%100==0:
+                    print(i)
+                    print('loss', loss)
+
+
 
 def run_experiment_qnetwork():
     qnetwork = QNetworkLSTM(args=None, num_actions=4, scope_name="global")
@@ -42,7 +201,7 @@ def run_experiment_qnetwork():
     ex_replay = []
     network_size = 15
     experience_replay_index=0
-    for episode in range(16):
+    for episode in range(15):
         accuracies = []
         print("episode:", episode)
         for layer in range(15):
@@ -113,7 +272,7 @@ def run_experiment_qnetwork():
             layers = decodeNetwork(encoding)
             print(layers)
             with Network(input_size=[32,32,3], reshape_shape=[-1,32,32,3], num_classes=10, learning_rate=0.001, layers=layers, scope_name='global') as network:
-                '''
+                
                 if num_layers > 1:
                     print('global/'+str(num_layers-1))
                     variables = network.graph.get_collection(tf.GraphKeys.TRAINABLE_VARIABLES, scope='global')
@@ -125,9 +284,8 @@ def run_experiment_qnetwork():
                     epochs = 5000
                     test_saves = 4
                 else:
-                    '''
-                epochs= 20000
-                test_saves = 10
+                    epochs= 20000
+                    test_saves = 10
 
                 saver_file = path + "/" + str(experience_replay_index)
                 startTrainTime = datetime.now()
@@ -210,13 +368,18 @@ def single_step(network, greedy, encoding):
             qs = network.inference([one_hot])
         return np.argmax(qs)
 
-def get_encoding(network, greedy, length):
-    encoding = []
+
+def extend_encoding(network, encoding, greedy, length):
+    encoding = list(encoding)
     #start = network.inference(np.zeros([1,0,4]))
     #encoding.append(np.argmax(start))
     while len(encoding) < length:
         encoding.append(single_step(network, greedy, encoding))
     return encoding
+
+def get_encoding(network, greedy, length):
+    encoding = []
+    return extend_encoding(network, encoding, greedy, length)
 
 def run_experiment_finetuning():
     #test()
@@ -342,14 +505,20 @@ def run_experiment_main():
 def train(network, epochs=10000, batch_size=100, test_saves=10):
     test_accuracies = []
     batch_generator = cifar10.get_batch_generator(cifar10_upsampled, cifar10_labels_upsampled)
+    total_train_accuracy = 0
+    total_train_epochs = 0
     for i in tqdm(range(epochs)):
         batch = batch_generator.next_batch(batch_size)
         train_op, accuracy = network.train(x=batch[0], y=batch[1])
+        total_train_accuracy += accuracy
+        total_train_epochs += 1
         if (i+1)%(epochs//test_saves)==0:
-            print(accuracy)
+            print(total_train_accuracy/total_train_epochs)
             acc = network.test(x=cifar10_test, y=cifar10_labels_test, batch_size=batch_size)
             test_accuracies.append(acc)
             print("test accuracy: ", acc)
+            total_train_accuracy = 0
+            total_train_epochs = 0
     acc = network.test(x=cifar10_test, y=cifar10_labels_test, batch_size=batch_size)
     print("test accuracy: ")
     print(acc)

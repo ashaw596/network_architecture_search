@@ -83,7 +83,7 @@ class QNetworkLSTM(object):
                     self.max_action_values = tf.reduce_max(target_logits, axis=1)
                     rewards = tf.reshape(self.rewards_placeholder, [-1])
                     terminals = tf.reshape(self.terminal_placeholder, [-1])
-                    self.targets = tf.stop_gradient(rewards + (self.discount_factor * self.max_action_values * (1 - tf.to_float(terminals))))
+                    self.targets = tf.stop_gradient(rewards + tf.maximum(self.discount_factor * self.max_action_values * (1 - tf.to_float(terminals)), 0.0))
                     actions = tf.reshape(self.batchX_placeholder, [-1, self.num_actions])
                     self.predictions = tf.reduce_sum(tf.mul(policy_logits, actions), 1)
                     difference = tf.abs(self.predictions - self.targets)

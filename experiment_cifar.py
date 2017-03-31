@@ -17,8 +17,48 @@ cifar10_test, cifar10_labels_test = cifar10.load_test_files()
 
 
 def main():
-    run_experiment_finetuning()
+    test_single()
 
+def test_single():
+    #194
+    #encoding = [3, 2, 0, 1, 0, 3, 2, 1, 2, 3, 1, 0, 0, 1, 3, 2, 1, 2, 3, 0, 1, 2, 3, 0, 3, 2, 0, 1, 0, 1, 2, 3, 3, 2, 0, 1, 1, 0, 3, 2, 0, 1, 3, 2, 0, 3, 2, 1, 1, 2, 0, 3, 1, 3, 2, 0, 1, 3, 2, 0]
+    
+    #328
+    encoding = [2, 1, 3, 0, 2, 2, 3, 3, 3, 2, 3, 1, 0, 2, 3, 0, 3, 3, 3, 1, 3, 3, 3, 2, 3, 3, 2, 3, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 2, 2, 0, 3, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 2, 1, 1]
+    layers = decodeNetwork(encoding)
+    #epochs= 160000
+    learning_rates = [0.025, 0.0125, 0.0001, 0.00001]
+    epochs = [40, 40, 160, 60]
+    #test_saves = [e//10 for e in epochs]
+    path = "./models_cifar/singles"
+    #with Network(input_size=[32,32,3], reshape_shape=[-1,32,32,3], num_classes=10, learning_rate=0.025, layers=layers, decay_steps = epochs//4, decay_rate = 0.1, scope_name='global') as network:
+    with Network(input_size=[32,32,3], reshape_shape=[-1,32,32,3], num_classes=10, learning_rate=0.025, layers=layers, decay_steps = None, decay_rate = None, manual_learning_rate=True, scope_name='global') as network:
+
+        for learning_rate, epoch in zip(learning_rates, epochs):
+            test_saves = epoch//4
+            batches = epoch * 600
+            saver_file = path + "/" + str("best_reinforce_2")
+            #if i > 0:
+            #    network.restore(path + "/" + str(i-1))
+            
+            #test_batch = (mnist.test.images, mnist.test.labels);
+            #acc = network.test(x=test_batch[0], y=test_batch[1], batch_size=1000)
+            #print("test accuracy: ")
+            #print(acc)
+            
+            startTrainTime = datetime.now()
+            network.sess.run(network.learning_rate.assign(learning_rate))
+            print(learning_rate)
+            print(batches)
+            test_acc, test_accuracies = train(network, epochs=batches, batch_size=100, test_saves=test_saves)
+            endTrainTime = datetime.now()
+            delta = endTrainTime - startTrainTime
+            train_time_seconds = delta.seconds + delta.microseconds/1E6
+            print("train_time_seconds:", train_time_seconds)
+            network.save(saver_file)
+        #experience_replay.append({'encoding':list(encoding), 'test_accuracy':test_acc, 'index':i, 'layers':layers, 'episode':episode, 'train_time_seconds':train_time_seconds, 'test_accuracies':test_accuracies})
+        #with open(experience_replay_file, 'wb') as pfile:
+        #    pickle.dump(experience_replay, pfile, protocol=pickle.HIGHEST_PROTOCOL)
 def run_experiment_finetuning():
     #test()
     experience_replay = []
@@ -143,14 +183,20 @@ def run_experiment_main():
 def train(network, epochs=10000, batch_size=100, test_saves=10):
     test_accuracies = []
     batch_generator = cifar10.get_batch_generator(cifar10_upsampled, cifar10_labels_upsampled)
+    total_train_accuracy = 0
+    total_train_epochs = 0
     for i in tqdm(range(epochs)):
         batch = batch_generator.next_batch(batch_size)
         train_op, accuracy = network.train(x=batch[0], y=batch[1])
+        total_train_accuracy += accuracy
+        total_train_epochs += 1
         if (i+1)%(epochs//test_saves)==0:
-            print(accuracy)
+            print(total_train_accuracy/total_train_epochs)
             acc = network.test(x=cifar10_test, y=cifar10_labels_test, batch_size=batch_size)
             test_accuracies.append(acc)
             print("test accuracy: ", acc)
+            total_train_accuracy = 0
+            total_train_epochs = 0
     acc = network.test(x=cifar10_test, y=cifar10_labels_test, batch_size=batch_size)
     print("test accuracy: ")
     print(acc)

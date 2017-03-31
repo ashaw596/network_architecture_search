@@ -50,7 +50,7 @@ class Network():
     def __exit__(self ,type, value, traceback):
         self.close()
 
-    def __init__(self, input_size, reshape_shape, num_classes, learning_rate, layers, scope_name = "global"):
+    def __init__(self, input_size, reshape_shape, num_classes, learning_rate, layers, decay_steps = None, decay_rate = None, manual_learning_rate = False, scope_name = "global"):
         '''
             Convolutional, maxPooling, fully_connected
             Filter Height:
@@ -61,6 +61,7 @@ class Network():
         with tf.variable_scope(scope_name):
             self.graph = tf.Graph()
             with self.graph.as_default():
+                self.global_step = tf.Variable(0, trainable=False)
                 self.num_classes = num_classes
                 self.x_input = tf.placeholder(tf.float32, [None] + input_size, name='x-input')
                 self.x_image = tf.reshape(self.x_input, reshape_shape)
@@ -82,9 +83,23 @@ class Network():
                         trainable=True,
                         scope=str(len(layers)))
 
-                self.optimizer = tf.train.AdamOptimizer(learning_rate)
+                if manual_learning_rate:
+                    assert decay_rate is None
+                    assert decay_steps is None
+                    self.learning_rate = tf.Variable(learning_rate, trainable=False)
+                elif decay_steps == None:
+                    assert decay_steps == decay_rate
+                    self.learning_rate = learning_rate
+                else:
+                    print("exponential decay")
+                    self.learning_rate = tf.train.exponential_decay(learning_rate, self.global_step,
+                                           decay_steps=decay_steps, decay_rate=decay_rate, staircase=True)
+                    print(self.learning_rate)
+
+                self.optimizer = tf.train.AdamOptimizer(self.learning_rate)
+
                 self.loss = self.loss()
-                self.train_op = self.optimizer.minimize(self.loss)
+                self.train_op = self.optimizer.minimize(self.loss, global_step=self.global_step)
 
 
                 self.correct_prediction = tf.equal(tf.argmax(self.y_output,1), tf.argmax(self.y_labels,1))
@@ -96,8 +111,8 @@ class Network():
                 gpu_options = tf.GPUOptions(per_process_gpu_memory_fraction=0.85)  # avoid using all vram for GTX 970
                 self.sess = tf.Session(config=tf.ConfigProto(gpu_options=gpu_options))
 
-                for var in tf.get_collection(tf.GraphKeys.TRAINABLE_VARIABLES):
-                    print (var)
+                #for var in tf.get_collection(tf.GraphKeys.TRAINABLE_VARIABLES):
+                #    print (var)
 
                 self.sess.run(tf.initialize_all_variables())
                 print("Network Initialized")
