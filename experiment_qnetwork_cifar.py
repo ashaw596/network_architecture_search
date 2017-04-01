@@ -108,7 +108,7 @@ def run_experiment_qnetwork1():
             rewards.append(rew)
         rewards = np.array(rewards)
         terminals = np.array([[0, 0, 0, 0]*(layers_nums-1) + [0, 0, 0, 1] for rep in temp])
-        for i in range(2500):
+        for i in range(3500):
             indices = np.random.choice(actions.shape[0], size=2)
             a = actions[indices]
             r = rewards[indices]
@@ -165,7 +165,7 @@ def run_experiment_qnetwork1():
                 rewards.append(rew)
             rewards = np.array(rewards)
             terminals = np.array([[0, 0, 0, 0]*(layers_nums-1) + [0, 0, 0, 1] for rep in temp])
-            for i in range(100):
+            for i in range(2500):
                 indices = np.random.choice(actions.shape[0], size=2)
                 a = actions[indices]
                 r = rewards[indices]
