@@ -58,7 +58,8 @@ def run_experiment_qnetwork1():
 
         return output
 
-
+    qnetwork.save(path + "/" + "qnetwork")
+    qnetwork.save(path + "/" + "qnetwork")
 
     greedy_epsilon = 1.0
     layers_nums = 3
@@ -67,7 +68,7 @@ def run_experiment_qnetwork1():
         encoding = get_encoding(qnetwork, greedy_epsilon, layers_nums*4) 
         layers = decodeNetwork(encoding)
         with Network(input_size=[32,32,3], reshape_shape=[-1,32,32,3], num_classes=10, learning_rate=0.001, layers=layers, scope_name='global') as network:
-            epochs = 10000
+            epochs = 20000
             test_saves = 10
             output = trainNetwork(network, epochs, test_saves, experience_replay, experience_replay_file, [], episode=start, greedy_epsilon=1.0)
 
@@ -90,7 +91,7 @@ def run_experiment_qnetwork1():
                     print(v)
                 network.restore_part(path + "/" + str(last_index), variables)
 
-                epochs = 10000
+                epochs = 20000
                 test_saves = 10
                 output = trainNetwork(network, epochs, test_saves, experience_replay, experience_replay_file, historic_accuracies, episode=dic['episode'], greedy_epsilon=1.0)
             episodes += 1
@@ -121,6 +122,8 @@ def run_experiment_qnetwork1():
                 print(i)
                 print('loss', loss)
 
+        qnetwork.save(path + "/" + "qnetwork")
+
         for i in range(5):
             greedy_epsilon = max(0.8-i*0.3, 0)
             all_encoding = get_encoding(qnetwork, greedy_epsilon, layers_nums*4) 
@@ -147,7 +150,7 @@ def run_experiment_qnetwork1():
                     else:
                         historic_accuracies = []
 
-                    epochs = 10000
+                    epochs = 20000
                     test_saves = 10
                     output = trainNetwork(network, epochs, test_saves, experience_replay, experience_replay_file, historic_accuracies, episode=episodes, greedy_epsilon=greedy_epsilon)
                 episodes += 1
@@ -177,6 +180,8 @@ def run_experiment_qnetwork1():
                 if i%100==0:
                     print(i)
                     print('loss', loss)
+
+            qnetwork.save(path + "/" + "qnetwork")
 
 
 

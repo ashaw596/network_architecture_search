@@ -118,6 +118,8 @@ class QNetworkLSTM(object):
                 ])
                 print("Network Initialized")
 
+                self.saver = tf.train.Saver()
+
 
     def train(self, actions, rewards, is_terminals):
         ''' train network on batch of experiences
@@ -148,6 +150,9 @@ class QNetworkLSTM(object):
         last_q = self.sess.run(self.last_policy_q, 
             feed_dict={self.batchX_placeholder:actions})
         return last_q
+
+    def save(self, file):
+        self.saver.save(self.sess, file)
 
 
 def main():
