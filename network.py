@@ -40,6 +40,33 @@ class ConvolutionalLayer(object):
     def __str__(self):
         return "{Conv kernel_size:" + str(self.kernel_size) + " stride:" + str(self.stride) + " num_filters:" + str(self.num_filters) + "}"
 
+
+    def to_caffe(self, name, bottom, top):
+
+        return '''
+        layer {
+              name: "''' + name + '''"
+              type: "Convolution"
+              bottom: "''' + bottom + '''"
+              top: "''' + top + '''"
+              convolution_param {
+                num_output: ''' + str(self.num_filters) + '''
+                kernel_h: ''' + str(self.kernel_size[0]) + '''
+                kernel_w: ''' + str(self.kernel_size[1]) + '''
+                stride_h: ''' + str(self.stride[0]) + '''
+                stride_w: ''' + str(self.stride[1]) + '''
+              }
+            }
+
+        layer {
+          name: "relu_''' + name + '''"
+          type: "ReLU"
+          bottom: "'''+name+'''"
+          top: "'''+name+'''"
+        }
+
+        '''
+
     __repr__ = __str__
 
 class Network():
@@ -63,6 +90,8 @@ class Network():
             with self.graph.as_default():
                 self.global_step = tf.Variable(0, trainable=False)
                 self.num_classes = num_classes
+                self.input_size = input_size
+                self.layers = list(layers)
                 self.x_input = tf.placeholder(tf.float32, [None] + input_size, name='x-input')
                 self.x_image = tf.reshape(self.x_input, reshape_shape)
                 self.y_labels = tf.placeholder(tf.float32, [None, num_classes], name='y-labels')
@@ -174,6 +203,40 @@ class Network():
 
     def close(self):
         self.sess.close()
+
+    def to_caffe(self, name):
+        string = '''
+        name: "'''+ name +'''"
+        layer {
+          name: "data"
+          type: "Input"
+          top: "data"
+          input_param { shape: { dim: '''+str(self.input_size[0])+''' dim: '''+str(self.input_size[1])+''' dim: '''+str(self.input_size[2])+'''} }
+        }
+
+        '''
+
+
+        last_name = "data"
+        for i, layer in enumerate(self.layers):
+            name = "conv" + str(i)
+            string += layer.to_caffe(name, last_name, "conv" + str(i+1))
+            last_name = name
+
+        fcName = "fc1"
+        string += '''
+        layer {
+          name: "''' + fcName + '''"
+          type: "InnerProduct"
+          bottom: "''' + last_name + '''"
+          top: "'''+fcName+'''"
+          inner_product_param {
+            num_output: ''' + str(self.num_classes) + '''
+          }
+        }
+        '''
+
+        return string
             
 
 class QNetwork():
