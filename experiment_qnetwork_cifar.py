@@ -59,7 +59,7 @@ def run_experiment_qnetwork1():
         return output
 
     qnetwork.save(path + "/" + "qnetwork")
-    qnetwork.save(path + "/" + "qnetwork")
+    #qnetwork.save(path + "/" + "qnetwork")
 
     greedy_epsilon = 1.0
     layers_nums = 3

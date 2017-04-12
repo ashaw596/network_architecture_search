@@ -5,6 +5,7 @@ import os
 import numpy as np
 import math
 import tensorflow.contrib.slim as slim
+from six.moves import range
 
 class Layer(object):
     pass
@@ -165,7 +166,7 @@ class Network():
         else:
             test_size = len(x)
             correct = 0
-            for step in xrange(int(math.ceil(test_size/batch_size))):
+            for step in range(int(math.ceil(test_size/batch_size))):
                 offset = step * batch_size
                 batch_x = x[offset:(offset + batch_size)]
                 batch_y = y[offset:(offset + batch_size)]

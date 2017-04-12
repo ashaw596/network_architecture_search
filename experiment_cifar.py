@@ -7,7 +7,7 @@ from tensorflow.examples.tutorials.mnist import input_data
 import random
 import os
 from datetime import datetime
-import cPickle as pickle
+import six.moves.cPickle as pickle
 import cifar10
 
 startTime = datetime.now()
@@ -17,7 +17,7 @@ cifar10_test, cifar10_labels_test = cifar10.load_test_files()
 
 
 def main():
-    test_single()
+    run_experiment_main()
 
 def test_single():
     #194
@@ -149,11 +149,12 @@ def run_experiment_main():
         os.makedirs(path)
     experience_replay_file = path + "/experience_replay.p"
     i = 0
-    for episode in range(15):
+    skip = 3
+    for episode in range(20):
         print("episode:", episode)
         encoding = []
-        for layers in range(15):
-            encoding.extend(random.sample(xrange(4), 4))
+        for num_layers in range(3,21,skip):
+            encoding.extend(np.random.randint(low=0, high=3, size=4*3))
             #encoding = [2, 2, 1, 2, 2, 3]
             layers = decodeNetwork(encoding)
             print(layers)
@@ -161,6 +162,16 @@ def run_experiment_main():
                 saver_file = path + "/" + str(i)
                 #if i > 0:
                 #    network.restore(path + "/" + str(i-1))
+                if num_layers > 3:
+                    last_index = i-1
+                    vs = network.graph.get_collection(tf.GraphKeys.TRAINABLE_VARIABLES, scope='global')
+                    variables = []
+                    for l in range(num_layers - skip):
+                        variables.extend([var for var in vs if var.name.startswith('global/'+str(l)+'/')])
+
+                    for v in variables:
+                        print(v)
+                    network.restore_part(path + "/" + str(last_index), variables)
                 '''
                 test_batch = (mnist.test.images, mnist.test.labels);
                 acc = network.test(x=test_batch[0], y=test_batch[1], batch_size=1000)
