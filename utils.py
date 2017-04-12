@@ -1,14 +1,9 @@
 import time
-import cPickle
+import six.moves.cPickle as pickle
 import numpy as np
 import tensorflow as tf
 import itertools
 
-try:
-  from scipy.misc import imresize
-except:
-  import cv2
-  imresize = cv2.resize
 
 def grouper(n, iterable):
     it = iter(iterable)
@@ -37,13 +32,13 @@ def get_time():
 @timeit
 def save_pkl(obj, path):
   with open(path, 'w') as f:
-    cPickle.dump(obj, f)
+    pickle.dump(obj, f)
     print("  [*] save %s" % path)
 
 @timeit
 def load_pkl(path):
   with open(path) as f:
-    obj = cPickle.load(f)
+    obj = pickle.load(f)
     print("  [*] load %s" % path)
     return obj
 

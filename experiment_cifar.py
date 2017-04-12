@@ -1,30 +1,42 @@
 from __future__ import division
 from __future__ import print_function
-import utils
 from tqdm import tqdm
 from network import *
 from tensorflow.examples.tutorials.mnist import input_data
 import random
 import os
 from datetime import datetime
-import cPickle as pickle
+import six.moves.cPickle as pickle
 import cifar10
+import utils
 
 startTime = datetime.now()
 
-cifar10_upsampled, cifar10_labels_upsampled = cifar10.load_upsampled_files()
-cifar10_test, cifar10_labels_test = cifar10.load_test_files()
+#cifar10_upsampled, cifar10_labels_upsampled = cifar10.load_upsampled_files()
+#cifar10_test, cifar10_labels_test = cifar10.load_test_files()
 
 
 def main():
-    test_single()
+    test_caffe()
+
+def test_caffe():
+    path = "./test_caffe"
+    for i in range(20):
+
+        encoding = np.random.random_integers(0, 3, size=20)
+        layers = decodeNetwork(encoding)
+        with Network(input_size=[32,32,3], reshape_shape=[-1,32,32,3], num_classes=10, learning_rate=0.025, layers=layers, decay_steps = None, decay_rate = None, manual_learning_rate=True, scope_name='global') as network:
+            caffe = network.to_caffe("network")
+            with  open(path + '/' + str(i) + '.txt', "w") as text_file:
+                print(caffe)
+                text_file.write(caffe)
 
 def test_single():
     #194
-    #encoding = [3, 2, 0, 1, 0, 3, 2, 1, 2, 3, 1, 0, 0, 1, 3, 2, 1, 2, 3, 0, 1, 2, 3, 0, 3, 2, 0, 1, 0, 1, 2, 3, 3, 2, 0, 1, 1, 0, 3, 2, 0, 1, 3, 2, 0, 3, 2, 1, 1, 2, 0, 3, 1, 3, 2, 0, 1, 3, 2, 0]
+    encoding = [3, 2, 0, 1, 0, 3, 2, 1, 2, 3, 1, 0, 0, 1, 3, 2, 1, 2, 3, 0, 1, 2, 3, 0, 3, 2, 0, 1, 0, 1, 2, 3, 3, 2, 0, 1, 1, 0, 3, 2, 0, 1, 3, 2, 0, 3, 2, 1, 1, 2, 0, 3, 1, 3, 2, 0, 1, 3, 2, 0]
     
     #328
-    encoding = [2, 1, 3, 0, 2, 2, 3, 3, 3, 2, 3, 1, 0, 2, 3, 0, 3, 3, 3, 1, 3, 3, 3, 2, 3, 3, 2, 3, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 2, 2, 0, 3, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 2, 1, 1]
+    #encoding = [2, 1, 3, 0, 2, 2, 3, 3, 3, 2, 3, 1, 0, 2, 3, 0, 3, 3, 3, 1, 3, 3, 3, 2, 3, 3, 2, 3, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 2, 2, 0, 3, 1, 1, 1, 1]
     layers = decodeNetwork(encoding)
     #epochs= 160000
     learning_rates = [0.025, 0.0125, 0.0001, 0.00001]
@@ -33,7 +45,7 @@ def test_single():
     path = "./models_cifar/singles"
     #with Network(input_size=[32,32,3], reshape_shape=[-1,32,32,3], num_classes=10, learning_rate=0.025, layers=layers, decay_steps = epochs//4, decay_rate = 0.1, scope_name='global') as network:
     with Network(input_size=[32,32,3], reshape_shape=[-1,32,32,3], num_classes=10, learning_rate=0.025, layers=layers, decay_steps = None, decay_rate = None, manual_learning_rate=True, scope_name='global') as network:
-
+        print (network.to_caffe("network"))
         for learning_rate, epoch in zip(learning_rates, epochs):
             test_saves = epoch//4
             batches = epoch * 600

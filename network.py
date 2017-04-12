@@ -5,6 +5,7 @@ import os
 import numpy as np
 import math
 import tensorflow.contrib.slim as slim
+from math import ceil
 
 class Layer(object):
     pass
@@ -25,6 +26,8 @@ class ConvolutionalLayer(object):
         return "Convolutional"
 
     def generateLayer(self, inputs, scope_name):
+        self.input_shape = inputs.get_shape().as_list()
+        print(self.input_shape)
         out = slim.conv2d(
                 normalizer_fn=self.normalizer_fn,
                 activation_fn=self.activation_fn,
@@ -35,6 +38,9 @@ class ConvolutionalLayer(object):
                 padding='SAME',
                 trainable=True,
                 scope=scope_name)
+
+        self.out_shape = out.get_shape().as_list()
+        print(self.out_shape)
         return out
 
     def __str__(self):
@@ -42,6 +48,18 @@ class ConvolutionalLayer(object):
 
 
     def to_caffe(self, name, bottom, top):
+
+        filter_height = self.kernel_size[0]
+        filter_width = self.kernel_size[1]
+        in_height = self.input_shape[1]
+        in_width = self.input_shape[2]
+        out_height = self.out_shape[1]
+        out_width  = self.out_shape[2]
+        pad_along_height = max((out_height - 1) * self.stride[0] + filter_height - in_height, 0)
+        print(pad_along_height)
+        pad_along_width = max((out_width - 1) * self.stride[1] + filter_width - in_width, 0)
+        pad_h = ceil(float(pad_along_height)/2)
+        pad_w = ceil(float(pad_along_width)/2)
 
         return '''
         layer {
@@ -51,10 +69,11 @@ class ConvolutionalLayer(object):
               top: "''' + top + '''"
               convolution_param {
                 num_output: ''' + str(self.num_filters) + '''
-                kernel_h: ''' + str(self.kernel_size[0]) + '''
-                kernel_w: ''' + str(self.kernel_size[1]) + '''
-                stride_h: ''' + str(self.stride[0]) + '''
-                stride_w: ''' + str(self.stride[1]) + '''
+                kernel_h: ''' + str(filter_height) + '''
+                kernel_w: ''' + str(filter_width) + '''
+                pad_h: ''' + str(pad_h) + '''
+                pad_w: ''' + str(pad_w) + '''
+                stride: ''' + str(self.stride[0]) + '''
               }
             }
 
@@ -207,15 +226,32 @@ class Network():
     def to_caffe(self, name):
         string = '''
         name: "'''+ name +'''"
+
         layer {
-          name: "data"
-          type: "Input"
-          top: "data"
-          input_param { shape: { dim: '''+str(self.input_size[0])+''' dim: '''+str(self.input_size[1])+''' dim: '''+str(self.input_size[2])+'''} }
+            name: "data"
+            type: "Input"
+            top: "data"
+            input_param { 
+                shape: { 
+                    dim: 128
+                    dim: '''+str(self.input_size[2])+''' 
+                    dim: '''+str(self.input_size[0])+''' 
+                    dim: '''+str(self.input_size[1])+'''
+                } 
+            }
         }
 
         '''
 
+        string += '''
+        input: "data"
+        input_shape {
+            dim: 128
+            dim: '''+str(self.input_size[2])+''' 
+            dim: '''+str(self.input_size[0])+''' 
+            dim: '''+str(self.input_size[1])+'''
+        }
+        '''
 
         last_name = "data"
         for i, layer in enumerate(self.layers):
